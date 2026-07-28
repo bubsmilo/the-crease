@@ -1,15 +1,9 @@
-THE CREASE – GOALIE TRACKER
+THE CREASE – GOALIE TRACKER v1.2
 
-Upload all files in this folder to GitHub, then deploy the repository with Vercel.
+Upload every file in this folder to the root of your GitHub repository and replace the older files.
 
-Included:
-- index.html
-- manifest.webmanifest
-- sw.js
-- icon-192.png
-- icon-512.png
-- favicon.png
+Settings can be opened in two places:
+- Gear button at the top-right of the Home screen
+- Settings tab at the bottom-right
 
-The app stores data on the current device using localStorage.
-
-Version 1.1 adds a Settings screen with Share App and Copy App Link.
+If the old version appears after Vercel updates, close the installed app completely and reopen it. In a browser, refresh once.
