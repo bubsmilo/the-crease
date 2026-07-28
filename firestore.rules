@@ -5,6 +5,13 @@ service cloud.firestore {
   function member(teamId){ return signedIn() && exists(/databases/$(database)/documents/teams/$(teamId)/members/$(request.auth.uid)); }
   function role(teamId){ return get(/databases/$(database)/documents/teams/$(teamId)/members/$(request.auth.uid)).data.role; }
   function editor(teamId){ return member(teamId) && role(teamId) in ['owner','editor']; }
+  function validInvite(teamId){
+    return request.resource.data.inviteCode is string
+      && exists(/databases/$(database)/documents/invites/$(request.resource.data.inviteCode))
+      && get(/databases/$(database)/documents/invites/$(request.resource.data.inviteCode)).data.teamId == teamId
+      && get(/databases/$(database)/documents/invites/$(request.resource.data.inviteCode)).data.email == request.auth.token.email
+      && get(/databases/$(database)/documents/invites/$(request.resource.data.inviteCode)).data.role == request.resource.data.role;
+  }
   match /users/{uid} { allow read,write: if signedIn() && request.auth.uid==uid; }
   match /teams/{teamId} {
    allow create: if signedIn() && request.resource.data.ownerId==request.auth.uid;
@@ -12,11 +19,12 @@ service cloud.firestore {
    allow update,delete: if member(teamId) && role(teamId)=='owner';
    match /members/{uid} {
     allow read: if member(teamId);
-    allow create: if signedIn() && (
-      (uid==request.auth.uid && request.resource.data.role=='owner' && get(/databases/$(database)/documents/teams/$(teamId)).data.ownerId==request.auth.uid) ||
-      (uid==request.auth.uid && request.resource.data.email==request.auth.token.email && request.resource.data.role in ['editor','viewer'])
+    allow create: if signedIn() && uid==request.auth.uid && (
+      (request.resource.data.role=='owner' && get(/databases/$(database)/documents/teams/$(teamId)).data.ownerId==request.auth.uid) ||
+      (request.resource.data.role in ['editor','viewer'] && request.resource.data.email==request.auth.token.email && validInvite(teamId))
     );
-    allow update,delete: if member(teamId) && role(teamId)=='owner';
+    allow update: if (member(teamId) && role(teamId)=='owner') || (signedIn() && uid==request.auth.uid && request.resource.data.role==resource.data.role);
+    allow delete: if member(teamId) && role(teamId)=='owner';
    }
    match /goalies/{docId} { allow read: if member(teamId); allow write: if editor(teamId); }
    match /games/{docId} { allow read: if member(teamId); allow write: if editor(teamId); }
