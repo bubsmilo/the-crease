@@ -91,7 +91,7 @@
     .game-score{font-size:1.05rem;font-weight:800}
     .game-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
     .bottom-nav{position:fixed;left:0;right:0;bottom:0;background:rgba(11,20,35,.96);backdrop-filter:blur(16px);border-top:1px solid var(--border);display:flex;justify-content:center;z-index:10}
-    .bottom-nav-inner{width:min(100%,720px);display:grid;grid-template-columns:repeat(3,1fr);padding:8px 12px calc(8px + env(safe-area-inset-bottom))}
+    .bottom-nav-inner{width:min(100%,720px);display:grid;grid-template-columns:repeat(4,1fr);padding:8px 12px calc(8px + env(safe-area-inset-bottom))}
     .nav-btn{background:transparent;border:0;color:var(--muted);padding:8px}.nav-btn.active{color:var(--blue)}
     @media(max-width:520px){
       .stats,.game-grid{grid-template-columns:repeat(2,1fr)}
@@ -120,6 +120,23 @@
     <div id="games" class="screen">
       <div class="topbar"><div><h1 style="margin:0">Game Cards</h1><p class="small">Completed games for the selected goalie</p></div></div>
       <div id="gameCards"></div>
+    </div>
+
+
+    <div id="settings" class="screen">
+      <div class="topbar"><div><h1 style="margin:0">Settings</h1><p class="small">App options and sharing</p></div></div>
+      <section class="card">
+        <div class="section-title" style="margin-top:0"><h2>Share The Crease</h2></div>
+        <p class="small">Send the app link to another parent, goalie, or coach. Their data will remain separate on their own device.</p>
+        <button class="primary" id="shareAppBtn" style="width:100%;margin-top:8px">↗ Share App</button>
+        <button class="ghost" id="copyLinkBtn" style="width:100%;margin-top:10px">Copy App Link</button>
+      </section>
+      <section class="card">
+        <div class="section-title" style="margin-top:0"><h2>App Information</h2></div>
+        <div class="timeline-row"><span>App</span><b>The Crease</b></div>
+        <div class="timeline-row"><span>Version</span><b>1.1</b></div>
+        <div class="timeline-row"><span>Storage</span><b>Saved on this device</b></div>
+      </section>
     </div>
 
     <div id="live" class="screen">
@@ -163,6 +180,7 @@
       <button class="nav-btn active" data-screen="home">⌂<br><span class="small">Home</span></button>
       <button class="nav-btn" data-screen="games">▤<br><span class="small">Games</span></button>
       <button class="nav-btn" id="quickStartNav">▶<br><span class="small">Start</span></button>
+      <button class="nav-btn" data-screen="settings">⚙<br><span class="small">Settings</span></button>
     </div>
   </nav>
 
@@ -331,6 +349,31 @@ function renderLive(){
     <div class="timeline-row"><span><b>${e.label}</b><br><span class="small">${e.period==='OT'?'OT':e.period+(e.period==='1'?'st':e.period==='2'?'nd':'rd')} period</span></span><span>${new Date(e.time).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</span></div>
   `).join('')||'<div class="empty">Tap Save, Goal Against, or Breakaway.</div>';
 }
+
+async function shareApp(){
+  const shareData={title:'The Crease',text:'Track hockey goalie saves, goals, breakaways, and season stats with The Crease.',url:location.href};
+  try{
+    if(navigator.share){
+      await navigator.share(shareData);
+      toast('Share menu opened');
+    }else{
+      await copyAppLink();
+    }
+  }catch(err){
+    if(err?.name!=='AbortError') toast('Unable to share right now');
+  }
+}
+async function copyAppLink(){
+  try{
+    await navigator.clipboard.writeText(location.href);
+    toast('App link copied');
+  }catch(err){
+    const input=document.createElement('input');
+    input.value=location.href;document.body.appendChild(input);input.select();
+    document.execCommand('copy');input.remove();toast('App link copied');
+  }
+}
+
 function startGame(){
   const g=selectedGoalie(); if(!g)return;
   const mode=$('#trackMode').value;
@@ -349,6 +392,8 @@ $('#saveGoalieBtn').addEventListener('click',()=>{
 $$('[data-close]').forEach(x=>x.addEventListener('click',()=>closeModal(x.dataset.close)));
 $$('.nav-btn[data-screen]').forEach(x=>x.addEventListener('click',()=>showScreen(x.dataset.screen)));
 $('#quickStartNav').addEventListener('click',()=>openModal('startModal'));
+$('#shareAppBtn').addEventListener('click',shareApp);
+$('#copyLinkBtn').addEventListener('click',copyAppLink);
 $('#beginGameBtn').addEventListener('click',startGame);
 $('#backHome').addEventListener('click',()=>{if(confirm('Leave this game? Unsaved tracking will be lost.')){liveGame=null;showScreen('home')}});
 $('#saveBtn').addEventListener('click',()=>addEvent('save','Save recorded',{saves:1}));
