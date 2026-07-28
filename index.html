@@ -1,426 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0b1423" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="The Crease" />
-  <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="favicon.png" />
-  <link rel="apple-touch-icon" href="icon-192.png" />
-  <title>The Crease</title>
-  <style>
-    :root{
-      --bg:#0b1423;--panel:#121f33;--panel2:#182942;--text:#f5f7fb;--muted:#99a9bd;
-      --blue:#4ea5f5;--red:#ff5e67;--gold:#ffc857;--green:#49d17d;--border:#263a56;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,#0b1423,#0d1828 45%,#0b1423);color:var(--text);
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh}
-    button,input,select,textarea{font:inherit}
-    button{touch-action:manipulation}
-    .app{max-width:720px;margin:0 auto;padding:20px 16px 96px}
-    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand img{width:54px;height:54px;border-radius:15px}
-    .brand h1{font-size:1.35rem;margin:0}
-    .brand p{margin:3px 0 0;color:var(--muted);font-size:.9rem}
-    .icon-btn,.secondary,.primary,.danger,.ghost{border:0;border-radius:14px;padding:12px 16px;font-weight:700;cursor:pointer}
-    .icon-btn{background:var(--panel2);color:var(--text);min-width:46px}
-    .primary{background:var(--blue);color:#07111d}
-    .secondary{background:var(--panel2);color:var(--text)}
-    .danger{background:var(--red);color:#fff}
-    .ghost{background:transparent;color:var(--muted);border:1px solid var(--border)}
-    .card{background:rgba(18,31,51,.94);border:1px solid var(--border);border-radius:22px;padding:18px;margin-bottom:16px}
-    .hero{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center}
-    .hero h2{margin:0 0 5px;font-size:1.4rem}
-    .hero p{margin:0;color:var(--muted)}
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
-    .stat{background:var(--panel2);border-radius:15px;padding:12px;text-align:center}
-    .stat b{display:block;font-size:1.25rem}
-    .stat span{font-size:.78rem;color:var(--muted)}
-    .section-title{display:flex;justify-content:space-between;align-items:center;margin:24px 2px 12px}
-    .section-title h2{font-size:1.05rem;margin:0}
-    .goalie-card{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center}
-    .avatar{width:52px;height:52px;border-radius:16px;background:var(--panel2);display:grid;place-items:center;font-size:1.4rem}
-    .goalie-card h3{margin:0 0 4px}
-    .small{font-size:.85rem;color:var(--muted)}
-    .last10{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-    .mini-game{border-radius:14px;padding:10px 6px;text-align:center;background:var(--panel2);border-left:5px solid var(--green)}
-    .mini-game.busy{border-left-color:var(--gold)}
-    .mini-game.siege{border-left-color:var(--red)}
-    .mini-game b{display:block}
-    .empty{text-align:center;color:var(--muted);padding:24px}
-    .screen{display:none}.screen.active{display:block}
-    .live-head{text-align:center;margin-bottom:16px}
-    .live-head h2{margin:0}.live-head p{color:var(--muted);margin:6px 0}
-    .periods{display:flex;justify-content:center;gap:8px;margin:12px 0 18px}
-    .period-btn{background:var(--panel2);color:var(--muted);border:1px solid var(--border);border-radius:12px;padding:8px 13px}
-    .period-btn.active{background:var(--blue);color:#06111d;border-color:var(--blue)}
-    .live-buttons{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .track-btn{min-height:145px;border:0;border-radius:24px;color:#fff;font-size:1.35rem;font-weight:900;cursor:pointer;transition:.08s transform}
-    .track-btn:active{transform:scale(.97)}
-    .save-btn{background:linear-gradient(160deg,#2384dc,#4ea5f5)}
-    .goal-btn{background:linear-gradient(160deg,#e83e4a,#ff6b74)}
-    .break-btn{background:linear-gradient(160deg,#c28b14,#ffc857);color:#251900}
-    .undo-btn{background:var(--panel2);color:var(--text);border:1px solid var(--border)}
-    .live-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
-    .timeline{max-height:240px;overflow:auto}
-    .timeline-row{display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding:10px 0}
-    .pill{display:inline-flex;padding:5px 9px;border-radius:999px;font-size:.75rem;font-weight:800;background:var(--panel2)}
-    .modal{position:fixed;inset:0;background:rgba(3,8,15,.78);display:none;align-items:flex-end;justify-content:center;padding:16px;z-index:20}
-    .modal.open{display:flex}
-    .sheet{width:min(100%,680px);background:var(--panel);border:1px solid var(--border);border-radius:24px 24px 18px 18px;padding:20px}
-    .sheet h2{margin-top:0}
-    .sheet-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .sheet .track-btn{min-height:115px}
-    label{display:block;font-size:.88rem;color:var(--muted);margin:12px 0 6px}
-    input,select,textarea{width:100%;background:#0e1a2b;color:var(--text);border:1px solid var(--border);border-radius:13px;padding:12px}
-    textarea{min-height:90px;resize:vertical}
-    .actions{display:flex;gap:10px;margin-top:16px}.actions>*{flex:1}
-    .toast{position:fixed;left:50%;bottom:92px;transform:translateX(-50%) translateY(18px);background:#fff;color:#07111d;
-      padding:10px 16px;border-radius:999px;font-weight:800;opacity:0;pointer-events:none;transition:.2s;z-index:30}
-    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-    .game-card{border-left:7px solid var(--green)}
-    .game-card.moderate{border-left-color:var(--gold)}
-    .game-card.busy{border-left-color:#ff922b}
-    .game-card.siege{border-left-color:var(--red)}
-    .game-top{display:flex;justify-content:space-between;gap:12px}
-    .game-score{font-size:1.05rem;font-weight:800}
-    .game-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
-    .bottom-nav{position:fixed;left:0;right:0;bottom:0;background:rgba(11,20,35,.96);backdrop-filter:blur(16px);border-top:1px solid var(--border);display:flex;justify-content:center;z-index:10}
-    .bottom-nav-inner{width:min(100%,720px);display:grid;grid-template-columns:repeat(4,1fr);padding:8px 12px calc(8px + env(safe-area-inset-bottom))}
-    .nav-btn{background:transparent;border:0;color:var(--muted);padding:8px}.nav-btn.active{color:var(--blue)}
-    @media(max-width:520px){
-      .stats,.game-grid{grid-template-columns:repeat(2,1fr)}
-      .live-buttons{grid-template-columns:1fr 1fr}
-      .track-btn{min-height:128px}
-    }
-  </style>
-</head>
-<body>
-  <main class="app">
-    <div id="home" class="screen active">
-      <div class="topbar">
-        <div class="brand">
-          <img src="icon-192.png" alt="The Crease logo">
-          <div><h1>The Crease</h1><p>Goalie stat tracker</p></div>
-        </div>
-        <div style="display:flex;gap:8px"><button class="icon-btn" id="openSettingsBtn" aria-label="Open settings">⚙</button><button class="icon-btn" id="addGoalieBtn" aria-label="Add goalie">＋</button></div>
-      </div>
-      <div id="selectedGoalieArea"></div>
-      <div class="section-title"><h2>Goalies</h2></div>
-      <div id="goalieList"></div>
-      <div class="section-title"><h2>Last 10 Games</h2></div>
-      <div id="last10" class="last10"></div>
-    </div>
-
-    <div id="games" class="screen">
-      <div class="topbar"><div><h1 style="margin:0">Game Cards</h1><p class="small">Completed games for the selected goalie</p></div></div>
-      <div id="gameCards"></div>
-    </div>
-
-
-    <div id="settings" class="screen">
-      <div class="topbar"><div><h1 style="margin:0">Settings</h1><p class="small">App options and sharing</p></div></div>
-      <section class="card">
-        <div class="section-title" style="margin-top:0"><h2>Share The Crease</h2></div>
-        <p class="small">Send the app link to another parent, goalie, or coach. Their data will remain separate on their own device.</p>
-        <button class="primary" id="shareAppBtn" style="width:100%;margin-top:8px">↗ Share App</button>
-        <button class="ghost" id="copyLinkBtn" style="width:100%;margin-top:10px">Copy App Link</button>
-      </section>
-      <section class="card">
-        <div class="section-title" style="margin-top:0"><h2>App Information</h2></div>
-        <div class="timeline-row"><span>App</span><b>The Crease</b></div>
-        <div class="timeline-row"><span>Version</span><b>1.2</b></div>
-        <div class="timeline-row"><span>Storage</span><b>Saved on this device</b></div>
-      </section>
-    </div>
-
-    <div id="live" class="screen">
-      <div class="topbar">
-        <button class="icon-btn" id="backHome">←</button>
-        <button class="danger" id="finishGame">Finish Game</button>
-      </div>
-      <div class="live-head">
-        <h2 id="liveGoalieName">Goalie</h2>
-        <p id="liveOpponent">Live game</p>
-      </div>
-      <div class="periods" id="periodButtons">
-        <button class="period-btn active" data-period="1">1st</button>
-        <button class="period-btn" data-period="2">2nd</button>
-        <button class="period-btn" data-period="3">3rd</button>
-        <button class="period-btn" data-period="OT">OT</button>
-      </div>
-      <div class="live-buttons">
-        <button class="track-btn save-btn" id="saveBtn">🧤<br>SAVE</button>
-        <button class="track-btn goal-btn" id="goalBtn">🚨<br>GOAL AGAINST</button>
-        <button class="track-btn break-btn" id="breakBtn">⚡<br>BREAKAWAY</button>
-        <button class="track-btn undo-btn" id="undoBtn">↩<br>UNDO</button>
-      </div>
-      <div class="live-stats">
-        <div class="stat"><b id="liveSaves">0</b><span>Saves</span></div>
-        <div class="stat"><b id="liveGoals">0</b><span>Goals</span></div>
-        <div class="stat"><b id="liveSvPct">—</b><span>Save %</span></div>
-        <div class="stat"><b id="liveShots">0</b><span>Shots</span></div>
-        <div class="stat"><b id="liveBA">0</b><span>Breakaways</span></div>
-        <div class="stat"><b id="liveBAPct">—</b><span>BA Save %</span></div>
-      </div>
-      <div class="card">
-        <div class="section-title" style="margin-top:0"><h2>Game Timeline</h2></div>
-        <div id="timeline" class="timeline"></div>
-      </div>
-    </div>
-  </main>
-
-  <nav class="bottom-nav" id="bottomNav">
-    <div class="bottom-nav-inner">
-      <button class="nav-btn active" data-screen="home">⌂<br><span class="small">Home</span></button>
-      <button class="nav-btn" data-screen="games">▤<br><span class="small">Games</span></button>
-      <button class="nav-btn" id="quickStartNav">▶<br><span class="small">Start</span></button>
-      <button class="nav-btn" data-screen="settings">⚙<br><span class="small">Settings</span></button>
-    </div>
-  </nav>
-
-  <div class="modal" id="goalieModal">
-    <div class="sheet">
-      <h2>Add Goalie</h2>
-      <label for="goalieNameInput">Goalie name</label>
-      <input id="goalieNameInput" placeholder="e.g. Emma" />
-      <label for="goalieTeamInput">Team</label>
-      <input id="goalieTeamInput" placeholder="e.g. Windsor Wolves U11" />
-      <div class="actions">
-        <button class="ghost" data-close="goalieModal">Cancel</button>
-        <button class="primary" id="saveGoalieBtn">Save Goalie</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal" id="startModal">
-    <div class="sheet">
-      <h2>Start New Game</h2>
-      <label for="opponentInput">Opponent</label>
-      <input id="opponentInput" placeholder="Opponent team" />
-      <label for="trackMode">Tracking</label>
-      <select id="trackMode">
-        <option value="selected">Track selected goalie</option>
-        <option value="other">Track opposing goalie</option>
-      </select>
-      <div class="actions">
-        <button class="ghost" data-close="startModal">Cancel</button>
-        <button class="primary" id="beginGameBtn">Start Game</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal" id="breakawayModal">
-    <div class="sheet">
-      <h2>Breakaway Result</h2>
-      <div class="sheet-grid">
-        <button class="track-btn save-btn" id="baSaveBtn">🧤<br>BREAKAWAY SAVE</button>
-        <button class="track-btn goal-btn" id="baGoalBtn">🚨<br>BREAKAWAY GOAL</button>
-      </div>
-      <button class="ghost" style="width:100%;margin-top:12px" id="baNoShotBtn">No Shot on Net</button>
-    </div>
-  </div>
-
-  <div class="modal" id="finishModal">
-    <div class="sheet">
-      <h2>Finish Game</h2>
-      <label for="resultInput">Result</label>
-      <select id="resultInput"><option>Win</option><option>Loss</option><option>Tie</option><option>OT Loss</option></select>
-      <label for="ourScoreInput">Your team score</label>
-      <input type="number" min="0" id="ourScoreInput" value="0" />
-      <label for="notesInput">Notes</label>
-      <textarea id="notesInput" placeholder="What went well? What should be worked on?"></textarea>
-      <div class="actions">
-        <button class="ghost" data-close="finishModal">Back</button>
-        <button class="primary" id="saveGameBtn">Save Game</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="toast" id="toast" aria-live="polite"></div>
-
-<script>
-const storeKey='theCreaseDataV1';
-let data=JSON.parse(localStorage.getItem(storeKey)||'null')||{
-  goalies:[{id:crypto.randomUUID(),name:'My Goalie',team:'My Team',games:[]}],
-  selectedId:null
-};
-if(!data.selectedId&&data.goalies[0]) data.selectedId=data.goalies[0].id;
-let liveGame=null, currentPeriod='1';
-
-const $=s=>document.querySelector(s);
-const $$=s=>[...document.querySelectorAll(s)];
-const selectedGoalie=()=>data.goalies.find(g=>g.id===data.selectedId);
-const saveData=()=>localStorage.setItem(storeKey,JSON.stringify(data));
-const fmtPct=(saves,shots)=>shots?'.'+String(Math.round((saves/shots)*1000)).padStart(3,'0'):'—';
-const vibrate=(ms=28)=>navigator.vibrate&&navigator.vibrate(ms);
-function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),700)}
-function openModal(id){$('#'+id).classList.add('open')}
-function closeModal(id){$('#'+id).classList.remove('open')}
-
-function aggregate(g){
-  const games=g?.games||[];
-  const saves=games.reduce((a,x)=>a+x.saves,0), goals=games.reduce((a,x)=>a+x.goals,0), shots=saves+goals;
-  const wins=games.filter(x=>x.result==='Win').length, losses=games.filter(x=>x.result.includes('Loss')).length;
-  const ties=games.filter(x=>x.result==='Tie').length, shutouts=games.filter(x=>x.goals===0).length;
-  return {gp:games.length,saves,goals,shots,wins,losses,ties,shutouts,sv:fmtPct(saves,shots)};
-}
-function intensity(shots){
-  if(shots<=15)return ['Easy Night',''];
-  if(shots<=25)return ['Moderate','moderate'];
-  if(shots<=35)return ['Busy','busy'];
-  return ['Under Siege','siege'];
-}
-function render(){
-  const g=selectedGoalie();
-  const a=aggregate(g);
-  $('#selectedGoalieArea').innerHTML=g?`
-    <section class="card hero">
-      <div><span class="pill">${g.team||'No team'}</span><h2>${g.name}</h2><p>${a.gp} games • ${a.wins}-${a.losses}-${a.ties}</p></div>
-      <button class="primary" id="heroStart">Start Game</button>
-      <div class="stats" style="grid-column:1/-1">
-        <div class="stat"><b>${a.sv}</b><span>Save %</span></div>
-        <div class="stat"><b>${a.shutouts}</b><span>Shutouts</span></div>
-        <div class="stat"><b>${a.shots}</b><span>Shots</span></div>
-        <div class="stat"><b>${a.saves}</b><span>Saves</span></div>
-      </div>
-    </section>`:'<div class="card empty">Add a goalie to begin.</div>';
-  $('#heroStart')?.addEventListener('click',()=>openModal('startModal'));
-
-  $('#goalieList').innerHTML=data.goalies.map(x=>{
-    const s=aggregate(x);
-    return `<div class="card goalie-card" data-id="${x.id}">
-      <div class="avatar">🥅</div>
-      <div><h3>${x.name}</h3><div class="small">${x.team||'No team'} • ${s.sv} SV%</div></div>
-      <button class="${x.id===data.selectedId?'primary':'secondary'} select-goalie">${x.id===data.selectedId?'Selected':'Select'}</button>
-    </div>`;
-  }).join('')||'<div class="card empty">No goalies saved.</div>';
-  $$('.select-goalie').forEach(btn=>btn.addEventListener('click',e=>{
-    data.selectedId=e.target.closest('[data-id]').dataset.id;saveData();render();
-  }));
-
-  const last=(g?.games||[]).slice(-10).reverse();
-  $('#last10').innerHTML=last.map(x=>{
-    const [,cls]=intensity(x.saves+x.goals);
-    return `<div class="mini-game ${cls}"><b>${x.result==='Win'?'W':x.result==='Tie'?'T':'L'}</b><span class="small">${fmtPct(x.saves,x.saves+x.goals)}</span></div>`;
-  }).join('')||'<div class="empty" style="grid-column:1/-1">No games yet.</div>';
-
-  $('#gameCards').innerHTML=last.length?last.map(x=>{
-    const shots=x.saves+x.goals,[label,cls]=intensity(shots);
-    return `<article class="card game-card ${cls}">
-      <div class="game-top"><div><span class="pill">${label}</span><div class="game-score" style="margin-top:8px">${g.name} vs ${x.opponent||'Opponent'}</div><div class="small">${new Date(x.date).toLocaleDateString()}</div></div><b>${x.result}</b></div>
-      <div class="game-grid">
-        <div class="stat"><b>${shots}</b><span>Shots</span></div>
-        <div class="stat"><b>${x.saves}</b><span>Saves</span></div>
-        <div class="stat"><b>${x.goals}</b><span>Goals</span></div>
-        <div class="stat"><b>${fmtPct(x.saves,shots)}</b><span>Save %</span></div>
-      </div>
-      ${x.notes?`<p class="small" style="margin-bottom:0">${x.notes}</p>`:''}
-    </article>`;
-  }).join(''):'<div class="card empty">Finished games will appear here.</div>';
-}
-function showScreen(id){
-  $$('.screen').forEach(x=>x.classList.toggle('active',x.id===id));
-  $$('.nav-btn[data-screen]').forEach(x=>x.classList.toggle('active',x.dataset.screen===id));
-  $('#bottomNav').style.display=id==='live'?'none':'flex';
-  if(id!=='live') render();
-}
-function addEvent(type,label,delta){
-  if(!liveGame)return;
-  liveGame.events.push({type,label,period:currentPeriod,time:new Date().toISOString(),...delta});
-  Object.keys(delta).forEach(k=>liveGame[k]=(liveGame[k]||0)+delta[k]);
-  vibrate(type==='goal'?55:28);toast(label);renderLive();
-}
-function renderLive(){
-  if(!liveGame)return;
-  const shots=liveGame.saves+liveGame.goals;
-  $('#liveGoalieName').textContent=liveGame.goalieName;
-  $('#liveOpponent').textContent='vs '+(liveGame.opponent||'Opponent');
-  $('#liveSaves').textContent=liveGame.saves;$('#liveGoals').textContent=liveGame.goals;
-  $('#liveShots').textContent=shots;$('#liveSvPct').textContent=fmtPct(liveGame.saves,shots);
-  $('#liveBA').textContent=liveGame.breakaways;
-  $('#liveBAPct').textContent=fmtPct(liveGame.breakawaySaves,liveGame.breakaways);
-  $('#timeline').innerHTML=[...liveGame.events].reverse().map(e=>`
-    <div class="timeline-row"><span><b>${e.label}</b><br><span class="small">${e.period==='OT'?'OT':e.period+(e.period==='1'?'st':e.period==='2'?'nd':'rd')} period</span></span><span>${new Date(e.time).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</span></div>
-  `).join('')||'<div class="empty">Tap Save, Goal Against, or Breakaway.</div>';
-}
-
-async function shareApp(){
-  const shareData={title:'The Crease',text:'Track hockey goalie saves, goals, breakaways, and season stats with The Crease.',url:location.href};
-  try{
-    if(navigator.share){
-      await navigator.share(shareData);
-      toast('Share menu opened');
-    }else{
-      await copyAppLink();
-    }
-  }catch(err){
-    if(err?.name!=='AbortError') toast('Unable to share right now');
-  }
-}
-async function copyAppLink(){
-  try{
-    await navigator.clipboard.writeText(location.href);
-    toast('App link copied');
-  }catch(err){
-    const input=document.createElement('input');
-    input.value=location.href;document.body.appendChild(input);input.select();
-    document.execCommand('copy');input.remove();toast('App link copied');
-  }
-}
-
-function startGame(){
-  const g=selectedGoalie(); if(!g)return;
-  const mode=$('#trackMode').value;
-  liveGame={goalieId:g.id,goalieName:mode==='other'?'Opposing Goalie':g.name,opponent:$('#opponentInput').value.trim(),
-    saves:0,goals:0,breakaways:0,breakawaySaves:0,events:[],date:new Date().toISOString()};
-  currentPeriod='1'; $$('.period-btn').forEach(x=>x.classList.toggle('active',x.dataset.period==='1'));
-  closeModal('startModal');showScreen('live');renderLive();
-}
-$('#openSettingsBtn').addEventListener('click',()=>showScreen('settings'));
-$('#addGoalieBtn').addEventListener('click',()=>openModal('goalieModal'));
-$('#saveGoalieBtn').addEventListener('click',()=>{
-  const name=$('#goalieNameInput').value.trim(); if(!name)return toast('Enter a goalie name');
-  const g={id:crypto.randomUUID(),name,team:$('#goalieTeamInput').value.trim(),games:[]};
-  data.goalies.push(g);data.selectedId=g.id;saveData();closeModal('goalieModal');
-  $('#goalieNameInput').value='';$('#goalieTeamInput').value='';render();
-});
-$$('[data-close]').forEach(x=>x.addEventListener('click',()=>closeModal(x.dataset.close)));
-$$('.nav-btn[data-screen]').forEach(x=>x.addEventListener('click',()=>showScreen(x.dataset.screen)));
-$('#quickStartNav').addEventListener('click',()=>openModal('startModal'));
-$('#shareAppBtn').addEventListener('click',shareApp);
-$('#copyLinkBtn').addEventListener('click',copyAppLink);
-$('#beginGameBtn').addEventListener('click',startGame);
-$('#backHome').addEventListener('click',()=>{if(confirm('Leave this game? Unsaved tracking will be lost.')){liveGame=null;showScreen('home')}});
-$('#saveBtn').addEventListener('click',()=>addEvent('save','Save recorded',{saves:1}));
-$('#goalBtn').addEventListener('click',()=>addEvent('goal','Goal against',{goals:1}));
-$('#breakBtn').addEventListener('click',()=>openModal('breakawayModal'));
-$('#baSaveBtn').addEventListener('click',()=>{addEvent('save','Breakaway save',{saves:1,breakaways:1,breakawaySaves:1});closeModal('breakawayModal')});
-$('#baGoalBtn').addEventListener('click',()=>{addEvent('goal','Breakaway goal',{goals:1,breakaways:1});closeModal('breakawayModal')});
-$('#baNoShotBtn').addEventListener('click',()=>{addEvent('breakaway','Breakaway — no shot',{breakaways:1});closeModal('breakawayModal')});
-$('#undoBtn').addEventListener('click',()=>{
-  if(!liveGame?.events.length)return toast('Nothing to undo');
-  const e=liveGame.events.pop();['saves','goals','breakaways','breakawaySaves'].forEach(k=>liveGame[k]-=(e[k]||0));
-  vibrate(18);toast('Last action undone');renderLive();
-});
-$$('.period-btn').forEach(x=>x.addEventListener('click',()=>{
-  currentPeriod=x.dataset.period;$$('.period-btn').forEach(b=>b.classList.toggle('active',b===x));vibrate(15)
-}));
-$('#finishGame').addEventListener('click',()=>openModal('finishModal'));
-$('#saveGameBtn').addEventListener('click',()=>{
-  if(!liveGame)return;
-  const g=data.goalies.find(x=>x.id===liveGame.goalieId);
-  g.games.push({...liveGame,result:$('#resultInput').value,ourScore:Number($('#ourScoreInput').value||0),notes:$('#notesInput').value.trim()});
-  saveData();liveGame=null;closeModal('finishModal');$('#notesInput').value='';showScreen('games');toast('Game saved');
-});
-window.addEventListener('click',e=>{if(e.target.classList.contains('modal'))e.target.classList.remove('open')});
-if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js');
-render();
-</script>
-</body>
-</html>
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#031321"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="favicon.png"><link rel="apple-touch-icon" href="icon-192.png">
+<title>The Crease</title>
+<style>
+:root{--bg:#020b14;--panel:rgba(5,22,36,.88);--panel2:rgba(11,39,60,.78);--line:rgba(141,207,255,.16);--text:#f7fbff;--muted:#9fb2c2;--blue:#1597ff;--blue2:#50b9ff;--green:#42df8f;--red:#ff5865;--gold:#ffc94a;--shadow:0 18px 48px rgba(0,0,0,.36)}
+*{box-sizing:border-box}html{background:var(--bg)}body{margin:0;min-height:100vh;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:#031321 url('rink-bg.svg') center/cover fixed;letter-spacing:.01em}body:before{content:"";position:fixed;inset:0;background:linear-gradient(180deg,rgba(0,8,16,.25),rgba(0,8,16,.76));pointer-events:none}button,input,select,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}.app{position:relative;max-width:760px;margin:auto;padding:20px 16px 104px}.glass{background:linear-gradient(145deg,rgba(8,29,47,.92),rgba(4,18,31,.87));border:1px solid var(--line);box-shadow:var(--shadow),inset 0 1px rgba(255,255,255,.03);backdrop-filter:blur(18px);border-radius:22px}.card{padding:17px;margin-bottom:14px}.topbar{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px}.eyebrow{text-transform:uppercase;font-size:.68rem;font-weight:900;letter-spacing:.12em;color:#d5e5f0}.greeting h1{font-size:1.55rem;margin:2px 0}.greeting h1 span{color:var(--blue2)}.team-name{color:#d9e8f3;font-size:.88rem}.iconbtn,.btn{border:0;font-weight:850;border-radius:13px;padding:12px 15px}.iconbtn{width:44px;height:44px;padding:0;background:var(--panel2);color:white;border:1px solid var(--line)}.primary{background:linear-gradient(180deg,#219cff,#0875dc);color:#fff;box-shadow:0 8px 24px rgba(15,134,239,.25)}.secondary{background:var(--panel2);color:white;border:1px solid var(--line)}.danger{background:linear-gradient(180deg,#ff6570,#d83a48);color:white}.full{width:100%}.section-head{display:flex;justify-content:space-between;align-items:center;margin:20px 2px 10px}.section-head h2{font-size:.76rem;text-transform:uppercase;letter-spacing:.09em;margin:0}.link{color:var(--blue2);font-size:.82rem}.overview{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.metric{padding:14px;background:rgba(17,49,73,.65);border:1px solid var(--line);border-radius:15px;min-height:90px}.metric .label{font-size:.73rem;color:#d6e3ec}.metric strong{display:block;font-size:1.55rem;margin-top:10px}.metric small{color:var(--muted)}.game-row{display:grid;grid-template-columns:30px 1fr auto 18px;gap:9px;align-items:center;padding:11px 6px;border-bottom:1px solid rgba(255,255,255,.08)}.game-row:last-child{border-bottom:0}.result{font-weight:950}.win{color:var(--green)}.loss{color:var(--red)}.game-title{font-size:.84rem}.game-meta{font-size:.7rem;color:var(--muted)}.score{text-align:right;font-weight:900}.score span{display:block;color:var(--muted);font-size:.7rem}.hero-goalie{display:grid;grid-template-columns:62px 1fr auto;align-items:center;gap:12px}.avatar{width:62px;height:62px;border-radius:50%;overflow:hidden;border:2px solid var(--blue);background:#051523}.avatar img{width:100%;height:100%;object-fit:cover}.badge{display:inline-flex;padding:4px 8px;border-radius:999px;background:rgba(21,151,255,.14);color:var(--blue2);font-size:.7rem;font-weight:850}.hero-goalie h2{margin:4px 0 2px}.mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}.mini{padding:11px;text-align:center;border-radius:13px;background:rgba(11,39,60,.7);border:1px solid var(--line)}.mini b{display:block;font-size:1.04rem}.mini span{font-size:.67rem;color:var(--muted)}.goalie-list .goalie{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center}.goalie+.goalie{margin-top:10px}.goalie .avatar{width:52px;height:52px}.tabs{display:flex;background:rgba(0,10,18,.48);padding:4px;border-radius:12px;margin-bottom:12px}.tabs button{flex:1;border:0;background:none;color:var(--muted);padding:9px 7px;font-size:.72rem;border-radius:9px}.tabs button.active{background:var(--blue);color:white}.chart{height:170px;display:flex;align-items:flex-end;gap:6px;padding:18px 8px 6px;border-top:1px solid var(--line);background:linear-gradient(180deg,rgba(21,151,255,.03),rgba(21,151,255,.12));border-radius:14px}.bar{flex:1;min-width:8px;background:linear-gradient(180deg,var(--blue2),#1479d7);border-radius:6px 6px 2px 2px;opacity:.9}.screen{display:none}.screen.active{display:block}.nav{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(1,12,21,.95);border-top:1px solid var(--line);backdrop-filter:blur(20px)}.navin{max-width:760px;margin:auto;display:grid;grid-template-columns:repeat(5,1fr);padding:7px 8px calc(7px + env(safe-area-inset-bottom))}.nav button{border:0;background:none;color:#879aaa;padding:6px 2px;font-size:1rem}.nav button span{display:block;font-size:.61rem;margin-top:2px}.nav button.active{color:var(--blue2)}.auth{position:relative;min-height:100vh;display:grid;place-items:center;padding:20px}.authbox{width:min(100%,430px);padding:25px}.authlogo{width:98px;height:98px;border-radius:25px;display:block;margin:0 auto 12px}.auth h1{text-align:center;margin:0}.auth p{text-align:center;color:var(--muted)}label{display:block;margin:12px 0 6px;font-size:.78rem;color:#c4d2dc}input,select,textarea{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:12px;color:white;background:rgba(0,10,18,.74)}textarea{min-height:88px}.auth-tabs{display:flex;gap:8px;margin:18px 0 4px}.auth-tabs>*{flex:1}.live-top{text-align:center;padding:12px 0}.matchup{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;padding:15px;margin-bottom:12px}.team-mark{font-size:2rem}.matchup b{display:block;font-size:1.65rem}.matchup .vs{font-size:.78rem;color:var(--muted);text-align:center}.live-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.track{min-height:126px;border:1px solid var(--line);border-radius:18px;color:white;background:linear-gradient(145deg,rgba(8,31,51,.98),rgba(3,16,28,.98));font-weight:900}.track .ico{display:block;font-size:1.9rem;margin-bottom:6px}.track strong{display:block;font-size:1.9rem;color:var(--blue2)}.undo strong{font-size:2.1rem}.last-event{margin-top:12px;padding:14px}.last-event b{color:var(--blue2)}.modal{position:fixed;inset:0;z-index:50;background:rgba(0,4,9,.8);display:none;align-items:flex-end;justify-content:center;padding:14px}.modal.open{display:flex}.sheet{width:min(100%,720px);padding:20px;border-radius:24px 24px 18px 18px}.actions{display:flex;gap:9px;margin-top:15px}.actions>*{flex:1}.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.08)}.row:last-child{border-bottom:0}.member{display:grid;grid-template-columns:38px 1fr auto;gap:10px;align-items:center}.initial{width:36px;height:36px;border-radius:50%;background:#d6e0e8;color:#173047;display:grid;place-items:center;font-weight:900}.role{color:var(--gold);font-size:.72rem}.toast{position:fixed;z-index:80;left:50%;bottom:90px;transform:translateX(-50%) translateY(10px);background:white;color:#06111c;padding:10px 16px;border-radius:999px;font-weight:900;opacity:0;transition:.2s}.toast.show{opacity:1;transform:translateX(-50%)}.empty{text-align:center;color:var(--muted);padding:25px}.syncdot{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;margin-right:6px}@media(max-width:520px){.app{padding-left:13px;padding-right:13px}.metric strong{font-size:1.35rem}.hero-goalie{grid-template-columns:54px 1fr}.hero-goalie>.btn{grid-column:1/-1}.avatar{width:54px;height:54px}.matchup{gap:7px}.track{min-height:116px}}
+</style></head><body>
+<section id="auth" class="auth"><div class="glass authbox"><img class="authlogo" src="icon-192.png" alt="The Crease"><h1>THE CREASE</h1><p>Track. Analyze. Improve.<br><span style="color:var(--blue2)">Every save counts.</span></p><div class="auth-tabs"><button id="loginTab" class="btn primary">Sign In</button><button id="registerTab" class="btn secondary">Create Account</button></div><label>Email</label><input id="email" type="email" autocomplete="email"><label>Password</label><input id="password" type="password" autocomplete="current-password"><button id="authBtn" class="btn primary full" style="margin-top:15px">Sign In</button><button id="resetBtn" class="btn secondary full" style="margin-top:9px">Reset Password</button><p id="authMsg"></p></div></section>
+<main id="app" class="app hidden">
+<section id="home" class="screen active"><div class="topbar"><div class="greeting"><div class="eyebrow">The Crease</div><h1>Good <span id="daypart">Morning</span>,<br><span id="firstName">Goalie Family!</span></h1><div id="teamLabel" class="team-name">Shared goalie tracker⌄</div></div><button class="iconbtn" data-screen-jump="settings">⚙</button></div><div id="workspacePrompt"></div><div id="overview"></div><div class="section-head"><h2>Recent Games</h2><span class="link" data-screen-jump="games">View All</span></div><div id="recentGames" class="glass card"></div><button id="newGameHome" class="btn primary full">＋ New Game</button></section>
+<section id="goalies" class="screen"><div class="topbar"><div><div class="eyebrow">Roster</div><h1 style="margin:3px 0">Goalies</h1></div><button id="addGoalie" class="iconbtn">＋</button></div><div id="goalieList" class="goalie-list"></div></section>
+<section id="games" class="screen"><div class="topbar"><div><div class="eyebrow">Season Log</div><h1 style="margin:3px 0">Games</h1></div></div><div id="gameCards"></div></section>
+<section id="stats" class="screen"><div class="topbar"><div><div class="eyebrow">Performance</div><h1 style="margin:3px 0">Statistics</h1></div></div><div class="glass card"><div class="tabs"><button class="active">Overview</button><button>Trends</button><button>Situational</button><button>Compare</button></div><div id="statsOverview"></div><div class="section-head"><h2>Save Percentage Over Time</h2></div><div id="chart" class="chart"></div></div></section>
+<section id="more" class="screen"><div class="topbar"><div><div class="eyebrow">Workspace</div><h1 style="margin:3px 0">More</h1></div></div><div class="glass card"><button class="btn secondary full" data-screen-jump="team">👥 Team Sharing</button><button class="btn secondary full" data-screen-jump="settings" style="margin-top:9px">⚙ Settings</button></div></section>
+<section id="team" class="screen"><div class="topbar"><button class="iconbtn" data-screen-jump="more">←</button><div><div class="eyebrow">Collaboration</div><h1 style="margin:3px 0">Team Sharing</h1></div><span></span></div><div id="teamPanel"></div></section>
+<section id="settings" class="screen"><div class="topbar"><button class="iconbtn" data-screen-jump="more">←</button><div><div class="eyebrow">Account</div><h1 style="margin:3px 0">Settings</h1></div><span></span></div><div class="glass card"><div class="row"><span>Signed in</span><b id="accountEmail"></b></div><div class="row"><span>Cloud sync</span><b><i class="syncdot"></i>Live</b></div><div class="row"><span>Version</span><b>4.0 Premium</b></div><button id="shareApp" class="btn primary full" style="margin-top:14px">Share App</button><button id="signOut" class="btn secondary full" style="margin-top:9px">Sign Out</button></div></section>
+<section id="live" class="screen"><div class="topbar"><button id="leaveLive" class="iconbtn">←</button><div style="text-align:center"><div class="eyebrow">Live Game</div><b id="periodText">1st Period</b></div><button id="finish" class="btn danger">Finish</button></div><div class="glass matchup"><div style="text-align:center"><div class="team-mark">🛡️</div><b id="ourScore">0</b><span class="game-meta">Your Team</span></div><div class="vs"><b style="font-size:1rem">VS</b><br><span id="liveClock">Live</span></div><div style="text-align:center"><div class="team-mark">⚡</div><b id="againstScore">0</b><span id="liveOpp" class="game-meta">Opponent</span></div></div><div class="live-grid"><button id="save" class="track"><span class="ico">🧤</span>SAVE<strong id="liveSaves">0</strong></button><button id="goal" class="track"><span class="ico">🥅</span>GOAL AGAINST<strong id="liveGoals">0</strong></button><button id="breakaway" class="track"><span class="ico">🏒</span>BREAKAWAY<strong id="liveBA">0</strong></button><button id="undo" class="track undo"><span class="ico">↶</span>UNDO<strong> </strong></button></div><div class="glass last-event"><div class="eyebrow">Last Event</div><div id="lastEvent" style="margin-top:8px">No events yet</div></div></section>
+</main>
+<nav id="nav" class="nav hidden"><div class="navin"><button class="active" data-screen="home">⌂<span>Home</span></button><button data-screen="goalies">◉<span>Goalies</span></button><button data-screen="games">▣<span>Games</span></button><button data-screen="stats">▥<span>Stats</span></button><button data-screen="more">•••<span>More</span></button></div></nav>
+<div id="goalieModal" class="modal"><div class="glass sheet"><h2>Add Goalie</h2><label>Name</label><input id="gName" placeholder="e.g. Emma"><label>Number</label><input id="gNumber" placeholder="#30"><label>Team / level</label><input id="gTeam" placeholder="e.g. Amherstburg Admirals U11"><div class="actions"><button class="btn secondary close">Cancel</button><button id="saveGoalie" class="btn primary">Save Goalie</button></div></div></div>
+<div id="gameModal" class="modal"><div class="glass sheet"><h2>Start New Game</h2><label>Goalie</label><select id="gameGoalie"></select><label>Opponent</label><input id="opponent" placeholder="Opponent team"><label>Your team score (optional)</label><input id="startingScore" type="number" min="0" value="0"><div class="actions"><button class="btn secondary close">Cancel</button><button id="startGame" class="btn primary">Start Game</button></div></div></div>
+<div id="breakModal" class="modal"><div class="glass sheet"><h2>Breakaway Result</h2><div class="live-grid"><button id="baSave" class="track">🧤<br>BREAKAWAY SAVE</button><button id="baGoal" class="track">🥅<br>BREAKAWAY GOAL</button></div><button id="baNoShot" class="btn secondary full" style="margin-top:10px">No Shot on Net</button></div></div>
+<div id="finishModal" class="modal"><div class="glass sheet"><h2>Finish Game</h2><label>Result</label><select id="result"><option>Win</option><option>Loss</option><option>Tie</option><option>OT Loss</option></select><label>Your team score</label><input id="finalOurScore" type="number" min="0" value="0"><label>Notes</label><textarea id="notes" placeholder="What went well? What should be worked on?"></textarea><div class="actions"><button class="btn secondary close">Back</button><button id="saveGame" class="btn primary">Save Game</button></div></div></div>
+<div id="toast" class="toast"></div>
+<script type="module">
+import {initializeApp} from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js';
+import {getAuth,onAuthStateChanged,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,sendPasswordResetEmail} from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js';
+import {getFirestore,doc,setDoc,getDoc,addDoc,deleteDoc,collection,onSnapshot,serverTimestamp,enableMultiTabIndexedDbPersistence} from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js';
+import {firebaseConfig} from './firebase-config.js';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];let mode='login',user=null,db=null,auth=null,teamId=null,teamData=null,memberRole=null,goalies=[],games=[],selectedGoalieId=null,live=null,period='1',unsubs=[];
+const ready=firebaseConfig?.apiKey&&!firebaseConfig.apiKey.includes('PASTE');const pct=(s,sh)=>sh?'.'+String(Math.round(s/sh*1000)).padStart(3,'0'):'—';const vib=n=>navigator.vibrate&&navigator.vibrate(n);function toast(t){let x=$('#toast');x.textContent=t;x.classList.add('show');setTimeout(()=>x.classList.remove('show'),850)}function modal(id,on=true){$('#'+id).classList.toggle('open',on)}function screen(id){$$('.screen').forEach(x=>x.classList.toggle('active',x.id===id));$$('#nav [data-screen]').forEach(x=>x.classList.toggle('active',x.dataset.screen===id));$('#nav').classList.toggle('hidden',id==='live'||!user);if(id!=='live')render()}
+function cleanup(){unsubs.forEach(f=>f());unsubs=[];teamId=null;teamData=null;goalies=[];games=[];memberRole=null}function aggregate(gid){const gs=games.filter(g=>g.goalieId===gid),s=gs.reduce((a,g)=>a+(g.saves||0),0),ga=gs.reduce((a,g)=>a+(g.goals||0),0),shots=s+ga;return{games:gs,gp:gs.length,s,ga,shots,sv:pct(s,shots),w:gs.filter(g=>g.result==='Win').length,l:gs.filter(g=>String(g.result).includes('Loss')).length,t:gs.filter(g=>g.result==='Tie').length}}
+async function loadWorkspace(){cleanup();const u=await getDoc(doc(db,'users',user.uid));teamId=u.data()?.activeTeamId||null;if(!teamId){render();return}const [t,m]=await Promise.all([getDoc(doc(db,'teams',teamId)),getDoc(doc(db,'teams',teamId,'members',user.uid))]);if(!t.exists()||!m.exists()){teamId=null;render();return}teamData=t.data();memberRole=m.data().role;unsubs.push(onSnapshot(collection(db,'teams',teamId,'goalies'),s=>{goalies=s.docs.map(d=>({id:d.id,...d.data()}));if(!selectedGoalieId&&goalies[0])selectedGoalieId=goalies[0].id;render()}));unsubs.push(onSnapshot(collection(db,'teams',teamId,'games'),s=>{games=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(b.date?.seconds||0)-(a.date?.seconds||0));render()}));}
+function render(){if(!user)return;const hr=new Date().getHours();$('#daypart').textContent=hr<12?'Morning':hr<18?'Afternoon':'Evening';$('#firstName').textContent=(user.displayName||user.email.split('@')[0]||'Goalie Family')+'!';$('#accountEmail').textContent=user.email;$('#teamLabel').textContent=teamData?.name||'Shared goalie tracker';const canEdit=['owner','editor'].includes(memberRole);$('#addGoalie').classList.toggle('hidden',!teamId||!canEdit);$('#newGameHome').classList.toggle('hidden',!teamId||!canEdit||!goalies.length);$('#workspacePrompt').innerHTML=!teamId?`<div class="glass card"><h2>Create or join a workspace</h2><p style="color:var(--muted)">Connect separate accounts and keep every game synced.</p><button class="btn primary full" data-screen-jump="team">Open Team Sharing</button></div>`:'';const g=goalies.find(x=>x.id===selectedGoalieId)||goalies[0];if(g)selectedGoalieId=g.id;const a=g?aggregate(g.id):null;$('#overview').innerHTML=g?`<div class="section-head"><h2>Overview</h2></div><div class="overview"><div class="metric"><div class="label">Goalie</div><strong>${g.name}</strong><small>${g.number||''} ${g.team||''}</small></div><div class="metric"><div class="label">Save Percentage</div><strong>${a.sv}</strong><small>Season average</small></div><div class="metric"><div class="label">Season Record</div><strong>${a.w} - ${a.l} - ${a.t}</strong><small>Win - Loss - Tie</small></div><div class="metric"><div class="label">Shots Faced</div><strong>${a.shots}</strong><small>${a.gp} games played</small></div></div>`:'';const recent=(g?a.games:games).slice(0,4);$('#recentGames').innerHTML=recent.length?recent.map(x=>{const win=x.result==='Win',sh=(x.saves||0)+(x.goals||0);return`<div class="game-row"><div class="result ${win?'win':'loss'}">${win?'W':x.result==='Tie'?'T':'L'}</div><div><div class="game-title">vs ${x.opponent||'Opponent'}</div><div class="game-meta">${x.date?.seconds?new Date(x.date.seconds*1000).toLocaleDateString():''}</div></div><div class="score">${x.ourScore??'-'} - ${x.goals||0}<span>${pct(x.saves||0,sh)} SV%</span></div><div>›</div></div>`}).join(''):'<div class="empty">No games yet.</div>';$('#goalieList').innerHTML=goalies.length?goalies.map(x=>{const s=aggregate(x.id);return`<div class="glass card goalie" data-goalie="${x.id}"><div class="avatar"><img src="icon-192.png"></div><div><span class="badge">${x.id===selectedGoalieId?'Primary':'Goalie'}</span><h3 style="margin:4px 0">${x.name}</h3><div class="game-meta">${x.number||''} ${x.team||''}</div><div class="mini-stats"><div class="mini"><b>${s.gp}</b><span>GP</span></div><div class="mini"><b>${s.w}-${s.l}-${s.t}</b><span>W-L-T</span></div><div class="mini"><b>${s.sv}</b><span>SV%</span></div></div></div><button class="btn ${x.id===selectedGoalieId?'primary':'secondary'} select-goalie">${x.id===selectedGoalieId?'Selected':'Select'}</button></div>`}).join(''):'<div class="glass card empty">No goalies yet.</div>';$$('.select-goalie').forEach(b=>b.onclick=()=>{selectedGoalieId=b.closest('[data-goalie]').dataset.goalie;render()});$('#gameGoalie').innerHTML=goalies.map(x=>`<option value="${x.id}" ${x.id===selectedGoalieId?'selected':''}>${x.name}</option>`).join('');$('#gameCards').innerHTML=games.filter(x=>!selectedGoalieId||x.goalieId===selectedGoalieId).map(x=>{const sh=(x.saves||0)+(x.goals||0);return`<div class="glass card"><div class="row"><div><b>vs ${x.opponent||'Opponent'}</b><div class="game-meta">${x.result}</div></div><div class="score">${x.ourScore??'-'} - ${x.goals||0}<span>${pct(x.saves||0,sh)} SV%</span></div></div><div class="mini-stats"><div class="mini"><b>${sh}</b><span>Shots</span></div><div class="mini"><b>${x.saves||0}</b><span>Saves</span></div><div class="mini"><b>${x.breakaways||0}</b><span>Breakaways</span></div></div>${x.notes?`<p class="game-meta" style="margin-bottom:0">${x.notes}</p>`:''}</div>`}).join('')||'<div class="glass card empty">Completed games will appear here.</div>';renderStats(g,a);renderTeam();bindJumps()}
+function renderStats(g,a){if(!g||!a){$('#statsOverview').innerHTML='<div class="empty">Add a goalie to see statistics.</div>';$('#chart').innerHTML='';return}const gaa=a.gp?(a.ga/a.gp).toFixed(2):'—';$('#statsOverview').innerHTML=`<div class="overview"><div class="metric"><div class="label">Games Played</div><strong>${a.gp}</strong></div><div class="metric"><div class="label">Save %</div><strong>${a.sv}</strong></div><div class="metric"><div class="label">Goals Against Avg</div><strong>${gaa}</strong></div><div class="metric"><div class="label">Wins</div><strong>${a.w}</strong></div></div>`;const vals=[...a.games].reverse().map(x=>{const sh=(x.saves||0)+(x.goals||0);return sh?(x.saves/sh):0});$('#chart').innerHTML=vals.length?vals.map(v=>`<div class="bar" style="height:${Math.max(10,Math.round(v*100))}%" title="${v.toFixed(3)}"></div>`).join(''):'<div class="empty" style="width:100%">No trend data yet.</div>'}
+function renderTeam(){const p=$('#teamPanel');if(!teamId){p.innerHTML=`<div class="glass card"><h2>Create a Workspace</h2><label>Workspace name</label><input id="newTeamName" placeholder="e.g. Farmer Family Goalies"><button id="createTeam" class="btn primary full" style="margin-top:12px">Create Workspace</button></div><div class="glass card"><h2>Join with Invitation</h2><label>Invite code</label><input id="joinCode" placeholder="AB12CD34"><button id="joinTeam" class="btn secondary full" style="margin-top:12px">Join Workspace</button></div>`;$('#createTeam').onclick=createTeam;$('#joinTeam').onclick=joinTeam;return}p.innerHTML=`<div class="glass card"><h2>${teamData?.name||'Workspace'}</h2><div class="member"><div class="initial">${user.email[0].toUpperCase()}</div><div><b>${user.email}</b><div class="game-meta">You</div></div><span class="role">${memberRole}</span></div>${memberRole==='owner'?`<div class="section-head"><h2>Invite Member</h2></div><label>Email</label><input id="inviteEmail" type="email"><label>Role</label><select id="inviteRole"><option value="editor">Editor</option><option value="viewer">Viewer</option></select><button id="makeInvite" class="btn primary full" style="margin-top:12px">Create Invite Code</button><div id="inviteOut"></div>`:''}</div>`;$('#makeInvite')?.addEventListener('click',makeInvite)}
+function bindJumps(){$$('[data-screen-jump]').forEach(x=>x.onclick=()=>screen(x.dataset.screenJump))}async function createTeam(){const name=$('#newTeamName').value.trim();if(!name)return toast('Enter a name');const ref=doc(collection(db,'teams'));await setDoc(ref,{name,ownerId:user.uid,createdAt:serverTimestamp()});await setDoc(doc(db,'teams',ref.id,'members',user.uid),{email:user.email,role:'owner',joinedAt:serverTimestamp()});await setDoc(doc(db,'users',user.uid),{email:user.email,activeTeamId:ref.id},{merge:true});await loadWorkspace();toast('Workspace created')}async function makeInvite(){const email=$('#inviteEmail').value.trim().toLowerCase();if(!email)return toast('Enter their email');const code=Math.random().toString(36).slice(2,10).toUpperCase();await setDoc(doc(db,'invites',code),{teamId,email,role:$('#inviteRole').value,createdBy:user.uid,createdAt:serverTimestamp()});$('#inviteOut').innerHTML=`<div class="glass card" style="margin-top:12px"><b>Invite code: ${code}</b><p class="game-meta">They must use ${email}.</p><button id="copyInvite" class="btn secondary full">Copy Code</button></div>`;$('#copyInvite').onclick=()=>navigator.clipboard.writeText(code).then(()=>toast('Code copied'))}async function joinTeam(){const code=$('#joinCode').value.trim().toUpperCase(),snap=await getDoc(doc(db,'invites',code));if(!snap.exists())return toast('Invite not found');const d=snap.data();if(d.email!==user.email.toLowerCase())return toast('Use the invited email');await setDoc(doc(db,'teams',d.teamId,'members',user.uid),{email:user.email,role:d.role,joinedAt:serverTimestamp()});await setDoc(doc(db,'users',user.uid),{email:user.email,activeTeamId:d.teamId},{merge:true});await deleteDoc(doc(db,'invites',code));await loadWorkspace();toast('Workspace joined')}
+function updateLive(){const sh=live.saves+live.goals;$('#liveSaves').textContent=live.saves;$('#liveGoals').textContent=live.goals;$('#liveBA').textContent=live.breakaways;$('#againstScore').textContent=live.goals;const e=live.events.at(-1);$('#lastEvent').innerHTML=e?`<span class="game-meta">${new Date(e.time).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}</span> &nbsp; <b>${e.label}</b>`:'No events yet';$('#periodText').textContent=period==='OT'?'Overtime':`${period}${period==='1'?'st':period==='2'?'nd':'rd'} Period`}function addEvent(label,d){const e={label,time:new Date().toISOString(),...d};live.events.push(e);Object.entries(d).forEach(([k,v])=>live[k]=(live[k]||0)+v);vib(label.includes('Goal')?55:25);toast(label);updateLive()}
+$('#save').onclick=()=>addEvent('SAVE',{saves:1});$('#goal').onclick=()=>addEvent('GOAL AGAINST',{goals:1});$('#breakaway').onclick=()=>modal('breakModal');$('#baSave').onclick=()=>{addEvent('BREAKAWAY SAVE',{saves:1,breakaways:1,breakawaySaves:1});modal('breakModal',false)};$('#baGoal').onclick=()=>{addEvent('BREAKAWAY GOAL',{goals:1,breakaways:1});modal('breakModal',false)};$('#baNoShot').onclick=()=>{addEvent('BREAKAWAY — NO SHOT',{breakaways:1});modal('breakModal',false)};$('#undo').onclick=()=>{const e=live?.events.pop();if(!e)return toast('Nothing to undo');['saves','goals','breakaways','breakawaySaves'].forEach(k=>live[k]-=(e[k]||0));toast('Last action undone');updateLive()};
+$('#newGameHome').onclick=()=>modal('gameModal');$('#startGame').onclick=()=>{const gid=$('#gameGoalie').value,g=goalies.find(x=>x.id===gid);if(!g)return toast('Choose a goalie');selectedGoalieId=gid;live={goalieId:gid,goalieName:g.name,opponent:$('#opponent').value.trim(),ourScore:Number($('#startingScore').value||0),saves:0,goals:0,breakaways:0,breakawaySaves:0,events:[]};period='1';$('#liveOpp').textContent=live.opponent||'Opponent';$('#ourScore').textContent=live.ourScore;modal('gameModal',false);screen('live');updateLive()};$('#finish').onclick=()=>{if(!live)return;$('#finalOurScore').value=live.ourScore;modal('finishModal')};$('#saveGame').onclick=async()=>{await addDoc(collection(db,'teams',teamId,'games'),{...live,ourScore:Number($('#finalOurScore').value||0),result:$('#result').value,notes:$('#notes').value.trim(),date:serverTimestamp(),createdBy:user.uid});live=null;modal('finishModal',false);screen('games');toast('Game saved')};$('#leaveLive').onclick=()=>{if(confirm('Leave this unsaved game?')){live=null;screen('home')}};
+$('#addGoalie').onclick=()=>modal('goalieModal');$('#saveGoalie').onclick=async()=>{const n=$('#gName').value.trim();if(!n)return toast('Enter a goalie name');await addDoc(collection(db,'teams',teamId,'goalies'),{name:n,number:$('#gNumber').value.trim(),team:$('#gTeam').value.trim(),createdAt:serverTimestamp()});modal('goalieModal',false);toast('Goalie added')};$$('.close').forEach(b=>b.onclick=()=>b.closest('.modal').classList.remove('open'));$$('.modal').forEach(m=>m.onclick=e=>{if(e.target===m)m.classList.remove('open')});$$('#nav [data-screen]').forEach(b=>b.onclick=()=>screen(b.dataset.screen));bindJumps();
+$('#loginTab').onclick=()=>{mode='login';$('#authBtn').textContent='Sign In';$('#loginTab').className='btn primary';$('#registerTab').className='btn secondary'};$('#registerTab').onclick=()=>{mode='register';$('#authBtn').textContent='Create Account';$('#registerTab').className='btn primary';$('#loginTab').className='btn secondary'};$('#authBtn').onclick=async()=>{if(!ready)return $('#authMsg').textContent='Add Firebase settings to firebase-config.js first.';try{mode==='login'?await signInWithEmailAndPassword(auth,$('#email').value,$('#password').value):await createUserWithEmailAndPassword(auth,$('#email').value,$('#password').value)}catch(e){$('#authMsg').textContent=e.message}};$('#resetBtn').onclick=async()=>{try{await sendPasswordResetEmail(auth,$('#email').value);toast('Reset email sent')}catch(e){$('#authMsg').textContent=e.message}};$('#signOut').onclick=()=>signOut(auth);$('#shareApp').onclick=()=>navigator.share?navigator.share({title:'The Crease',text:'Join me on The Crease goalie tracker.',url:location.href}):navigator.clipboard.writeText(location.href).then(()=>toast('App link copied'));
+if(ready){const app=initializeApp(firebaseConfig);auth=getAuth(app);db=getFirestore(app);enableMultiTabIndexedDbPersistence(db).catch(()=>{});onAuthStateChanged(auth,async u=>{user=u;$('#auth').classList.toggle('hidden',!!u);$('#app').classList.toggle('hidden',!u);$('#nav').classList.toggle('hidden',!u);if(u){await setDoc(doc(db,'users',u.uid),{email:u.email},{merge:true});await loadWorkspace()}else cleanup()})}else $('#authMsg').textContent='Add Firebase settings to firebase-config.js first.';if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js');
+</script></body></html>

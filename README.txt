@@ -1,9 +1,16 @@
-THE CREASE – GOALIE TRACKER v1.2
+THE CREASE 4.0 PREMIUM
 
-Upload every file in this folder to the root of your GitHub repository and replace the older files.
+This version rebuilds the app around the selected goalie-mask branding and the premium mockup design.
 
-Settings can be opened in two places:
-- Gear button at the top-right of the Home screen
-- Settings tab at the bottom-right
+Upload every file in this folder to the root of the existing GitHub repository.
+Keep your Firebase values in firebase-config.js and deploy firestore.rules in Firebase.
 
-If the old version appears after Vercel updates, close the installed app completely and reopen it. In a browser, refresh once.
+Main additions:
+- Premium rink background and frosted cards
+- New goalie-mask app icon
+- Personalized dashboard
+- Recent games
+- Goalies roster
+- Statistics and save-percentage trend
+- Shared team workspace and invitations
+- Live game tracker

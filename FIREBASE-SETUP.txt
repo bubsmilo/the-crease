@@ -1,0 +1,24 @@
+THE CREASE 3.0 — FIREBASE SETUP
+
+1. Create a Firebase project at the Firebase Console.
+2. Add a Web App to the project.
+3. Copy the Firebase configuration into firebase-config.js.
+4. Authentication > Sign-in method: enable Email/Password.
+5. Firestore Database: create the database in Production mode.
+6. Firestore Database > Rules: replace the rules with firestore.rules, then Publish.
+7. Authentication > Settings > Authorized domains: add your Vercel domain if it is not already listed.
+8. Upload every file in this folder to the root of your GitHub repository.
+9. After Vercel deploys, create your own account and create a workspace.
+10. In Team Sharing, enter your husband's email and create an Editor invitation.
+11. He creates his own account using that exact email and enters the invite code.
+
+SECURITY
+- Each person uses a separate Firebase Authentication account.
+- Firestore rules restrict goalie and game data to workspace members.
+- Editors can update goalie/game data; viewers can only read it.
+- Only the owner can issue invitations or change membership.
+
+RECOMMENDED BEFORE PUBLIC RELEASE
+- Enable Firebase App Check with reCAPTCHA Enterprise.
+- Configure a Firebase Authentication password policy.
+- Test the Firestore rules with the Firebase Rules Playground or Emulator Suite.

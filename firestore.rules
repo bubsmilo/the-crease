@@ -1,0 +1,30 @@
+rules_version = '2';
+service cloud.firestore {
+ match /databases/{database}/documents {
+  function signedIn(){ return request.auth != null; }
+  function member(teamId){ return signedIn() && exists(/databases/$(database)/documents/teams/$(teamId)/members/$(request.auth.uid)); }
+  function role(teamId){ return get(/databases/$(database)/documents/teams/$(teamId)/members/$(request.auth.uid)).data.role; }
+  function editor(teamId){ return member(teamId) && role(teamId) in ['owner','editor']; }
+  match /users/{uid} { allow read,write: if signedIn() && request.auth.uid==uid; }
+  match /teams/{teamId} {
+   allow create: if signedIn() && request.resource.data.ownerId==request.auth.uid;
+   allow read: if member(teamId);
+   allow update,delete: if member(teamId) && role(teamId)=='owner';
+   match /members/{uid} {
+    allow read: if member(teamId);
+    allow create: if signedIn() && (
+      (uid==request.auth.uid && request.resource.data.role=='owner' && get(/databases/$(database)/documents/teams/$(teamId)).data.ownerId==request.auth.uid) ||
+      (uid==request.auth.uid && exists(/databases/$(database)/documents/invites/$(request.resource.data.inviteCode)) && get(/databases/$(database)/documents/invites/$(request.resource.data.inviteCode)).data.teamId==teamId && get(/databases/$(database)/documents/invites/$(request.resource.data.inviteCode)).data.email==request.auth.token.email)
+    );
+    allow update,delete: if member(teamId) && role(teamId)=='owner';
+   }
+   match /goalies/{docId} { allow read: if member(teamId); allow write: if editor(teamId); }
+   match /games/{docId} { allow read: if member(teamId); allow write: if editor(teamId); }
+  }
+  match /invites/{code} {
+   allow create: if signedIn() && request.resource.data.createdBy==request.auth.uid && role(request.resource.data.teamId)=='owner';
+   allow read: if signedIn() && (resource.data.email==request.auth.token.email || role(resource.data.teamId)=='owner');
+   allow delete: if signedIn() && (resource.data.email==request.auth.token.email || role(resource.data.teamId)=='owner');
+  }
+ }
+}
