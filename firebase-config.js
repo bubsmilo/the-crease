@@ -1,5 +1,3 @@
-// Paste the Firebase web app configuration here.
-// Firebase Console > Project settings > Your apps > Web app > SDK setup and configuration
 export const firebaseConfig = {
   apiKey: "AIzaSyCLHKJWdlnMJwnzDkClojOA7Ydy-jgY0QQ",
   authDomain: "the-crease-26cd1.firebaseapp.com",

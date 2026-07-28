@@ -1,16 +1,7 @@
-THE CREASE 4.0 PREMIUM
+THE CREASE 5.0 PREMIUM
 
-This version rebuilds the app around the selected goalie-mask branding and the premium mockup design.
+Upload all files in this folder to the root of the existing GitHub repository.
+The Firebase configuration for project the-crease-26cd1 is already included.
 
-Upload every file in this folder to the root of the existing GitHub repository.
-Keep your Firebase values in firebase-config.js and deploy firestore.rules in Firebase.
-
-Main additions:
-- Premium rink background and frosted cards
-- New goalie-mask app icon
-- Personalized dashboard
-- Recent games
-- Goalies roster
-- Statistics and save-percentage trend
-- Shared team workspace and invitations
-- Live game tracker
+IMPORTANT: Publish firestore.rules in Firebase Console > Firestore Database > Rules.
+This version keeps existing accounts and data and adds enhanced game setup, arena/date/type fields, polished animations, clearer login errors, and improved cloud workspace presentation.

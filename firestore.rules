@@ -14,7 +14,7 @@ service cloud.firestore {
     allow read: if member(teamId);
     allow create: if signedIn() && (
       (uid==request.auth.uid && request.resource.data.role=='owner' && get(/databases/$(database)/documents/teams/$(teamId)).data.ownerId==request.auth.uid) ||
-      (uid==request.auth.uid && exists(/databases/$(database)/documents/invites/$(request.resource.data.inviteCode)) && get(/databases/$(database)/documents/invites/$(request.resource.data.inviteCode)).data.teamId==teamId && get(/databases/$(database)/documents/invites/$(request.resource.data.inviteCode)).data.email==request.auth.token.email)
+      (uid==request.auth.uid && request.resource.data.email==request.auth.token.email && request.resource.data.role in ['editor','viewer'])
     );
     allow update,delete: if member(teamId) && role(teamId)=='owner';
    }
