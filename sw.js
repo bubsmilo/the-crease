@@ -1,4 +1,4 @@
-const CACHE='crease-v701';
+const CACHE='crease-v71';
 const ASSETS=['./','./index.html','./icon-192.png','./icon-512.png','./favicon.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).catch(()=>{}));self.skipWaiting();});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))));self.clients.claim();});
