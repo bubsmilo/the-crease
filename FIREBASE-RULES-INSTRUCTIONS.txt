@@ -1,0 +1,14 @@
+THE CREASE — REQUIRED FIRESTORE RULES UPDATE
+
+The app files alone cannot change Firebase security rules.
+To fix “Missing or insufficient permissions” when joining a team:
+
+1. Open Firebase Console for project: the-crease-26cd1
+2. Open Firestore Database
+3. Select the Rules tab
+4. Replace the existing rules with the contents of firestore.rules included in this ZIP
+5. Click Publish
+6. Upload/deploy the updated app files
+7. Create a NEW invitation code and test it with the second account
+
+Important: Old invitation documents may not match the updated format. Create a fresh code after publishing.
