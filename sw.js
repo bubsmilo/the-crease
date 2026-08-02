@@ -1,4 +1,4 @@
-const CACHE="crease-v806-opponent-emojis";
+const CACHE="crease-v807-opponent-emojis";
 const ASSETS=[
   "./",
   "./index.html",
