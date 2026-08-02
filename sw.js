@@ -1,4 +1,4 @@
-const CACHE="crease-v802-icon-refresh";
+const CACHE="crease-v803-team-rename-icon-refresh";
 const ASSETS=[
   "./",
   "./index.html",
