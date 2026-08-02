@@ -1,0 +1,4 @@
+THE CREASE v8.0.2 — CLEAN RECOVERY
+
+Upload only the contents of this folder to the root of the The Crease GitHub repository.
+The root index.html is verified as HTML. Do not rename an image to index.html.
