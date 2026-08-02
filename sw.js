@@ -1,4 +1,4 @@
-const CACHE="crease-v805-name-management";
+const CACHE="crease-v806-opponent-emojis";
 const ASSETS=[
   "./",
   "./index.html",
