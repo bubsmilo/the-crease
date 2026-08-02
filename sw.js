@@ -1,4 +1,4 @@
-const CACHE="crease-v810-live-goal-events";
+const CACHE="crease-v811-summary-actions";
 const ASSETS=[
   "./",
   "./index.html",
