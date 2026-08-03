@@ -1,4 +1,4 @@
-const CACHE="crease-v820-dashboard-style";
+const CACHE="crease-v821-dashboard-polish";
 const ASSETS=[
   "./",
   "./index.html",
