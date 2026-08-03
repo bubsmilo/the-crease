@@ -1,4 +1,4 @@
-const CACHE="crease-v823-custom-overview-icons";
+const CACHE="crease-v824-mockup-image-assets";
 const ASSETS=[
   "./",
   "./index.html",
@@ -9,14 +9,14 @@ const ASSETS=[
   "./favicon-v802.png",
   "./dashboard-hero-v819.png",
   "./goalie-focused-v816.png",
-  "./overview-player-v823.svg",
-  "./overview-save-v823.svg",
-  "./overview-record-v823.svg",
-  "./overview-shots-v823.svg",
-  "./quick-new-v823.svg",
-  "./quick-live-v823.svg",
-  "./quick-stats-v823.svg",
-  "./quick-achievements-v823.svg",
+  "./overview-player-v824.png",
+  "./overview-save-v824.png",
+  "./overview-record-v824.png",
+  "./overview-shots-v824.png",
+  "./quick-new-v824.png",
+  "./quick-live-v824.png",
+  "./quick-stats-v824.png",
+  "./quick-achievements-v824.png",
   "./motivation-v823.svg"
 ];
 
@@ -34,7 +34,7 @@ self.addEventListener("activate", event => {
 
 self.addEventListener("fetch", event => {
   const url = new URL(event.request.url);
-  const freshAsset = /manifest-v724|icon-(192|512|1024)-v724|brand-logo-v724|favicon-v724|goalie-focused-v816|dashboard-hero-v819|overview-(player|save|record|shots)-v823\.svg|quick-(new|live|stats|achievements)-v823\.svg|motivation-v823\.svg/.test(url.pathname);
+  const freshAsset = /manifest-v724|icon-(192|512|1024)-v724|brand-logo-v724|favicon-v724|goalie-focused-v816|dashboard-hero-v819|overview-(player|save|record|shots)-v824\.png|quick-(new|live|stats|achievements)-v824\.png|motivation-v823\.svg/.test(url.pathname);
 
   if (freshAsset) {
     event.respondWith(fetch(event.request, {cache: "reload"}));
