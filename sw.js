@@ -1,4 +1,4 @@
-const CACHE="crease-v816-goalie-banner-fix";
+const CACHE="crease-v817-dashboard-hero";
 const ASSETS=[
   "./",
   "./index.html",
@@ -7,7 +7,7 @@ const ASSETS=[
   "./icon-1024-v802.png",
   "./brand-logo-v802.png",
   "./favicon-v802.png",
-  "./dashboard-hero-v813.jpg",
+  "./dashboard-hero-v817.png",
   "./goalie-focused-v816.png"
 ];
 
@@ -25,7 +25,7 @@ self.addEventListener("activate", event => {
 
 self.addEventListener("fetch", event => {
   const url = new URL(event.request.url);
-  const freshAsset = /manifest-v724|icon-(192|512|1024)-v724|brand-logo-v724|favicon-v724|goalie-focused-v816/.test(url.pathname);
+  const freshAsset = /manifest-v724|icon-(192|512|1024)-v724|brand-logo-v724|favicon-v724|goalie-focused-v816|dashboard-hero-v817/.test(url.pathname);
 
   if (freshAsset) {
     event.respondWith(fetch(event.request, {cache: "reload"}));
