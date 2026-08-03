@@ -1,4 +1,4 @@
-const CACHE="crease-v819-seamless-hero";
+const CACHE="crease-v820-dashboard-style";
 const ASSETS=[
   "./",
   "./index.html",
