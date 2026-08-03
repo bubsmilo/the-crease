@@ -1,4 +1,4 @@
-const CACHE="crease-v821-dashboard-polish";
+const CACHE="crease-v822-custom-overview-icons";
 const ASSETS=[
   "./",
   "./index.html",
@@ -8,7 +8,11 @@ const ASSETS=[
   "./brand-logo-v802.png",
   "./favicon-v802.png",
   "./dashboard-hero-v819.png",
-  "./goalie-focused-v816.png"
+  "./goalie-focused-v816.png",
+  "./overview-player-v822.svg",
+  "./overview-save-v822.svg",
+  "./overview-record-v822.svg",
+  "./overview-shots-v822.svg"
 ];
 
 self.addEventListener("install", event => {
@@ -25,7 +29,7 @@ self.addEventListener("activate", event => {
 
 self.addEventListener("fetch", event => {
   const url = new URL(event.request.url);
-  const freshAsset = /manifest-v724|icon-(192|512|1024)-v724|brand-logo-v724|favicon-v724|goalie-focused-v816|dashboard-hero-v819/.test(url.pathname);
+  const freshAsset = /manifest-v724|icon-(192|512|1024)-v724|brand-logo-v724|favicon-v724|goalie-focused-v816|dashboard-hero-v819|overview-(player|save|record|shots)-v822\.svg/.test(url.pathname);
 
   if (freshAsset) {
     event.respondWith(fetch(event.request, {cache: "reload"}));
