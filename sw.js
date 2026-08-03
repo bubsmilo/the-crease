@@ -1,4 +1,4 @@
-const CACHE="crease-v814-goalie-banner";
+const CACHE="crease-v815-goalie-banner";
 const ASSETS=[
   "./",
   "./index.html",
@@ -8,7 +8,7 @@ const ASSETS=[
   "./brand-logo-v802.png",
   "./favicon-v802.png",
   "./dashboard-hero-v813.jpg",
-  "./goalie-focused-v814.png"
+  "./goalie-focused-v815.png"
 ];
 
 self.addEventListener("install", event => {
