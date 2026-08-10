@@ -1,4 +1,4 @@
-const CACHE="crease-v829-local-first-dashboard";
+const CACHE="crease-v830";
 const ASSETS=[
   "./",
   "./index.html",
