@@ -1,4 +1,4 @@
-const CACHE="crease-v826-compact-transparent-actions";
+const CACHE="crease-v827-coordinated-loading";
 const ASSETS=[
   "./",
   "./index.html",
