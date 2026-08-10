@@ -1,4 +1,4 @@
-const CACHE="crease-v828-safe-coordinated-loading";
+const CACHE="crease-v829-local-first-dashboard";
 const ASSETS=[
   "./",
   "./index.html",
