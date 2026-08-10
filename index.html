@@ -185,7 +185,7 @@
 .sk-profile{height:78px;margin-bottom:12px}.sk-sync{height:62px;margin-bottom:18px}.sk-overview{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:22px}.sk-overview .sk{height:98px}.sk-title{height:16px;width:118px;border-radius:7px;margin:0 0 12px}.sk-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:24px}.sk-actions .sk{height:124px}.sk-recent{height:166px;margin-bottom:18px}
 @media(max-width:540px){.sk-profile{height:70px}.sk-sync{height:58px}.sk-overview .sk{height:88px}.sk-actions .sk{height:116px}}
 
-/* v8.3.1 Recent Games mobile flow */
+/* v8.3.4 Recent Games mobile flow */
 .dashboard-recent .recent-game-row{
   display:grid;
   grid-template-columns:38px minmax(0,1fr) 64px 28px;
@@ -239,7 +239,7 @@
  .dashboard-recent .recent-summary-btn{grid-column:4;grid-row:1;width:22px;min-width:22px;margin:0}
 }
 
-/* v8.3.1 — Recent Games mobile spacing + type refinement */
+/* v8.3.4 — Recent Games mobile spacing + type refinement */
 @media (max-width: 640px){
   #recentList .recent-game-row{
     grid-template-columns: 30px minmax(0, 1fr) 76px 18px !important;
@@ -291,6 +291,176 @@
 
   #recentList .recent-game-arrow{
     font-size: 22px !important;
+  }
+}
+
+
+/* v8.3.4 — larger, more centered Recent Games matchup */
+@media (max-width: 640px){
+  #recentList .recent-game-row{
+    grid-template-columns: 28px minmax(0, 1fr) 72px 16px !important;
+    column-gap: 7px !important;
+    padding: 14px 9px 14px 10px !important;
+  }
+
+  #recentList .recent-game-matchup{
+    padding-left: 18px !important;
+    transform: translateX(4px);
+  }
+
+  #recentList .recent-game-teams{
+    font-size: 17px !important;
+    line-height: 1.2 !important;
+    gap: 6px !important;
+  }
+
+  #recentList .recent-game-teams .team-emoji{
+    font-size: 23px !important;
+  }
+
+  #recentList .recent-game-teams .vs{
+    font-size: 12px !important;
+    letter-spacing: .5px !important;
+  }
+
+  #recentList .recent-game-opponent{
+    font-size: 17px !important;
+  }
+
+  #recentList .recent-game-date{
+    font-size: 13px !important;
+    margin-top: 5px !important;
+  }
+
+  #recentList .recent-game-result{
+    font-size: 16px !important;
+  }
+
+  #recentList .recent-game-score{
+    font-size: 19px !important;
+    line-height: 1.05 !important;
+  }
+
+  #recentList .recent-game-save{
+    font-size: 13px !important;
+    margin-top: 3px !important;
+  }
+
+  #recentList .recent-game-arrow{
+    font-size: 23px !important;
+  }
+}
+
+
+/* v8.3.4 — physically move Recent Games matchup start to the right */
+@media (max-width: 640px){
+  #recentList .recent-game-row{
+    grid-template-columns: 27px minmax(0, 1fr) 67px 15px !important;
+    column-gap: 5px !important;
+  }
+
+  #recentList .recent-game-matchup{
+    padding-left: 0 !important;
+    transform: none !important;
+    margin-left: 28px !important;
+    min-width: 0 !important;
+  }
+}
+
+
+/* v8.3.4 — match Recent Games spacing to approved reference */
+@media (max-width: 640px){
+  .dashboard-recent .recent-game-row{
+    grid-template-columns: 42px minmax(0,1fr) 66px 22px !important;
+    gap: 6px !important;
+    padding: 15px 10px !important;
+    min-height: 86px !important;
+  }
+
+  /* This is the actual matchup container used by the app. */
+  .dashboard-recent .recent-opponent{
+    padding-left: 24px !important;
+    margin: 0 !important;
+    min-width: 0 !important;
+  }
+
+  .dashboard-recent .recent-teamline{
+    gap: 7px !important;
+    font-size: .98rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .dashboard-recent .team-emoji{
+    font-size: 1.42rem !important;
+  }
+
+  .dashboard-recent .recent-vs{
+    font-size: .68rem !important;
+    letter-spacing: .08em !important;
+  }
+
+  .dashboard-recent .recent-opponent-name{
+    font-size: .98rem !important;
+  }
+
+  .dashboard-recent .recent-opponent .game-meta{
+    font-size: .76rem !important;
+    margin-top: 7px !important;
+    padding-left: 0 !important;
+  }
+
+  .dashboard-recent .recent-game-row>.result{
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 1.05rem !important;
+  }
+
+  .dashboard-recent .recent-score{
+    font-size: 1.12rem !important;
+  }
+
+  .dashboard-recent .recent-save{
+    font-size: .82rem !important;
+    margin-top: 6px !important;
+  }
+
+  .dashboard-recent .recent-save small{
+    font-size: .56rem !important;
+  }
+
+  .dashboard-recent .recent-summary-btn{
+    width: 22px !important;
+    min-width: 22px !important;
+    font-size: 1.72rem !important;
+  }
+}
+
+@media (max-width: 390px){
+  .dashboard-recent .recent-game-row{
+    grid-template-columns: 40px minmax(0,1fr) 62px 20px !important;
+    gap: 5px !important;
+    padding: 14px 9px !important;
+  }
+
+  .dashboard-recent .recent-opponent{
+    padding-left: 22px !important;
+  }
+
+  .dashboard-recent .recent-teamline{
+    font-size: .92rem !important;
+    gap: 6px !important;
+  }
+
+  .dashboard-recent .team-emoji{
+    font-size: 1.34rem !important;
+  }
+
+  .dashboard-recent .recent-opponent-name{
+    font-size: .92rem !important;
+  }
+
+  .dashboard-recent .recent-opponent .game-meta{
+    font-size: .72rem !important;
   }
 }
 
