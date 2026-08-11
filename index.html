@@ -185,7 +185,7 @@
 .sk-profile{height:78px;margin-bottom:12px}.sk-sync{height:62px;margin-bottom:18px}.sk-overview{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:22px}.sk-overview .sk{height:98px}.sk-title{height:16px;width:118px;border-radius:7px;margin:0 0 12px}.sk-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:24px}.sk-actions .sk{height:124px}.sk-recent{height:166px;margin-bottom:18px}
 @media(max-width:540px){.sk-profile{height:70px}.sk-sync{height:58px}.sk-overview .sk{height:88px}.sk-actions .sk{height:116px}}
 
-/* v8.4.2 Recent Games mobile flow */
+/* v8.4.3 Recent Games mobile flow */
 .dashboard-recent .recent-game-row{
   display:grid;
   grid-template-columns:38px minmax(0,1fr) 64px 28px;
@@ -239,7 +239,7 @@
  .dashboard-recent .recent-summary-btn{grid-column:4;grid-row:1;width:22px;min-width:22px;margin:0}
 }
 
-/* v8.4.2 — Recent Games mobile spacing + type refinement */
+/* v8.4.3 — Recent Games mobile spacing + type refinement */
 @media (max-width: 640px){
   #recentList .recent-game-row{
     grid-template-columns: 30px minmax(0, 1fr) 76px 18px !important;
@@ -295,7 +295,7 @@
 }
 
 
-/* v8.4.2 — larger, more centered Recent Games matchup */
+/* v8.4.3 — larger, more centered Recent Games matchup */
 @media (max-width: 640px){
   #recentList .recent-game-row{
     grid-template-columns: 28px minmax(0, 1fr) 72px 16px !important;
@@ -352,7 +352,7 @@
 }
 
 
-/* v8.4.2 — physically move Recent Games matchup start to the right */
+/* v8.4.3 — physically move Recent Games matchup start to the right */
 @media (max-width: 640px){
   #recentList .recent-game-row{
     grid-template-columns: 27px minmax(0, 1fr) 67px 15px !important;
@@ -368,7 +368,7 @@
 }
 
 
-/* v8.4.2 — match Recent Games spacing to approved reference */
+/* v8.4.3 — match Recent Games spacing to approved reference */
 @media (max-width: 640px){
   .dashboard-recent .recent-game-row{
     grid-template-columns: 42px minmax(0,1fr) 66px 22px !important;
@@ -465,7 +465,7 @@
 }
 
 
-/* v8.4.2 — keep placement, slightly reduce Recent Games matchup text */
+/* v8.4.3 — keep placement, slightly reduce Recent Games matchup text */
 @media (max-width: 640px){
   .dashboard-recent .recent-teamline{
     font-size: .90rem !important;
@@ -507,7 +507,7 @@
 }
 
 
-/* v8.4.2 — use dashboard hero artwork on the authentication screen */
+/* v8.4.3 — use dashboard hero artwork on the authentication screen */
 .auth{
   padding:0 20px 24px !important;
   align-items:start !important;
@@ -561,7 +561,7 @@
 }
 
 
-/* v8.4.2 — clean auth restore startup */
+/* v8.4.3 — clean auth restore startup */
 .startup-cover{
   position:fixed;
   inset:0;
@@ -630,7 +630,7 @@
     </div>
     <div class="dashboard-section-head"><h2>RECENT GAMES</h2><button class="text-link" data-screen-jump="games">View All</button></div>
     <div id="recentGames" class="dashboard-recent"></div>
-    <img id="dashboardMotivationBanner" class="goalie-focused-banner motivation-banner" src="goalie-focused-v816.png?v=842" alt="Goalies Make The Difference. Stay focused. Stay confident. Own the crease.">
+    <img id="dashboardMotivationBanner" class="goalie-focused-banner motivation-banner" src="goalie-focused-v816.png?v=843" alt="Goalies Make The Difference. Stay focused. Stay confident. Own the crease.">
     </div>
   </div>
 </section>
@@ -762,21 +762,21 @@ onAuthStateChanged(auth,async u=>{
   $('#auth').classList.remove('hidden');
   $('#authMsg').textContent='Add Firebase settings to firebase-config.js first.';
 }
-if('caches'in window){caches.keys().then(keys=>Promise.all(keys.filter(k=>!k.includes('crease-v842')).map(k=>caches.delete(k))))}if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js?v=8.4.2').then(r=>r.update());
+if('caches'in window){caches.keys().then(keys=>Promise.all(keys.filter(k=>!k.includes('crease-v843')).map(k=>caches.delete(k))))}if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js?v=8.4.3').then(r=>r.update());
 </script>
 <script>
-/* v8.4.2 — dashboard motivational banner rotation */
+/* v8.4.3 — dashboard motivational banner rotation */
 (function(){
   const banners=[
-    'goalie-focused-v816.png?v=842',
-    'motivation-own-the-crease.jpg?v=842',
-    'motivation-next-shot.jpg?v=842',
-    'motivation-stay-locked-in.jpg?v=842',
-    'motivation-goalies-difference.jpg?v=842',
-    'motivation-reset-refocus.jpg?v=842',
-    'motivation-protect-your-house.jpg?v=842',
-    'motivation-be-the-calm.jpg?v=842',
-    'motivation-make-them-earn-it.jpg?v=842'
+    'goalie-focused-v816.png?v=843',
+    'motivation-own-the-crease.jpg?v=843',
+    'motivation-next-shot.jpg?v=843',
+    'motivation-stay-locked-in.jpg?v=843',
+    'motivation-goalies-difference.jpg?v=843',
+    'motivation-reset-refocus.jpg?v=843',
+    'motivation-protect-your-house.jpg?v=843',
+    'motivation-be-the-calm.jpg?v=843',
+    'motivation-make-them-earn-it.jpg?v=843'
   ];
   function setDashboardMotivation(){
     const img=document.getElementById('dashboardMotivationBanner');
