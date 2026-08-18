@@ -3,7 +3,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#031321"><meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="manifest" href="manifest-v802.webmanifest?v=823"><link rel="icon" href="favicon-v802.png?v=823"><link rel="apple-touch-icon" href="icon-192-v802.png?v=825">
-<title>The Crease v8.6.15</title>
+<title>The Crease v8.6.16</title>
 <style>
 :root{--bg:#020b14;--panel:rgba(5,22,36,.88);--panel2:rgba(11,39,60,.78);--line:rgba(141,207,255,.16);--text:#f7fbff;--muted:#9fb2c2;--blue:#1597ff;--blue2:#50b9ff;--green:#42df8f;--red:#ff5865;--gold:#ffc94a;--shadow:0 18px 48px rgba(0,0,0,.36)}
 *{box-sizing:border-box}html{background:var(--bg)}body{margin:0;min-height:100vh;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:#031321 url('rink-bg.svg') center/cover fixed;letter-spacing:.01em}body:before{content:"";position:fixed;inset:0;background:linear-gradient(180deg,rgba(0,8,16,.25),rgba(0,8,16,.76));pointer-events:none}button,input,select,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}.app{position:relative;max-width:760px;margin:auto;padding:20px 16px 104px}.glass{background:linear-gradient(145deg,rgba(8,29,47,.92),rgba(4,18,31,.87));border:1px solid var(--line);box-shadow:var(--shadow),inset 0 1px rgba(255,255,255,.03);backdrop-filter:blur(18px);border-radius:22px}.card{padding:17px;margin-bottom:14px}.topbar{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px}.eyebrow{text-transform:uppercase;font-size:.68rem;font-weight:900;letter-spacing:.12em;color:#d5e5f0}.greeting h1{font-size:1.55rem;margin:2px 0}.greeting h1 span{color:var(--blue2)}.team-name{color:#d9e8f3;font-size:.88rem}.iconbtn,.btn{border:0;font-weight:850;border-radius:13px;padding:12px 15px}.iconbtn{width:44px;height:44px;padding:0;background:var(--panel2);color:white;border:1px solid var(--line)}.primary{background:linear-gradient(180deg,#219cff,#0875dc);color:#fff;box-shadow:0 8px 24px rgba(15,134,239,.25)}.secondary{background:var(--panel2);color:white;border:1px solid var(--line)}.danger{background:linear-gradient(180deg,#ff6570,#d83a48);color:white}.full{width:100%}.section-head{display:flex;justify-content:space-between;align-items:center;margin:20px 2px 10px}.section-head h2{font-size:.76rem;text-transform:uppercase;letter-spacing:.09em;margin:0}.link{color:var(--blue2);font-size:.82rem}.overview{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.metric{padding:14px;background:rgba(17,49,73,.65);border:1px solid var(--line);border-radius:15px;min-height:90px}.metric .label{font-size:.73rem;color:#d6e3ec}.metric strong{display:block;font-size:1.55rem;margin-top:10px}.metric small{color:var(--muted)}.game-row{display:grid;grid-template-columns:30px 1fr auto 18px;gap:9px;align-items:center;padding:11px 6px;border-bottom:1px solid rgba(255,255,255,.08)}.game-row:last-child{border-bottom:0}.result{font-weight:950}.win{color:var(--green)}.loss{color:var(--red)}.game-title{font-size:.84rem}.game-meta{font-size:.7rem;color:var(--muted)}.score{text-align:right;font-weight:900}.score span{display:block;color:var(--muted);font-size:.7rem}.hero-goalie{display:grid;grid-template-columns:62px 1fr auto;align-items:center;gap:12px}.avatar{width:62px;height:62px;border-radius:50%;overflow:hidden;border:2px solid var(--blue);background:#051523}.avatar img{width:100%;height:100%;object-fit:cover}.badge{display:inline-flex;padding:4px 8px;border-radius:999px;background:rgba(21,151,255,.14);color:var(--blue2);font-size:.7rem;font-weight:850}.hero-goalie h2{margin:4px 0 2px}.mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}.mini{padding:11px;text-align:center;border-radius:13px;background:rgba(11,39,60,.7);border:1px solid var(--line)}.mini b{display:block;font-size:1.04rem}.mini span{font-size:.67rem;color:var(--muted)}.goalie-list .goalie{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center}.goalie+.goalie{margin-top:10px}.goalie .avatar{width:52px;height:52px}.tabs{display:flex;background:rgba(0,10,18,.48);padding:4px;border-radius:12px;margin-bottom:12px}.tabs button{flex:1;border:0;background:none;color:var(--muted);padding:9px 7px;font-size:.72rem;border-radius:9px}.tabs button.active{background:var(--blue);color:white}.chart{height:170px;display:flex;align-items:flex-end;gap:6px;padding:18px 8px 6px;border-top:1px solid var(--line);background:linear-gradient(180deg,rgba(21,151,255,.03),rgba(21,151,255,.12));border-radius:14px}.bar{flex:1;min-width:8px;background:linear-gradient(180deg,var(--blue2),#1479d7);border-radius:6px 6px 2px 2px;opacity:.9}.screen{display:none}.screen.active{display:block;animation:screenIn .28s ease both}@keyframes screenIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}.nav{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(1,12,21,.95);border-top:1px solid var(--line);backdrop-filter:blur(20px)}.navin{max-width:760px;margin:auto;display:grid;grid-template-columns:repeat(5,1fr);padding:7px 8px calc(7px + env(safe-area-inset-bottom))}.nav button{border:0;background:none;color:#879aaa;padding:6px 2px;font-size:1rem}.nav button span{display:block;font-size:.61rem;margin-top:2px}.nav button.active{color:var(--blue2)}.auth{position:relative;min-height:100vh;display:grid;place-items:center;padding:20px}.authbox{width:min(100%,430px);padding:25px}.authlogo{width:98px;height:98px;border-radius:25px;display:block;margin:0 auto 12px}.auth h1{text-align:center;margin:0}.auth p{text-align:center;color:var(--muted)}label{display:block;margin:12px 0 6px;font-size:.78rem;color:#c4d2dc}input,select,textarea{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:12px;color:white;background:rgba(0,10,18,.74)}textarea{min-height:88px}.auth-tabs{display:flex;gap:8px;margin:18px 0 4px}.auth-tabs>*{flex:1}.live-start-grid{display:grid;gap:14px}.live-start-card{width:100%;border:1px solid var(--line);border-radius:22px;padding:20px;text-align:left;color:white;background:linear-gradient(145deg,rgba(8,31,51,.97),rgba(3,16,28,.97));box-shadow:var(--shadow)}.live-start-card .start-icon{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:1.55rem;background:rgba(21,151,255,.14);border:1px solid rgba(80,185,255,.22);margin-bottom:14px}.live-start-card h2{margin:0 0 6px;font-size:1.05rem}.live-start-card p{margin:0;color:var(--muted);font-size:.8rem;line-height:1.45}.live-start-card.primary-card{background:linear-gradient(145deg,rgba(13,91,151,.96),rgba(4,31,53,.98));border-color:rgba(80,185,255,.38)}.live-start-card.resume-card{display:none}.live-start-card.resume-card.show{display:block}.live-start-arrow{float:right;color:var(--blue2);font-size:1.2rem}.live-start-head{margin-bottom:18px}.live-start-head h1{margin:4px 0 5px}.live-start-head p{margin:0;color:var(--muted);font-size:.85rem}.live-top{text-align:center;padding:12px 0}.matchup{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;padding:15px;margin-bottom:12px}.team-mark{font-size:2rem}.emoji-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:8px}.emoji-choice{border:1px solid var(--line);border-radius:12px;background:rgba(0,10,18,.6);font-size:1.55rem;padding:9px 4px;color:white}.emoji-choice.selected{background:rgba(21,151,255,.24);border-color:var(--blue2);box-shadow:0 0 0 2px rgba(21,151,255,.12)}.period-picker{display:flex;gap:6px;justify-content:center;margin-top:8px}.period-btn{min-width:43px;border:1px solid var(--line);border-radius:999px;padding:7px 10px;background:rgba(0,10,18,.62);color:var(--muted);font-weight:900}.period-btn.active{background:var(--blue);color:white;border-color:var(--blue2)}.matchup b{display:block;font-size:1.65rem}.matchup .vs{font-size:.78rem;color:var(--muted);text-align:center}.live-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.track{min-height:126px;transition:transform .12s ease,filter .12s ease;border:1px solid var(--line);border-radius:18px;color:white;background:linear-gradient(145deg,rgba(8,31,51,.98),rgba(3,16,28,.98));font-weight:900}.track:active{transform:scale(.975);filter:brightness(1.16)}.track .ico{display:block;font-size:1.9rem;margin-bottom:6px}.track strong{display:block;font-size:1.9rem;color:var(--blue2)}.undo strong{font-size:2.1rem}.last-event{margin-top:12px;padding:14px}.last-event b{color:var(--blue2)}.modal{position:fixed;inset:0;z-index:50;background:rgba(0,4,9,.8);display:none;align-items:flex-end;justify-content:center;padding:14px}.modal.open{display:flex}.sheet{width:min(100%,720px);padding:20px;border-radius:24px 24px 18px 18px}.actions{display:flex;gap:9px;margin-top:15px}.actions>*{flex:1}.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.08)}.row:last-child{border-bottom:0}.member{display:grid;grid-template-columns:38px 1fr auto;gap:10px;align-items:center}.initial{width:36px;height:36px;border-radius:50%;background:#d6e0e8;color:#173047;display:grid;place-items:center;font-weight:900}.role{color:var(--gold);font-size:.72rem}.toast{position:fixed;z-index:80;left:50%;bottom:90px;transform:translateX(-50%) translateY(10px);background:white;color:#06111c;padding:10px 16px;border-radius:999px;font-weight:900;opacity:0;transition:.2s}.toast.show{opacity:1;transform:translateX(-50%)}.empty{text-align:center;color:var(--muted);padding:25px}.syncdot{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;margin-right:6px}.season-game-card{position:relative;overflow:hidden;border-left:7px solid var(--green);padding:17px 17px 16px;background:linear-gradient(145deg,rgba(20,70,52,.88),rgba(4,18,31,.94))}.season-game-card.moderate{border-left-color:var(--gold);background:linear-gradient(145deg,rgba(76,61,15,.88),rgba(4,18,31,.94))}.season-game-card.busy{border-left-color:#ff922b;background:linear-gradient(145deg,rgba(83,43,12,.9),rgba(4,18,31,.94))}.season-game-card.siege{border-left-color:var(--red);background:linear-gradient(145deg,rgba(82,24,32,.9),rgba(4,18,31,.94))}.season-game-card.skater{border-left-color:var(--blue);background:linear-gradient(145deg,rgba(10,53,86,.88),rgba(4,18,31,.94))}.season-game-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.season-game-title{font-size:1rem;font-weight:900;margin-top:8px}.season-game-date{font-size:.72rem;color:var(--muted);margin-top:3px}.intensity-pill{display:inline-flex;padding:5px 9px;border-radius:999px;font-size:.69rem;font-weight:900;background:rgba(66,223,143,.13);color:#8ff0bc;border:1px solid rgba(66,223,143,.2)}.moderate .intensity-pill{background:rgba(255,201,74,.13);color:#ffe08a;border-color:rgba(255,201,74,.22)}.busy .intensity-pill{background:rgba(255,146,43,.14);color:#ffbf7b;border-color:rgba(255,146,43,.24)}.siege .intensity-pill{background:rgba(255,88,101,.14);color:#ff9ca5;border-color:rgba(255,88,101,.24)}.skater .intensity-pill{background:rgba(21,151,255,.14);color:var(--blue2);border-color:rgba(80,185,255,.24)}.result-badge{min-width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:1.05rem;font-weight:950;background:rgba(255,255,255,.06);border:1px solid var(--line)}.result-badge.win{color:var(--green);background:rgba(66,223,143,.1)}.result-badge.loss{color:var(--red);background:rgba(255,88,101,.1)}.result-badge.tie{color:var(--gold);background:rgba(255,201,74,.1)}.season-game-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}.season-game-stat{padding:11px 8px;text-align:center;border-radius:13px;background:rgba(11,39,60,.7);border:1px solid var(--line)}.season-game-stat b{display:block;font-size:1.05rem}.season-game-stat span{font-size:.66rem;color:var(--muted)}.season-game-notes{margin:12px 1px 0;padding-top:10px;border-top:1px solid rgba(255,255,255,.07);font-size:.72rem;color:var(--muted)}.breakaway-summary{margin-top:10px;padding:12px 13px;border-radius:14px;background:rgba(21,151,255,.08);border:1px solid rgba(80,185,255,.18)}.breakaway-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.breakaway-head span{font-size:.72rem;color:#c7d9e6;font-weight:850}.breakaway-head b{font-size:.88rem;color:var(--blue2);text-align:right}.breakaway-bar{height:6px;margin-top:9px;border-radius:999px;background:rgba(255,255,255,.09);overflow:hidden}.breakaway-fill{height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--blue),var(--green))}.breakaway-extra{font-size:.67rem;color:var(--muted);margin-top:7px}.smart-field{position:relative}.smart-field input{padding-right:42px}.smart-field:after{content:"⌄";position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--blue2);font-size:1.15rem;pointer-events:none}.suggestions{display:none;margin-top:6px;padding:6px;background:rgba(2,13,23,.98);border:1px solid rgba(80,185,255,.28);border-radius:13px;box-shadow:0 14px 34px rgba(0,0,0,.38);max-height:190px;overflow:auto}.suggestions.open{display:block}.suggestion{width:100%;display:flex;align-items:center;gap:9px;border:0;border-bottom:1px solid rgba(255,255,255,.07);background:transparent;color:white;text-align:left;padding:11px 10px;border-radius:9px}.suggestion:last-child{border-bottom:0}.suggestion:active,.suggestion:hover{background:rgba(21,151,255,.16)}.suggestion-icon{width:25px;height:25px;display:grid;place-items:center;border-radius:8px;background:rgba(21,151,255,.12);font-size:.85rem}.suggestion-empty{padding:11px 10px;color:var(--muted);font-size:.78rem}.summary-team-emoji{display:block;font-size:2rem;line-height:1;margin-bottom:6px}.season-game-matchup{display:flex;align-items:center;gap:7px;margin-top:8px;font-size:.78rem;color:#dbe9f3}.season-game-matchup .team-emoji{font-size:1.15rem}.season-game-matchup .versus{color:var(--muted);font-size:.68rem;font-weight:900;text-transform:uppercase}.recent-matchup{display:flex;align-items:center;gap:5px;flex-wrap:wrap}.recent-matchup .team-emoji{font-size:1rem}@media(max-width:520px){.season-game-grid{grid-template-columns:repeat(2,1fr)}.app{padding-left:13px;padding-right:13px}.metric strong{font-size:1.35rem}.hero-goalie{grid-template-columns:54px 1fr}.hero-goalie>.btn{grid-column:1/-1}.avatar{width:54px;height:54px}.matchup{gap:7px}.track{min-height:116px}}
@@ -185,7 +185,7 @@
 .sk-profile{height:78px;margin-bottom:12px}.sk-sync{height:62px;margin-bottom:18px}.sk-overview{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:22px}.sk-overview .sk{height:98px}.sk-title{height:16px;width:118px;border-radius:7px;margin:0 0 12px}.sk-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:24px}.sk-actions .sk{height:124px}.sk-recent{height:166px;margin-bottom:18px}
 @media(max-width:540px){.sk-profile{height:70px}.sk-sync{height:58px}.sk-overview .sk{height:88px}.sk-actions .sk{height:116px}}
 
-/* v8.6.15 Recent Games mobile flow */
+/* v8.6.16 Recent Games mobile flow */
 .dashboard-recent .recent-game-row{
   display:grid;
   grid-template-columns:38px minmax(0,1fr) 64px 28px;
@@ -239,7 +239,7 @@
  .dashboard-recent .recent-summary-btn{grid-column:4;grid-row:1;width:22px;min-width:22px;margin:0}
 }
 
-/* v8.6.15 — Recent Games mobile spacing + type refinement */
+/* v8.6.16 — Recent Games mobile spacing + type refinement */
 @media (max-width: 640px){
   #recentList .recent-game-row{
     grid-template-columns: 30px minmax(0, 1fr) 76px 18px !important;
@@ -295,7 +295,7 @@
 }
 
 
-/* v8.6.15 — larger, more centered Recent Games matchup */
+/* v8.6.16 — larger, more centered Recent Games matchup */
 @media (max-width: 640px){
   #recentList .recent-game-row{
     grid-template-columns: 28px minmax(0, 1fr) 72px 16px !important;
@@ -352,7 +352,7 @@
 }
 
 
-/* v8.6.15 — physically move Recent Games matchup start to the right */
+/* v8.6.16 — physically move Recent Games matchup start to the right */
 @media (max-width: 640px){
   #recentList .recent-game-row{
     grid-template-columns: 27px minmax(0, 1fr) 67px 15px !important;
@@ -368,7 +368,7 @@
 }
 
 
-/* v8.6.15 — match Recent Games spacing to approved reference */
+/* v8.6.16 — match Recent Games spacing to approved reference */
 @media (max-width: 640px){
   .dashboard-recent .recent-game-row{
     grid-template-columns: 42px minmax(0,1fr) 66px 22px !important;
@@ -465,7 +465,7 @@
 }
 
 
-/* v8.6.15 — keep placement, slightly reduce Recent Games matchup text */
+/* v8.6.16 — keep placement, slightly reduce Recent Games matchup text */
 @media (max-width: 640px){
   .dashboard-recent .recent-teamline{
     font-size: .90rem !important;
@@ -507,7 +507,7 @@
 }
 
 
-/* v8.6.15 — use dashboard hero artwork on the authentication screen */
+/* v8.6.16 — use dashboard hero artwork on the authentication screen */
 .auth{
   padding:0 20px 24px !important;
   align-items:start !important;
@@ -561,7 +561,7 @@
 }
 
 
-/* v8.6.15 — clean auth restore startup */
+/* v8.6.16 — clean auth restore startup */
 .startup-cover{
   position:fixed;
   inset:0;
@@ -589,11 +589,11 @@
 .startup-cover-hide{opacity:0}
 
 
-/* v8.6.15 button audit + banner normalization */
+/* v8.6.16 button audit + banner normalization */
 .motivation-banner{width:100%;aspect-ratio:3.53/1;object-fit:cover;object-position:center;border-radius:15px}
 .achievement-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.achievement-card{padding:14px;display:grid;grid-template-columns:40px 1fr auto;gap:10px;align-items:center;opacity:.68}.achievement-card.unlocked{opacity:1;border-color:rgba(66,223,143,.42)}.achievement-icon{font-size:1.55rem;color:#ffc94a}.achievement-card b{font-size:.88rem}.achievement-card p{margin:3px 0 0;color:var(--muted);font-size:.7rem}.achievement-card span{font-size:.65rem;color:var(--muted);font-weight:850}.achievement-card.unlocked span{color:var(--green)}@media(max-width:540px){.achievement-grid{grid-template-columns:1fr}}
 
-/* v8.6.15 — live spectator / watch mode */
+/* v8.6.16 — live spectator / watch mode */
 .live-view-badge{
   display:none;
   margin:5px auto 0;
@@ -640,7 +640,7 @@
 }
 
 
-/* v8.6.15 — spectator automatically sees final score card */
+/* v8.6.16 — spectator automatically sees final score card */
 #finishModal.spectator-summary .summary-edit-grid,
 #finishModal.spectator-summary label[for="notes"],
 #finishModal.spectator-summary #notes,
@@ -660,10 +660,10 @@
 }
 
 
-/* v8.6.15 — separate New Game from Watch Live navigation */
+/* v8.6.16 — separate New Game from Watch Live navigation */
 
 
-/* v8.6.15 — expanded statistics */
+/* v8.6.16 — expanded statistics */
 .stats-shell{padding-bottom:20px}
 .stats-shell .overview{grid-template-columns:repeat(2,minmax(0,1fr))}
 .stats-shell .metric{min-height:96px}
@@ -788,7 +788,7 @@
 }
 
 
-/* v8.6.15 — dashboard live game indicator */
+/* v8.6.16 — dashboard live game indicator */
 .team-sync-card.is-live{
   border-color:rgba(47,216,120,.76)!important;
   background:linear-gradient(145deg,rgba(8,83,48,.94),rgba(5,42,28,.98))!important;
@@ -810,14 +810,14 @@
 }
 
 
-/* v8.6.15 — period breakdown total row */
+/* v8.6.16 — period breakdown total row */
 .period-table .period-total-row td{
   border-top:2px solid rgba(255,255,255,.18);
   padding-top:11px;
 }
 
 
-/* v8.6.15 — Money Mode */
+/* v8.6.16 — Money Mode */
 .money-setup{margin-top:16px;border:1px solid rgba(255,201,74,.22);border-radius:17px;overflow:hidden;background:rgba(255,201,74,.035)}
 .money-toggle{width:100%;display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:10px;align-items:center;text-align:left;border:0;background:transparent;color:#fff;padding:13px 14px;cursor:pointer}
 .money-toggle-icon{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-size:1.35rem;background:rgba(255,201,74,.12);border:1px solid rgba(255,201,74,.22)}
@@ -848,7 +848,7 @@
 @media(max-width:420px){.money-rate-grid label{grid-template-columns:minmax(0,1fr) 86px}.money-save-choice{min-height:120px}.money-live-total strong{font-size:1.35rem}}
 
 
-/* v8.6.15 — full Money Mode takeover + gold coin rain */
+/* v8.6.16 — full Money Mode takeover + gold coin rain */
 #live.money-mode{background:radial-gradient(circle at 18% 5%,rgba(255,226,111,.20),transparent 30%),radial-gradient(circle at 88% 26%,rgba(255,190,38,.14),transparent 31%),linear-gradient(180deg,#392b05 0%,#241d08 38%,#10251b 100%)!important}
 #live.money-mode .glass,#live.money-mode .live-performance,#live.money-mode .live-scoreboard,#live.money-mode .live-events{border-color:rgba(255,210,79,.36)!important;background:linear-gradient(145deg,rgba(92,68,9,.54),rgba(28,35,23,.84))!important;box-shadow:inset 0 0 0 1px rgba(255,227,126,.04),0 10px 30px rgba(111,78,0,.10)!important}
 #live.money-mode .eyebrow,#live.money-mode .game-meta,#live.money-mode .live-performance span,#live.money-mode .live-scoreboard span{color:#eadca5!important}
@@ -864,7 +864,7 @@
 @keyframes coinRainFall{0%{transform:translate3d(0,-40px,0) rotate(0deg) scale(.65);opacity:0}8%{opacity:1}75%{opacity:1}100%{transform:translate3d(var(--drift,0px),calc(100vh + 90px),0) rotate(var(--turn,720deg)) scale(1);opacity:.95}}
 
 
-/* v8.6.15 — Goalie Rotation */
+/* v8.6.16 — Goalie Rotation */
 .rotation-setup{margin-top:14px;border:1px solid rgba(80,185,255,.18);border-radius:16px;overflow:hidden;background:rgba(80,185,255,.035)}
 .rotation-toggle{width:100%;display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:10px;align-items:center;text-align:left;padding:13px;border:0;background:transparent;color:#fff;cursor:pointer}
 .rotation-icon{font-size:1.05rem;width:44px;height:38px;border-radius:11px;display:grid;place-items:center;background:rgba(80,185,255,.10);border:1px solid rgba(80,185,255,.18)}
@@ -888,7 +888,7 @@
 @media(max-width:430px){.rotation-toggle{grid-template-columns:42px minmax(0,1fr) auto}.rotation-icon{width:38px}.rotation-live-card{grid-template-columns:minmax(0,1fr) auto}.rotation-switch-btn{padding:8px 8px;font-size:.62rem}.rotation-table th,.rotation-table td{font-size:.61rem;padding-left:2px;padding-right:2px}}
 
 
-/* v8.6.15 — player/team dashboard selector */
+/* v8.6.16 — player/team dashboard selector */
 .dashboard-subject-metric{width:100%;text-align:left;color:inherit;font:inherit;cursor:pointer;position:relative}
 .dashboard-subject-metric:after{content:"⌄";position:absolute;right:12px;top:12px;color:var(--blue2);font-size:1rem;font-weight:950}
 .dashboard-subject-metric:active{transform:scale(.985)}
@@ -900,7 +900,7 @@
 .dashboard-player-choice.team-choice .pick-icon{background:rgba(67,221,145,.12)}
 
 
-/* v8.6.15 — player context + fast High-Danger double tap */
+/* v8.6.16 — player context + fast High-Danger double tap */
 .viewing-subject-bar{
   width:100%;display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;
   gap:7px;align-items:center;margin:0 0 12px;padding:9px 11px;
@@ -939,7 +939,7 @@
 }
 
 
-/* v8.6.15 — polished Stats / Achievements player selector */
+/* v8.6.16 — polished Stats / Achievements player selector */
 #stats .viewing-subject-bar,
 #achievements .viewing-subject-bar{
   grid-template-columns:46px minmax(0,1fr) auto;
@@ -1140,7 +1140,7 @@
 }
 
 
-/* v8.6.15 — Team Stats + interactive Splits */
+/* v8.6.16 — Team Stats + interactive Splits */
 #stats .viewing-subject-bar[data-player-type="team"]:after{content:"🛡️"}
 .split-choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0 14px}
 .split-choice-card{
@@ -1172,7 +1172,7 @@
 }
 
 
-/* v8.6.15 — balanced mockup-style bottom navigation */
+/* v8.6.16 — balanced mockup-style bottom navigation */
 #nav.nav{
   background:rgba(3,17,29,.97);
   border-top:1px solid rgba(90,170,225,.15);
@@ -1301,7 +1301,7 @@
   #nav .mockup-nav .nav-new-game>span:last-child{font-size:.48rem}
 }
 
-/* v8.6.15 — professional reference-inspired Stats redesign */
+/* v8.6.16 — professional reference-inspired Stats redesign */
 #stats{padding-top:0}
 .stats-page-header{height:58px;display:grid;grid-template-columns:44px 1fr 44px;align-items:center;margin-bottom:4px}
 .stats-page-header h1{margin:0;text-align:center;font-size:1rem;letter-spacing:.045em;font-weight:950}
@@ -1377,7 +1377,7 @@
 @media(max-width:420px){.season-stat-grid{gap:6px}.season-stat-card{min-height:87px;padding:9px 7px}.season-stat-card strong{font-size:1.15rem}.season-stat-label{font-size:.49rem}.stats-view-card{grid-template-columns:50px minmax(0,1fr) auto 18px!important}.viewing-avatar{width:44px;height:44px}.split-filter-tabs button,.opponent-metric-tabs button{font-size:.47rem}.opponent-head,.opponent-row{padding-left:7px;padding-right:7px;gap:5px}}
 
 
-/* v8.6.15 — softer Crease glass stats cards + polished workload chart */
+/* v8.6.16 — softer Crease glass stats cards + polished workload chart */
 #stats .stats-shell{
   background:
     radial-gradient(circle at 14% 0%,rgba(40,158,229,.08),transparent 30%),
@@ -1544,7 +1544,7 @@
 }
 
 
-/* v8.6.15 — mockup legend, larger player card, compact square stat tiles */
+/* v8.6.16 — mockup legend, larger player card, compact square stat tiles */
 
 /* Top player selection card: more presence like the reference */
 #stats .stats-view-card{
@@ -1722,7 +1722,7 @@
 }
 
 
-/* v8.6.15 — stronger hierarchy + polished centered graph legend */
+/* v8.6.16 — stronger hierarchy + polished centered graph legend */
 
 /* Player selector: give the viewed player more prominence */
 #stats .stats-view-card{
@@ -1900,7 +1900,7 @@
 }
 
 
-/* v8.6.15 — Stats hierarchy + dashboard palette alignment */
+/* v8.6.16 — Stats hierarchy + dashboard palette alignment */
 
 /* Stats should live in the same blue family as the dashboard, not its own teal/navy shade */
 #stats{
@@ -1998,7 +1998,7 @@
 }
 
 
-/* v8.6.15 — shared player avatar + stronger goalie name + matched section rhythm */
+/* v8.6.16 — shared player avatar + stronger goalie name + matched section rhythm */
 
 /* Same player identity image on Dashboard and Stats */
 .dashboard-player-photo-card{
@@ -2121,7 +2121,7 @@
 }
 
 
-/* v8.6.15 — unified player selector styling */
+/* v8.6.16 — unified player selector styling */
 
 /* Remove the dashboard photo experiment entirely */
 .dashboard-player-photo-card,
@@ -2307,7 +2307,7 @@
 }
 
 
-/* v8.6.15 — centered selector, last names, uppercase nav, neon New Game */
+/* v8.6.16 — centered selector, last names, uppercase nav, neon New Game */
 #stats .viewing-copy,#games .viewing-copy,#achievements .viewing-copy{
   display:flex!important;flex-direction:column!important;justify-content:center!important;align-self:stretch!important;
 }
@@ -2331,6 +2331,141 @@
 #stats .season-stat-card small{font-size:.47rem!important}
 @media(max-width:430px){
   #stats .viewing-subject-name,#games .viewing-subject-name,#achievements .viewing-subject-name{font-size:1.40rem!important;letter-spacing:.07em!important}
+}
+
+
+/* v8.6.16 — subtler neon + compact vertically-centred player selector + More restored */
+
+/* Player selector: return to the lighter/spaced typography but smaller and tighter */
+#stats .unified-player-selector,
+#games .unified-player-selector,
+#achievements .unified-player-selector,
+#stats .stats-view-card{
+  min-height:92px!important;
+  padding:8px 13px!important;
+  grid-template-columns:60px minmax(0,1fr) auto 20px!important;
+  gap:10px!important;
+}
+#stats .viewing-avatar-wrap,
+#games .viewing-avatar-wrap,
+#achievements .viewing-avatar-wrap{
+  width:56px!important;
+  height:56px!important;
+  align-self:center!important;
+}
+#stats .viewing-avatar,
+#games .viewing-avatar,
+#achievements .viewing-avatar{
+  width:54px!important;
+  height:54px!important;
+}
+#stats .viewing-avatar svg,
+#games .viewing-avatar svg,
+#achievements .viewing-avatar svg{
+  width:37px!important;
+  height:37px!important;
+}
+#stats .viewing-copy,
+#games .viewing-copy,
+#achievements .viewing-copy{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-self:center!important;
+  min-height:54px!important;
+}
+#stats .viewing-subject-label,
+#games .viewing-subject-label,
+#achievements .viewing-subject-label{
+  margin:0 0 5px!important;
+  font-size:.60rem!important;
+  font-weight:550!important;
+  letter-spacing:.14em!important;
+  line-height:1!important;
+}
+#stats .viewing-subject-name,
+#games .viewing-subject-name,
+#achievements .viewing-subject-name{
+  margin:0!important;
+  font-size:1.44rem!important;
+  line-height:1!important;
+  font-weight:400!important;
+  letter-spacing:.09em!important;
+}
+#stats .viewing-subject-role,
+#games .viewing-subject-role,
+#achievements .viewing-subject-role{
+  font-size:.70rem!important;
+  font-weight:600!important;
+  padding:9px 14px!important;
+  min-width:78px!important;
+}
+
+/* New Game remains special, but no longer dominates the whole nav */
+#nav .mockup-nav .nav-new-game .nav-plus{
+  filter:none!important;
+  animation:subtleNewGameGlow 2.8s ease-in-out infinite alternate!important;
+  box-shadow:
+    0 0 6px rgba(55,198,255,.36),
+    0 0 13px rgba(28,158,255,.24),
+    0 0 22px rgba(15,104,238,.14),
+    inset 0 1px 0 rgba(255,255,255,.25)!important;
+  outline-color:rgba(107,219,255,.60)!important;
+}
+#nav .mockup-nav .nav-new-game>span:last-child{
+  text-shadow:0 0 5px rgba(69,198,255,.28)!important;
+}
+@keyframes subtleNewGameGlow{
+  from{box-shadow:0 0 5px rgba(55,198,255,.28),0 0 11px rgba(28,158,255,.18),0 0 18px rgba(15,104,238,.10),inset 0 1px 0 rgba(255,255,255,.22)}
+  to{box-shadow:0 0 8px rgba(65,204,255,.42),0 0 16px rgba(31,164,255,.28),0 0 26px rgba(17,110,238,.16),inset 0 1px 0 rgba(255,255,255,.28)}
+}
+
+/* More menu is now a real navigation hub */
+.more-menu-card{padding:7px!important}
+.more-menu-btn{
+  display:grid!important;
+  grid-template-columns:42px minmax(0,1fr) auto!important;
+  align-items:center!important;
+  gap:10px!important;
+  min-height:62px!important;
+  padding:10px 12px!important;
+  margin:0!important;
+  text-align:left!important;
+}
+.more-menu-btn+.more-menu-btn{margin-top:7px!important}
+.more-menu-icon{
+  width:38px;height:38px;border-radius:11px;
+  display:grid;place-items:center;
+  background:rgba(52,167,235,.10);
+  border:1px solid rgba(82,181,241,.17);
+  font-size:1.12rem;
+}
+.more-menu-btn b{display:block;font-size:.72rem}
+.more-menu-btn small{display:block;color:var(--muted);font-size:.56rem;margin-top:3px}
+.more-menu-btn>span:last-child{font-size:1.05rem;color:#6fc7fb}
+
+@media(max-width:430px){
+  #stats .unified-player-selector,
+  #games .unified-player-selector,
+  #achievements .unified-player-selector,
+  #stats .stats-view-card{
+    min-height:86px!important;
+    padding:7px 10px!important;
+    grid-template-columns:54px minmax(0,1fr) auto 17px!important;
+    gap:8px!important;
+  }
+  #stats .viewing-avatar-wrap,
+  #games .viewing-avatar-wrap,
+  #achievements .viewing-avatar-wrap{width:50px!important;height:50px!important}
+  #stats .viewing-avatar,
+  #games .viewing-avatar,
+  #achievements .viewing-avatar{width:49px!important;height:49px!important}
+  #stats .viewing-subject-name,
+  #games .viewing-subject-name,
+  #achievements .viewing-subject-name{font-size:1.28rem!important}
+  #stats .viewing-subject-role,
+  #games .viewing-subject-role,
+  #achievements .viewing-subject-role{font-size:.64rem!important;padding:8px 11px!important;min-width:68px!important}
 }
 
 </style></head><body>
@@ -2382,10 +2517,14 @@
 <section id="goalies" class="screen"><div class="topbar"><div><div class="eyebrow">Roster</div><h1 style="margin:3px 0">Players</h1></div><button id="addGoalie" class="iconbtn">＋</button></div><div id="goalieList" class="goalie-list"></div></section>
 <section id="games" class="screen"><div class="topbar"><div><div class="eyebrow">Season Log</div><h1 style="margin:3px 0">Games</h1></div><button id="newGameGames" type="button" class="iconbtn" aria-label="Add game">＋</button></div><button type="button" class="viewing-subject-bar stats-view-card unified-player-selector" data-player-view-picker><span class="viewing-avatar-wrap"><span class="viewing-avatar">🥅</span></span><span class="viewing-copy"><span class="viewing-subject-label">VIEWING</span><strong class="viewing-subject-name">Player</strong></span><span class="viewing-subject-role">Goalie</span><span class="viewing-subject-arrow">⌄</span></button><div id="gameCards"></div></section>
 <section id="stats" class="screen"><input id="statsPlayerPhotoInput" type="file" accept="image/*" class="hidden" aria-hidden="true"><div class="stats-page-header"><button type="button" class="stats-back-btn" aria-label="Back" onclick="screen('home')"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><h1>STATS</h1><button type="button" class="stats-share-btn" aria-label="Share stats"><svg viewBox="0 0 24 24"><path d="M12 3v12M8 7l4-4 4 4"/><rect x="5" y="10" width="14" height="11" rx="2"/></svg></button></div><button type="button" class="viewing-subject-bar stats-view-card" data-player-view-picker><span class="viewing-avatar-wrap"><span class="viewing-avatar">🥅</span></span><span class="viewing-copy"><span class="viewing-subject-label">VIEWING</span><strong class="viewing-subject-name">Player</strong></span><span class="viewing-subject-role">Goalie</span><span class="viewing-subject-arrow">⌄</span></button><div class="glass card stats-shell"><div class="tabs stats-main-tabs" id="statsTabs"><button class="active" data-stats-tab="overview">Overview</button><button data-stats-tab="trends">Trends</button><button data-stats-tab="splits">Splits</button></div><div id="statsOverview"></div><div id="statsChartSection"><div class="section-head stats-chart-head"><div><h2 id="statsChartTitle">Recent Save %</h2><small id="statsChartSubtitle">Each bar represents one completed game.</small></div></div><div id="chart" class="chart stats-real-chart"></div><div id="chartLegend" class="stats-chart-legend"></div></div></div></section>
-<section id="achievements" class="screen"><div class="topbar"><div><div class="eyebrow">Milestones</div><h1 style="margin:3px 0">Achievements</h1></div></div><button type="button" class="viewing-subject-bar stats-view-card unified-player-selector" data-player-view-picker><span class="viewing-avatar-wrap"><span class="viewing-avatar">🥅</span></span><span class="viewing-copy"><span class="viewing-subject-label">VIEWING</span><strong class="viewing-subject-name">Player</strong></span><span class="viewing-subject-role">Goalie</span><span class="viewing-subject-arrow">⌄</span></button><div id="achievementList" class="achievement-grid"></div></section>
-<section id="more" class="screen"><div class="topbar"><div><div class="eyebrow">Team & Account</div><h1 style="margin:3px 0">Menu</h1></div></div><div class="glass card"><button class="btn secondary full" data-screen-jump="team">👥 Team & Sharing</button><button class="btn secondary full" data-screen-jump="settings" style="margin-top:9px">⚙ Settings</button></div></section>
+<section id="achievements" class="screen"><div class="topbar"><button class="iconbtn" data-screen-jump="more">←</button><div><div class="eyebrow">Milestones</div><h1 style="margin:3px 0">Achievements</h1></div><span></span></div><button type="button" class="viewing-subject-bar stats-view-card unified-player-selector" data-player-view-picker><span class="viewing-avatar-wrap"><span class="viewing-avatar">🥅</span></span><span class="viewing-copy"><span class="viewing-subject-label">VIEWING</span><strong class="viewing-subject-name">Player</strong></span><span class="viewing-subject-role">Goalie</span><span class="viewing-subject-arrow">⌄</span></button><div id="achievementList" class="achievement-grid"></div></section>
+<section id="more" class="screen"><div class="topbar"><div><div class="eyebrow">Team & Account</div><h1 style="margin:3px 0">Menu</h1></div></div><div class="glass card more-menu-card">
+  <button class="btn secondary full more-menu-btn" data-screen-jump="team"><span class="more-menu-icon">👥</span><span><b>Team & Sharing</b><small>Manage team, players and sharing</small></span><span>›</span></button>
+  <button class="btn secondary full more-menu-btn" data-screen-jump="achievements"><span class="more-menu-icon">🏆</span><span><b>Achievements</b><small>Player milestones and accomplishments</small></span><span>›</span></button>
+  <button class="btn secondary full more-menu-btn" data-screen-jump="settings"><span class="more-menu-icon">⚙</span><span><b>Settings</b><small>Account, version and data management</small></span><span>›</span></button>
+</div></section>
 <section id="team" class="screen"><div class="topbar"><button class="iconbtn" data-screen-jump="more">←</button><div><div class="eyebrow">Your Team</div><h1 style="margin:3px 0">Team & Sharing</h1></div><span></span></div><div id="teamPanel"></div></section>
-<section id="settings" class="screen"><div class="topbar"><button class="iconbtn" data-screen-jump="more">←</button><div><div class="eyebrow">Account</div><h1 style="margin:3px 0">Settings</h1></div><span></span></div><div class="glass card"><div class="row"><span>Signed in</span><b id="accountEmail"></b></div><div class="row"><span>Cloud sync</span><b><i class="syncdot"></i>Live</b></div><div class="row"><span>Version</span><b>8.6.15 Player Dashboard</b></div></div><div class="glass card"><h2>Your Account</h2><label>Name shown in greeting</label><input id="profileName" placeholder="e.g. Joanne"><button id="saveProfile" class="btn primary full" style="margin-top:12px">Save Name</button><p class="game-meta">This name belongs only to your login, so you can tell whose account is open.</p></div><div class="glass card"><h2>Future Goalie Features</h2><p class="game-meta">These are placeholders only. They will not change the app until they are built and enabled later.</p><div class="row future-feature"><div><label for="futurePog">Player of the Game</label><div class="game-meta">Optional post-game selection</div></div><span class="coming-soon">COMING SOON</span><input id="futurePog" type="checkbox" disabled style="width:auto"></div></div><div class="glass card"><h2>Data Management</h2><p class="game-meta">Back up or reset information safely. Team data is stored in Firebase and shared with everyone on the team.</p><button id="exportData" class="btn primary full">⬇ Export Team Backup</button><button id="resetDevice" class="btn secondary full" style="margin-top:9px">↻ Reset This Device</button><button id="openResetTeam" class="btn danger full" style="margin-top:9px">🗑 Reset Team Data</button><p class="game-meta">Reset Team Data removes players, games, statistics and unused invitations. It keeps the team and its members.</p></div><div class="glass card"><h2>Developer Tools</h2><p class="game-meta">Use these while testing. Sample entries are clearly marked and can be removed without affecting real data.</p><button id="createSample" class="btn secondary full">＋ Create Sample Data</button><button id="removeSample" class="btn secondary full" style="margin-top:9px">− Remove Sample Data</button><button id="reloadCloud" class="btn secondary full" style="margin-top:9px">☁ Reload Cloud Data</button></div><div class="glass card"><button id="shareApp" class="btn primary full" style="margin-top:14px">Share App</button><button id="signOut" class="btn secondary full" style="margin-top:9px">Sign Out</button></div></section>
+<section id="settings" class="screen"><div class="topbar"><button class="iconbtn" data-screen-jump="more">←</button><div><div class="eyebrow">Account</div><h1 style="margin:3px 0">Settings</h1></div><span></span></div><div class="glass card"><div class="row"><span>Signed in</span><b id="accountEmail"></b></div><div class="row"><span>Cloud sync</span><b><i class="syncdot"></i>Live</b></div><div class="row"><span>Version</span><b>8.6.16 Player Dashboard</b></div></div><div class="glass card"><h2>Your Account</h2><label>Name shown in greeting</label><input id="profileName" placeholder="e.g. Joanne"><button id="saveProfile" class="btn primary full" style="margin-top:12px">Save Name</button><p class="game-meta">This name belongs only to your login, so you can tell whose account is open.</p></div><div class="glass card"><h2>Future Goalie Features</h2><p class="game-meta">These are placeholders only. They will not change the app until they are built and enabled later.</p><div class="row future-feature"><div><label for="futurePog">Player of the Game</label><div class="game-meta">Optional post-game selection</div></div><span class="coming-soon">COMING SOON</span><input id="futurePog" type="checkbox" disabled style="width:auto"></div></div><div class="glass card"><h2>Data Management</h2><p class="game-meta">Back up or reset information safely. Team data is stored in Firebase and shared with everyone on the team.</p><button id="exportData" class="btn primary full">⬇ Export Team Backup</button><button id="resetDevice" class="btn secondary full" style="margin-top:9px">↻ Reset This Device</button><button id="openResetTeam" class="btn danger full" style="margin-top:9px">🗑 Reset Team Data</button><p class="game-meta">Reset Team Data removes players, games, statistics and unused invitations. It keeps the team and its members.</p></div><div class="glass card"><h2>Developer Tools</h2><p class="game-meta">Use these while testing. Sample entries are clearly marked and can be removed without affecting real data.</p><button id="createSample" class="btn secondary full">＋ Create Sample Data</button><button id="removeSample" class="btn secondary full" style="margin-top:9px">− Remove Sample Data</button><button id="reloadCloud" class="btn secondary full" style="margin-top:9px">☁ Reload Cloud Data</button></div><div class="glass card"><button id="shareApp" class="btn primary full" style="margin-top:14px">Share App</button><button id="signOut" class="btn secondary full" style="margin-top:9px">Sign Out</button></div></section>
 <section id="liveStart" class="screen"><div class="topbar"><div class="live-start-head"><div class="eyebrow">Game Tracking</div><h1><span>New</span><strong>Game</strong></h1><p>Start a new game, continue scoring, or review your games.</p></div><button class="iconbtn" data-screen-jump="settings">⚙</button></div><div class="live-start-grid"><button id="startNewGameCard" class="live-start-card primary-card"><span class="live-start-arrow">›</span><div class="start-icon">▶</div><div><h2>Start New Game</h2><p>Choose your goalie, opponent and arena, then begin tracking.</p></div></button><button id="resumeGameCard" class="live-start-card resume-card"><span class="live-start-arrow">›</span><div class="start-icon">↻</div><div><h2>Continue Game</h2><p id="resumeGameText">Resume your current game without losing any recorded events.</p></div></button><button id="lastSummaryCard" class="live-start-card summary-card"><span class="live-start-arrow">›</span><div class="start-icon">★</div><div><h2>View Last Game Summary</h2><p id="lastSummaryText">Reopen your most recent goalie performance.</p></div></button><button id="liveHistoryCard" class="live-start-card"><span class="live-start-arrow">›</span><div class="start-icon">▥</div><div><h2>Game History</h2><p>Review every completed game and reopen its full summary.</p></div></button></div></section><section id="live" class="screen"><div id="moneyDangerFloat" class="money-danger-float">🔥 HIGH-DANGER SAVE</div><div id="moneyCoinRain" class="money-coin-rain" aria-hidden="true"></div><div class="topbar"><button id="leaveLive" class="iconbtn">←</button><div style="text-align:center"><div class="eyebrow">Live Game</div><div id="liveViewBadge" class="live-view-badge">● LIVE • VIEW ONLY</div><b id="periodText">1st Period</b><div class="period-picker" aria-label="Choose period"><button class="period-btn active" data-period="1">1</button><button class="period-btn" data-period="2">2</button><button class="period-btn" data-period="3">3</button><button class="period-btn" data-period="OT">OT</button></div><div id="liveMeta" class="game-meta" style="margin-top:5px"></div></div><button id="finish" class="btn danger">Finish</button></div><div id="rotationLiveCard" class="rotation-live-card hidden">
   <div class="rotation-live-info">
     <span class="rotation-live-label">🥅 IN NET</span>
@@ -2416,9 +2555,9 @@
     <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V12.5h3V20zM10.5 20V7.5h3V20zM16 20V4h3v16z"/></svg></span>
     <span>Stats</span>
   </button>
-  <button class="nav-item" data-screen="achievements" aria-label="Achievements">
-    <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v4.8c0 3-1.7 5.2-4 6.2-2.3-1-4-3.2-4-6.2z"/><path d="M8 6H4.5v2.2c0 2.3 1.6 4 4 4.4M16 6h3.5v2.2c0 2.3-1.6 4-4 4.4M12 15v3.2M8.5 21h7M10 18.2h4"/></svg></span>
-    <span>Achievements</span>
+  <button class="nav-item" data-screen="more" aria-label="More">
+    <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></span>
+    <span>More</span>
   </button>
 </div></nav>
 <div id="setupModal" class="modal"><div class="glass sheet"><div class="eyebrow">Welcome to The Crease</div><h2>How would you like to get started?</h2><p style="color:var(--muted)">Create your own team or use an invitation from a teammate.</p><label>Your name</label><input id="setupName" placeholder="e.g. Joanne"><div class="onboard-choice"><button id="setupCreateTab" class="choice-card"><span style="font-size:1.5rem">➕</span><strong>Create a Team</strong><small>Start a new shared team</small></button><button id="setupJoinTab" class="choice-card"><span style="font-size:1.5rem">🤝</span><strong>Join a Team</strong><small>Use an invitation code</small></button></div><div id="setupCreatePane" class="hidden"><label>Team name</label><input id="setupTeamName" placeholder="e.g. Amherstburg Admirals"><label>Team emoji</label><div id="setupEmojiPicker" class="emoji-grid"></div><input id="setupTeamEmoji" type="hidden" value="🛡️"><button id="setupCreate" class="btn primary full" style="margin-top:12px">Create Team</button></div><div id="setupJoinPane" class="hidden"><label>Invitation code</label><input id="setupJoinCode" placeholder="AB12CD34" autocapitalize="characters"><button id="setupJoin" class="btn primary full" style="margin-top:12px">Join Team</button></div><p id="setupMsg" class="game-meta"></p></div></div>
@@ -3442,10 +3581,10 @@ onAuthStateChanged(auth,async u=>{
   $('#auth').classList.remove('hidden');
   $('#authMsg').textContent='Add Firebase settings to firebase-config.js first.';
 }
-if('caches'in window){caches.keys().then(keys=>Promise.all(keys.filter(k=>!k.includes('crease-v8615')).map(k=>caches.delete(k))))}if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js?v=8.6.15').then(r=>r.update());
+if('caches'in window){caches.keys().then(keys=>Promise.all(keys.filter(k=>!k.includes('crease-v8616')).map(k=>caches.delete(k))))}if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js?v=8.6.16').then(r=>r.update());
 </script>
 <script>
-/* v8.6.15 — dashboard motivational banner rotation */
+/* v8.6.16 — dashboard motivational banner rotation */
 (function(){
   const banners=[
     'motivation-own-the-crease.jpg?v=845',
