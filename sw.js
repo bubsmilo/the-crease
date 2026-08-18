@@ -1,4 +1,4 @@
-const CACHE="crease-v8622";
+const CACHE="crease-v8623";
 const ASSETS=[
   "./",
   "./index.html",
