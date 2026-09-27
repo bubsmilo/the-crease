@@ -1,4 +1,4 @@
-const CACHE="crease-v8676";
+const CACHE="crease-v830";
 const ASSETS=[
   "./",
   "./index.html",
@@ -7,7 +7,7 @@ const ASSETS=[
   "./icon-1024-v802.png",
   "./brand-logo-v802.png",
   "./favicon-v802.png",
-  "./dashboard-hero-v821.png",
+  "./dashboard-hero-v819.png",
   "./goalie-focused-v816.png",
   "./overview-player-v824.png",
   "./overview-save-v824.png",
