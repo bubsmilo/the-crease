@@ -1,0 +1,31 @@
+THE CREASE — v8.6.118
+Release date: September 27, 2026
+
+MAIN FIX
+The FULL/OPENED GAME SCORECARD now uses the goalie's workload colour instead of changing its main background colour based on Win/Loss/Tie.
+
+WHY
+A light night could correctly appear green in Games because the goalie faced a light workload, but opening that same game turned the scorecard red if the team lost. That made the visual language contradictory.
+
+NEW RULE
+- Workload owns the colour everywhere:
+  Light = green
+  Moderate = yellow
+  Busy = orange
+  Under Siege = red
+- Win/Loss/Tie is communicated separately by the result label.
+- A LIGHT workload LOSS therefore stays green when the full scorecard is opened, while still clearly saying LOSS.
+
+ALSO
+- Browser title updated to The Crease v8.6.118.
+- Cache bumped for the release.
+
+GITHUB
+Upload only index.html and sw.js.
+This release-notes file is for the ZIP archive only; you do NOT need to upload it to GitHub.
+
+TEST
+1. Refresh and check browser tab for v8.6.118.
+2. Open a game that was a LOSS but had LIGHT workload.
+3. The opened scorecard should remain green/light-workload themed and clearly say LOSS.
+4. Compare other workload levels to make sure their opened scorecards match their game-card workload colour.
