@@ -1,0 +1,46 @@
+THE CREASE — v8.6.117
+Release date: September 27, 2026
+
+PURPOSE OF THIS VERSION
+Make the Games history easier to read by separating game RESULT from goalie WORKLOAD.
+
+WHY THIS CHANGED
+Previously, a light-workload game could have a green game card even when the team lost. The loss was then shown in red when the game summary was opened. That made the green card feel like it meant “win,” even though green was actually being used for workload.
+
+NEW VISUAL RULE
+- Card color / glow = GOALIE WORKLOAD only.
+- Result badge = GAME RESULT only.
+- Result no longer depends on red/green coloring on the condensed Games card.
+
+CHANGES
+1. GAME RESULT BADGES
+- Win now displays: W ✓
+- Loss now displays: L ×
+- Tie now displays: T =
+- All three use the same neutral nightclub-blue badge treatment.
+- This keeps the result unmistakable without competing with workload colors.
+
+2. WORKLOAD COLORS REMAIN UNCHANGED
+- Light = green
+- Moderate = yellow
+- Busy = orange
+- Under Siege = red
+These colors continue to describe how busy the goalie was, not whether the team won or lost.
+
+3. VERSION / CACHE
+- Browser tab updated to The Crease v8.6.117.
+- Service-worker cache bumped for this release.
+- Service-worker registration version updated so a refresh can pull the new build.
+
+FILES
+- index.html
+- sw.js
+- CHANGELOG-v8.6.117.txt
+
+TEST AFTER DEPLOYING
+- Refresh and confirm the browser tab says The Crease v8.6.117.
+- Open Games.
+- Find a light-workload loss: the card can remain green for LIGHT workload, but its result should clearly show L × in a neutral blue badge.
+- Check a win for W ✓.
+- Check a tie, if available, for T =.
+- Open a game and confirm the detailed game summary still shows the correct result.
