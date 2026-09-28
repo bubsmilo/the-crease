@@ -3,6 +3,34 @@ Running release history
 Last updated: September 28, 2026
 
 ============================================================
+v8.6.130 — OPPONENT GAME ACHIEVEMENT BADGES
+============================================================
+SPLITS → OPPONENT → OPPONENT RECAP
+- Added achievement badges to the compact individual-game snapshots.
+- Shutout badge appears when the saved game has shots faced and 0 goals against.
+- Player of the Game badge appears when that saved game's Player of the Game flag is set.
+- Games that earned both achievements display both badges.
+- Tapping the snapshot still opens the full saved-game recap.
+
+============================================================
+v8.6.129 — GAME RECAP TOP-RIGHT CLOSE BUTTON
+============================================================
+GAME RECAP
+- Added an X close button to the top-right corner of opened saved-game recap cards.
+- The X uses the existing Close Summary behavior so closing returns you to the Stats/Splits view you were already using.
+- The X is shown for saved-game recaps opened from charts, opponent snapshots, Games, and other saved-game links.
+- The active live-game finish flow keeps its existing controls.
+
+============================================================
+v8.6.128 — MEDIUM NIGHTCLUB BAR GLOW
+============================================================
+STATS CHARTS
+- Increased the bar glow from v8.6.127 to a clearly visible medium-strength halo.
+- Glow is intentionally between the subtle v8.6.127 treatment and the strong v8.6.126 treatment.
+- Kept glow consistent across standard Stats, Workload, and Game Type bars.
+- Existing colours, calculations, and click-to-open-game behavior are unchanged.
+
+============================================================
 v8.6.127 — SOFTER CONSISTENT BAR GLOW
 ============================================================
 STATS CHARTS
