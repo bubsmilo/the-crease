@@ -3,6 +3,26 @@ Running release history
 Last updated: September 28, 2026
 
 ============================================================
+v8.6.132 — OPPONENT FIRST IN SPLITS
+============================================================
+STATS → SPLITS
+- Reordered the split tabs to: By Opponent, By Game Type, By Workload, By Period.
+- By Opponent is now the default split view.
+- By Period was moved to the final tab.
+- Existing Opponent Recap, game snapshots, badges, chart behavior, and calculations are unchanged.
+
+============================================================
+v8.6.131 — BAR GLOW MATCHES LEGEND DOTS
+============================================================
+STATS CHARTS
+- Replaced the previous custom bar glow strength with the exact glow recipe already used by the Stats legend dots.
+- Bars now use the same 5px + 9px currentColor glow as their matching legend dots.
+- Game Type bar glow colours now exactly match the corresponding Game Type legend dots.
+- Workload bar glow colours now exactly match the corresponding workload legend dots.
+- Standard blue Stats bars use the same blue legend accent colour.
+- Existing chart calculations and click-to-open-game behavior are unchanged.
+
+============================================================
 v8.6.130 — OPPONENT GAME ACHIEVEMENT BADGES
 ============================================================
 SPLITS → OPPONENT → OPPONENT RECAP
