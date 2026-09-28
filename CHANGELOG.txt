@@ -3,6 +3,29 @@ Running release history
 Last updated: September 28, 2026
 
 ============================================================
+v8.6.122 — MONEY MODE BANK + OPPONENT RECAP DRILL-DOWN
+============================================================
+OVERVIEW
+- Renamed SEASON PIGGY BANK to MONEY MODE BANK.
+
+SPLITS → OPPONENT
+- Opponent details now use a less cluttered two-level drill-down.
+- Tap an opponent/team row to show an Opponent Recap directly below the opponent list.
+- The Opponent Recap shows combined information for that matchup without immediately showing every individual game.
+- The workload section in the recap shows the average workload/shots faced against that opponent.
+- Tap the workload section to reveal or hide the individual games against that opponent.
+- Individual game rows can still be tapped to open the full saved-game recap.
+- Added High-Danger Saves to the opponent recap using already recorded data.
+- Added a close button to clear the selected opponent recap.
+
+NAMING
+- The combined opponent information is now referred to as the Opponent Recap.
+- The individual saved games are the Game Breakdown.
+
+RELEASE FILE
+- Version number restored to the ZIP filename.
+
+============================================================
 v8.6.121 — OVERVIEW NEW GOALIE STATS + LARGER VALUES
 ============================================================
 STATS → OVERVIEW
