@@ -3,6 +3,18 @@ Running release history
 Last updated: September 28, 2026
 
 ============================================================
+v8.6.123 — OPPONENT GAME QUICK SNAPSHOTS
+============================================================
+SPLITS → OPPONENT → OPPONENT RECAP
+- Expanded each individual game bar into a compact quick snapshot.
+- Added the four main goalie numbers: Shots, Saves, Goals Against, and Save %.
+- Added Head-to-Head team shots for a fast visual comparison.
+- Added a Breakaway saved/faced progress bar.
+- Added High-Danger Saves when that game contains recorded high-danger save data.
+- Tapping anywhere on the game snapshot still opens the full saved-game recap.
+- Individual games remain hidden until the opponent workload section is expanded.
+
+============================================================
 v8.6.122 — MONEY MODE BANK + OPPONENT RECAP DRILL-DOWN
 ============================================================
 OVERVIEW
