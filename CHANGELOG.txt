@@ -1,6 +1,28 @@
 THE CREASE — CHANGELOG
 Running release history
-Last updated: September 27, 2026
+Last updated: September 28, 2026
+
+============================================================
+v8.6.121 — OVERVIEW NEW GOALIE STATS + LARGER VALUES
+============================================================
+STATS → OVERVIEW
+- Added High-Danger Saves from the data already recorded during games.
+- Added Breakaways Faced.
+- Added Breakaway Saves.
+- Kept Breakaway Save % with its saved/faced detail.
+- These are season totals across the selected goalie's completed games.
+- Older games are not assigned shot-detail categories that were never recorded.
+
+READABILITY
+- Increased the main number/value size inside the Overview stat squares.
+- Labels and supporting text remain compact so the values are easier to read.
+
+TEST
+1. Refresh and confirm the browser tab says The Crease v8.6.121.
+2. Open Stats → Overview for a goalie.
+3. Confirm High-Danger Saves, Breakaways Faced, and Breakaway Saves appear.
+4. Confirm Breakaway % still shows the correct saved/faced count.
+5. Confirm the main values in the Overview squares are larger and still fit.
 
 ============================================================
 v8.6.120 — SMALL RECAP CARD GAME LINK FIX
