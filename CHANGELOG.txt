@@ -1,0 +1,91 @@
+THE CREASE — CHANGELOG
+Running release history
+Last updated: September 27, 2026
+
+============================================================
+v8.6.120 — SMALL RECAP CARD GAME LINK FIX
+============================================================
+FIXED
+- The Last Game / small recap card now stores the exact saved game's Firebase/local game ID when it is rendered.
+- Clicking the small recap card looks up that exact game ID and opens its full scorecard.
+- It no longer relies on games[0] at click time.
+- This makes the small recap card and its full game recap directly linked even if game ordering/rendering changes.
+- Keeps the workload-coloured full scorecard from v8.6.118/v8.6.119.
+
+TEST
+1. Refresh and confirm the browser tab says The Crease v8.6.120.
+2. Go to the screen containing the small Last Game recap card.
+3. Click the card.
+4. Confirm the full recap/scorecard for that exact game opens.
+5. Confirm Games-history cards still open normally.
+
+============================================================
+v8.6.119 — RECAP CARD → FULL SCORECARD FIX
+============================================================
+FIXED
+- Fixed a regression introduced in v8.6.118 that could stop a saved-game recap card from opening the full scorecard.
+- The click binding itself was still present.
+- The failure happened while opening the scorecard because the new workload-colour code called a helper that only exists inside the Stats screen.
+- The scorecard now uses the app's global gameIntensity() logic directly.
+- Small recap cards / saved-game cards should once again open the correct full scorecard.
+- Keeps the v8.6.118 workload-coloured full scorecard behavior.
+
+TEST
+1. Refresh and confirm browser tab says The Crease v8.6.119.
+2. Click a small recent-game recap card.
+3. Confirm the full scorecard opens.
+4. Click a condensed card in Games and confirm its full scorecard opens.
+5. Confirm a LIGHT workload LOSS opens with a green/light-workload scorecard while still clearly showing LOSS.
+
+============================================================
+v8.6.118 — FULL SCORECARD WORKLOAD COLOURS
+============================================================
+CHANGED
+- The full/opened game scorecard now uses workload colour rather than Win/Loss/Tie colour.
+- Light = green.
+- Moderate = yellow.
+- Busy = orange.
+- Under Siege = red.
+- Win/Loss/Tie remains clearly displayed as the game result.
+- A light-workload loss can therefore remain green when opened instead of turning red.
+- Browser title updated to v8.6.118.
+- Service-worker cache bumped.
+
+============================================================
+v8.6.117 — GAME RESULT BADGES / WORKLOAD SEPARATION
+============================================================
+CHANGED
+- Kept workload colour as the meaning of the condensed Games card colour/glow.
+- Separated game result from workload.
+- Win displays W ✓.
+- Loss displays L ×.
+- Tie displays T =.
+- Result badge uses a neutral nightclub-style treatment so red/green does not compete with workload meaning.
+- Browser title/cache updated for the release.
+
+============================================================
+v8.6.116 — PLAYER OF THE GAME + ACHIEVEMENTS + GAME ORDER
+============================================================
+CHANGED
+- Games history ordered newest to oldest.
+- Month groups ordered newest to oldest.
+- Newest month expanded by default; older months collapsed.
+- Newest game appears first within each month.
+- Improved Player of the Game selected state.
+- Player of the Game remains saved on the individual game.
+- Added Player of the Game counting from completed games.
+- Added achievement milestones:
+  First Star — 1 Player of the Game award
+  Game Star — 5 Player of the Game awards
+  Team Standout — 10 Player of the Game awards
+- Removed the outdated Player of the Game “Coming Soon” placeholder.
+- Browser title updated to v8.6.116.
+
+============================================================
+CHANGELOG SYSTEM
+============================================================
+- CHANGELOG.txt is cumulative.
+- Each new release adds its entry to the TOP of this same file.
+- The filename stays CHANGELOG.txt.
+- No separate changelog file is created for each version.
+- If kept in GitHub, replace/update this one file rather than creating additional changelog files.
