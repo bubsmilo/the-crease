@@ -3,6 +3,34 @@ Running release history
 Last updated: September 28, 2026
 
 ============================================================
+v8.6.126 — NIGHTCLUB GLOW FOR STATS BAR GRAPHS
+============================================================
+STATS CHARTS
+- Added the nightclub-style glow treatment to Stats bar graphs.
+- Workload bars glow in their existing Light, Moderate, Busy, and Under Siege colours.
+- Game Type bars glow in their existing category colours.
+- Standard Stats bars receive the same illuminated treatment.
+- Hovering/tapping a clickable game bar gives it a slightly stronger glow.
+- Existing bar colours, calculations, and click-to-open-game behavior are unchanged.
+
+============================================================
+v8.6.125 — CLICKABLE GAME CHART BARS
+============================================================
+STATS CHARTS
+- Game-based chart bars are now clickable.
+- Tapping a bar opens the full saved-game recap for the exact game represented by that bar.
+- Added the same behavior to the custom Game Type and Workload bar graphs.
+- Bar columns are keyboard accessible with Enter/Space.
+- Added subtle hover/focus feedback without changing the chart design.
+
+============================================================
+v8.6.124 — OPPONENT RECAP LABEL
+============================================================
+SPLITS → OPPONENT → OPPONENT RECAP
+- Renamed the summary square label from Breakaways to Breakaway Saves.
+- The saved/faced value and calculation are unchanged.
+
+============================================================
 v8.6.123 — OPPONENT GAME QUICK SNAPSHOTS
 ============================================================
 SPLITS → OPPONENT → OPPONENT RECAP
