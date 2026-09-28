@@ -3,6 +3,16 @@ Running release history
 Last updated: September 28, 2026
 
 ============================================================
+v8.6.127 — SOFTER CONSISTENT BAR GLOW
+============================================================
+STATS CHARTS
+- Toned down the nightclub glow introduced in v8.6.126.
+- Returned to a softer accent glow closer to the earlier Splits styling.
+- Kept the glow consistently applied across applicable Stats bar graphs.
+- Workload and Game Type bars retain their meaningful category colours.
+- Clickable bars keep subtle interaction feedback and still open their exact saved-game recap.
+
+============================================================
 v8.6.126 — NIGHTCLUB GLOW FOR STATS BAR GRAPHS
 ============================================================
 STATS CHARTS
