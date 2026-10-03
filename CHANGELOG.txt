@@ -3,14 +3,14 @@ Running release history
 Last updated: October 3, 2026
 
 ============================================================
-v8.6.143 — STATS OVERVIEW ENTRY RESET
+v8.6.144 — FIX STATS + OPPONENT OVERVIEW CRASH
 ============================================================
-- Built directly from the exact v8.6.136 ZIP uploaded in chat.
-- One functional change only: opening the Stats screen now resets the top Stats tab to Overview before rendering.
-- This prevents a previously selected Splits/Trends state from replacing the normal season Overview when Stats is reopened.
-- No Edit Stats changes.
-- No Opponent/Splits layout changes.
-- No game-data or recap changes.
+- Built directly from the exact v8.6.136 ZIP uploaded by the user.
+- Fixed one recursive bug in historicalHighDangerSaves().
+- New-format highDangerSaves now returns its numeric value instead of recursively calling the helper with the same game.
+- Legacy moneyHighDangerSaves fallback remains intact.
+- This prevents Stats Overview and Opponent Recap overview rendering from crashing while calculating High-Danger Saves.
+- No layout, Edit Stats, recap, or other game behavior changed.
 
 ============================================================
 v8.6.136 — GAME 2 GOAL REPAIR + MONEY MODE HISTORY
