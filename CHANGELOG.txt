@@ -3,17 +3,6 @@ Running release history
 Last updated: October 3, 2026
 
 ============================================================
-v8.6.142 — TRUE 8.6.136 STATS ROLLBACK + FRESH APP SHELL
-============================================================
-- Rebuilt directly from original v8.6.136.
-- Stats rendering code verified byte-for-byte identical to v8.6.136.
-- No opponent-centering layout patches from v8.6.137/v8.6.138.
-- Added visible “Stats build 8.6.142” marker for deployment verification.
-- Rebuilt Edit Stats transition to directly enter editable saved-game state and enable recap +/- controls.
-- Service worker uses a new cache and network refresh for navigation.
-- Preserves v8.6.136 goal repair and Money Mode history compatibility.
-
-============================================================
 v8.6.136 — GAME 2 GOAL REPAIR + MONEY MODE HISTORY
 ============================================================
 EDIT STATS / GOAL REPAIR

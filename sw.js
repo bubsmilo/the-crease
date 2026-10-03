@@ -1,5 +1,7 @@
-const CACHE="crease-v854-force142";
+const CACHE="crease-v851";
 const ASSETS=[
+  "./",
+  "./index.html",
   "./icon-192-v802.png",
   "./icon-512-v802.png",
   "./icon-1024-v802.png",
@@ -41,7 +43,7 @@ self.addEventListener("fetch", event => {
 
   if (event.request.mode === "navigate") {
     event.respondWith(
-      fetch(event.request, {cache: "no-store"}).then(response => {
+      fetch(event.request).then(response => {
         const copy = response.clone();
         caches.open(CACHE).then(cache => cache.put("./index.html", copy));
         return response;
