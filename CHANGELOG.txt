@@ -3,6 +3,33 @@ Running release history
 Last updated: October 3, 2026
 
 ============================================================
+v8.6.137 — MOBILE OPPONENT SPLIT ALIGNMENT
+============================================================
+STATS / SPLITS / BY OPPONENT
+- Gave opponent names more room on phone-sized screens.
+- Long opponent names now wrap instead of being cut off with an ellipsis.
+- Kept Games, the selected metric, and Workload aligned beneath their matching headers.
+- Opponent Recap and its individual-game section now use the full width beneath the opponent table rather than appearing visually under a table column.
+- Long opponent names in the expanded Opponent Recap can wrap cleanly.
+- Keeps v8.6.136 goal-repair and historical Money Mode high-danger compatibility intact.
+
+============================================================
+v8.6.136 — GAME 2 GOAL REPAIR + MONEY MODE HISTORY
+============================================================
+EDIT STATS / GOAL REPAIR
+- Restored the Goals Against +/- control while Edit Stats is active.
+- The GA control remains hidden during normal saved-game review.
+- Raising/lowering GA in Edit Stats no longer creates synthetic score-correction events.
+- Historical goal events remain intact so an older game can temporarily reveal previously recorded goals.
+- Individual goal delete buttons remain the permanent way to remove the exact incorrect goal without disturbing later goal timestamps or periods.
+
+HISTORICAL MONEY MODE STATS
+- Added compatibility for games recorded before the general High-Danger Saves field existed.
+- Stats now use highDangerSaves when present, otherwise fall back to the older moneyHighDangerSaves value.
+- This preserves the first game's two recorded Money Mode high-danger saves in newer Stats views.
+- Newer games that contain both fields are not double-counted.
+
+============================================================
 v8.6.135 — CLEAN SAVED-GAME REVIEW MODE
 ============================================================
 SAVED GAME RECAP
