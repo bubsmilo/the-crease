@@ -3,16 +3,16 @@ Running release history
 Last updated: October 3, 2026
 
 ============================================================
-v8.6.145 — SAVED GAME EDIT STATS
+v8.6.146 — EXPLICIT SAVED-GAME EDIT MODE
 ============================================================
 - Built directly from working v8.6.144.
-- Preserves the v8.6.144 Stats/High-Danger Saves crash fix unchanged.
-- Rebuilt the saved-game Edit Stats transition.
-- Edit Stats now loads a separate editable copy of the saved game and enables the recap +/- controls.
-- Our Score, Saves, Goals Against and Our Shots can be adjusted while editing.
-- Goals Against can be temporarily raised so previously stored goal events can be exposed for exact deletion.
-- Normal recap review remains read-only.
-- No Stats/Splits/Opponent layout changes in this release.
+- Preserves the restored Stats Overview / High-Danger Saves fix.
+- Added a dedicated savedSummaryEditMode state for saved-game editing.
+- renderGameSummary/setSummaryMode now distinguish read-only saved recap from active Edit Stats mode.
+- Edit Stats loads the saved game into live editing state, then the recap re-render remains editable instead of switching itself back to review mode.
+- Save/close exits saved-game edit mode.
+- Protected games remain editable; protection still blocks deletion only.
+- No Stats, Splits, Opponent layout, or recap-design changes.
 
 ============================================================
 v8.6.144 — FIX STATS + OPPONENT OVERVIEW CRASH
