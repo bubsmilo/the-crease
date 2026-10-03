@@ -1,6 +1,52 @@
 THE CREASE — CHANGELOG
 Running release history
-Last updated: September 28, 2026
+Last updated: October 3, 2026
+
+============================================================
+v8.6.135 — CLEAN SAVED-GAME REVIEW MODE
+============================================================
+SAVED GAME RECAP
+- Saved games now open in a clean read-only review state.
+- Score, save, and shot +/- adjustment controls are hidden while simply reviewing a saved game, including on phone-sized screens.
+- Adjustment controls appear only after Edit Stats is activated.
+- Closing/reopening a recap resets it to clean review mode.
+- Keeps v8.6.134 exact-goal deletion and recorded goal-time behavior intact.
+
+============================================================
+v8.6.134 — DELETE EXACT GOALS + GOAL TIMES
+============================================================
+GAME RECAP / EDITING
+- Each recorded Goal Against now shows the actual clock time it was recorded, alongside its period.
+- In Edit Stats mode, each individual goal has its own delete button.
+- Deleting a goal removes that exact event instead of subtracting the newest goals from the final total.
+- Goals recorded later keep their original timestamps, periods, and goal-detail tags.
+- Goals Against, shots faced, save percentage, period totals, recap values, and saved stats recalculate from the corrected game.
+- Breakaway Goal deletion also removes that goal's associated breakaway count.
+- Removed the saved-game Goals Against +/- editor so goal corrections are event-specific rather than chronology-destroying total adjustments.
+- Opponent score is displayed from the corrected Goal Against events instead of being independently edited.
+
+============================================================
+v8.6.133 — GAME 2 LIVE SAFETY + OPPONENT GOALIE STATS
+============================================================
+LIVE TRACKING
+- Added screen Wake Lock while actively tracking a game on supported browsers/devices.
+- The app requests the wake lock again after returning to The Crease if the browser released it.
+- Goal Against now requires an intentional 0.8-second press-and-hold instead of a normal tap.
+- Added a visible HOLD TO RECORD cue and hold-progress indicator to Goal Against.
+
+SCORE CORRECTIONS
+- Added an explicit Opponent score field to the final game recap.
+- Correcting the opponent score now updates the game's goalie Goals Against total used by recap cards and season statistics.
+- Score corrections are also recorded as correction events so saved period/event data do not silently keep the old aggregate total.
+- Existing inline Goals Against edits now record the same correction delta.
+
+OPPONENT GOALIE TRACKING
+- Opponent-goalie stats are calculated automatically from Our Shots and Our Goals.
+- Added Opponent Goalie to the full game recap: shots faced, saves, GA, and SV%.
+- Added THEIR SV% as a selectable metric in Stats → Splits → By Opponent.
+- Opponent Recap now includes season-to-date opposing-goalie SV%, saves, and GA for that opponent.
+- Every individual opponent-game snapshot now includes that game's opposing-goalie shots, saves, GA, and SV%.
+- No additional live-game tapping is required.
 
 ============================================================
 v8.6.132 — OPPONENT FIRST IN SPLITS
