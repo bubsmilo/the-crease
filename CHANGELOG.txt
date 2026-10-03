@@ -3,36 +3,26 @@ Running release history
 Last updated: October 3, 2026
 
 ============================================================
-v8.6.139 — RECAP EDIT CONTROLS ACTIVATION FIX
+v8.6.141 — DIRECT SAVED-RECAP EDIT CONTROL FIX
 ============================================================
-SAVED GAME RECAP
-- Fixed the Edit Stats transition so the recap-card +/- controls are explicitly activated after the editable game is loaded.
-- Score, Saves, Goals Against, and Our Shots controls are enabled only while editing.
-- Controls remain hidden and disabled during normal saved-game review.
-- Goals Against can again be raised temporarily to reveal historical goal events for Game 2 repair.
-- Keeps the v8.6.138 Stats Overview restoration and scoped mobile Opponent alignment.
+SAVED GAME EDITING
+- Kept the restored pre-layout-change Stats/Splits structure from v8.6.140 unchanged.
+- Changed saved-recap editor activation so it no longer depends only on CSS classes.
+- Edit Stats now directly shows and enables the +/- controls for Our Score, Saves, Goals Against, and Our Shots.
+- Normal saved-game review directly hides and disables those controls.
+- This makes the review/edit transition deterministic on mobile even if older CSS state is cached or overridden.
+- Keeps Game 2 goal-repair behavior and historical Money Mode high-danger compatibility.
 
 ============================================================
-v8.6.138 — RESTORE STATS OVERVIEW + SCOPED OPPONENT MOBILE FIX
+v8.6.140 — RESTORE PRE-LAYOUT STATS + KEEP RECAP EDIT FIX
 ============================================================
-STATS REGRESSION FIX
-- Restored the main Stats Overview and Split detail/chart content affected by the v8.6.137 mobile layout change.
-- Removed the broad mobile container/overflow rules that could interfere with the surrounding Stats views.
-- Kept the useful opponent-table centering and column alignment from v8.6.137.
-- Long opponent names still wrap on phone-sized screens.
-- Mobile changes are now scoped specifically to the By Opponent table rows/header.
-- Keeps v8.6.136 goal-repair and historical Money Mode high-danger compatibility intact.
-
-============================================================
-v8.6.137 — MOBILE OPPONENT SPLIT ALIGNMENT
-============================================================
-STATS / SPLITS / BY OPPONENT
-- Gave opponent names more room on phone-sized screens.
-- Long opponent names now wrap instead of being cut off with an ellipsis.
-- Kept Games, the selected metric, and Workload aligned beneath their matching headers.
-- Opponent Recap and its individual-game section now use the full width beneath the opponent table rather than appearing visually under a table column.
-- Long opponent names in the expanded Opponent Recap can wrap cleanly.
-- Keeps v8.6.136 goal-repair and historical Money Mode high-danger compatibility intact.
+ROLLBACK / STABILITY
+- Restored the Stats and Splits layout exactly to the v8.6.136 pre-centering version.
+- Removed the v8.6.137 and v8.6.138 mobile Opponent layout changes.
+- This restores the original Stats Overview and original Split detail/chart positioning before the layout experiment.
+- Preserved the v8.6.136 Game 2 goal-repair behavior and historical Money Mode high-danger compatibility.
+- Reapplied only the v8.6.139 saved-recap Edit Stats activation fix so recap +/- controls become visible and enabled while editing.
+- Opponent centering/layout will be addressed separately after the restored Stats views are confirmed working.
 
 ============================================================
 v8.6.136 — GAME 2 GOAL REPAIR + MONEY MODE HISTORY
