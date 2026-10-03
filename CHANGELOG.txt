@@ -3,6 +3,27 @@ Running release history
 Last updated: October 3, 2026
 
 ============================================================
+v8.6.139 — RECAP EDIT CONTROLS ACTIVATION FIX
+============================================================
+SAVED GAME RECAP
+- Fixed the Edit Stats transition so the recap-card +/- controls are explicitly activated after the editable game is loaded.
+- Score, Saves, Goals Against, and Our Shots controls are enabled only while editing.
+- Controls remain hidden and disabled during normal saved-game review.
+- Goals Against can again be raised temporarily to reveal historical goal events for Game 2 repair.
+- Keeps the v8.6.138 Stats Overview restoration and scoped mobile Opponent alignment.
+
+============================================================
+v8.6.138 — RESTORE STATS OVERVIEW + SCOPED OPPONENT MOBILE FIX
+============================================================
+STATS REGRESSION FIX
+- Restored the main Stats Overview and Split detail/chart content affected by the v8.6.137 mobile layout change.
+- Removed the broad mobile container/overflow rules that could interfere with the surrounding Stats views.
+- Kept the useful opponent-table centering and column alignment from v8.6.137.
+- Long opponent names still wrap on phone-sized screens.
+- Mobile changes are now scoped specifically to the By Opponent table rows/header.
+- Keeps v8.6.136 goal-repair and historical Money Mode high-danger compatibility intact.
+
+============================================================
 v8.6.137 — MOBILE OPPONENT SPLIT ALIGNMENT
 ============================================================
 STATS / SPLITS / BY OPPONENT
