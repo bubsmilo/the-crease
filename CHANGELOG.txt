@@ -3,18 +3,17 @@ Running release history
 Last updated: October 3, 2026
 
 ============================================================
-v8.6.147 — RELIABLE EDIT STATS TAP + SAVED GAME ID
+v8.6.148 — FIX EDIT STATS RUNTIME CRASH
 ============================================================
-- Built directly from working v8.6.144.
-- Preserves the restored Stats Overview fix.
-- Saved recap now stores its Firestore game ID directly on the recap modal.
-- Edit Stats resolves the game from that saved ID instead of relying only on viewedSummary state.
-- Added recap-level delegated tap handling so rerenders cannot silently lose the Edit Stats action.
-- Edit Stats button is explicitly kept above recap content and tappable.
-- Successful activation shows “Edit mode is ON”.
-- If the saved game cannot be resolved, the app now shows an explicit error toast instead of doing nothing.
-- Protected games remain editable; protection blocks deletion only.
-- No Stats/Splits/Opponent layout or recap-design changes.
+- Built directly from confirmed-good v8.6.144.
+- Compared Edit Stats/renderGameSummary against working v8.6.132.
+- Found the actual failure: the `shots` variable lost its declaration when the Goals Against score-sync line was added.
+- Tapping Edit Stats called renderGameSummary(), which stopped at that undeclared variable before the +/- editor controls could be activated.
+- Restored `const shots=...` so renderGameSummary can complete and reach setSummaryNumberEditors().
+- Existing v8.6.144 Edit Stats controls and Goals Against repair behavior otherwise unchanged.
+- Protected games remain editable; protection only blocks deletion.
+- Preserves the v8.6.144 Stats Overview / High-Danger Saves crash fix.
+- No recap design or Stats/Splits/Opponent layout changes.
 
 ============================================================
 v8.6.144 — FIX STATS + OPPONENT OVERVIEW CRASH
