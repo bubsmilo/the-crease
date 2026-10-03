@@ -3,6 +3,17 @@ Running release history
 Last updated: October 3, 2026
 
 ============================================================
+v8.6.150 — CLEAN ARENA RECAP HERO
+============================================================
+- Built directly from confirmed-good v8.6.148.
+- Added the newly generated clean hockey-arena image as the recap hero background.
+- No cropped mockup, logos, labels, or concept-sheet remnants are included.
+- Removed workload/result colour washes from the hero image area.
+- Added only a subtle dark fade/text shadow for recap readability.
+- No scoring, Edit Stats, goal-event, Stats, Splits, or calculation logic changed.
+- Preserves the v8.6.148 Edit Stats and Stats Overview fixes.
+
+============================================================
 v8.6.148 — FIX EDIT STATS RUNTIME CRASH
 ============================================================
 - Built directly from confirmed-good v8.6.144.
