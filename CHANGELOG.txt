@@ -1,3 +1,9 @@
+v8.6.159 — Editable Goal Against Game Clock
+- Add Past Game now accepts a game-clock time for each known Goal Against instead of inventing a displayed clock time from the entry timestamp.
+- Edit Stats → Goal Against now lets you correct the goal period, game-clock time, and existing goal-detail tags on an already-saved game.
+- Historical Goal Against summaries display the saved game-clock value; if none is known, they no longer show the historical-entry timestamp as if it were a game clock.
+- Preserves v8.6.158 historical entry improvements and v8.6.155 live-session identity safety unchanged.
+
 v8.6.158 — Past Game Entry Improvements
 - Add Past Game now uses the team's existing saved Opponent and Arena choices instead of free-text fields.
 - Goal Against details now use the same selectable tags as live Goal Against entry; no manual typing required.
