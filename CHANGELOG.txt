@@ -1,35 +1,7 @@
-v8.6.155 — Live Session Identity Safety
-- New live games now carry a dedicated sessionVersion and startedAtISO identity.
-- Continue Game and stale-session handling only recognize sessions created by this hardened flow.
-- Legacy/historical records accidentally left with liveSession=true can no longer be mistaken for the active game or modified when a new game starts.
-- Completed games strip all temporary live-session identity fields when saved.
-- Preserves v8.6.154 historical date safety and v8.6.150 confirmed-good scoring behavior.
-
-v8.6.154 — Historical Recovery Date Safety
-- Recovered unfinished summaries now preserve their original Firestore game date when saved instead of being re-dated to today.
-- Recovery card now clearly says Recover & save this game.
-- This allows an older real game that was incorrectly left marked as a live-session summary to be restored safely without deleting it.
-- Preserves v8.6.153 discard protection, v8.6.152 summary recovery, and v8.6.150 confirmed-good scoring behavior.
-
-v8.6.153 — Discard Unsaved Game
-- Added a safe Discard Unsaved Game action to unfinished/recovered game summaries.
-- Discard requires confirmation and deletes only the current unfinished live-session document.
-- Saved games and Edit Stats do not show the discard action.
-- Preserves v8.6.152 summary recovery safety and all v8.6.150 confirmed-good behavior.
-
-v8.6.152 — Summary Recovery Safety
-- Recover a finished-but-not-saved summary after closing/reopening the app.
-- Continue Game identifies a summary waiting to be saved.
-- Prevent starting a new game while an unfinished summary still needs action.
-
-v8.6.150 — Clean Arena Recap Hero
-- Added clean arena artwork to the game recap hero.
-- Preserved confirmed-good v8.6.148 scoring, stats, and Edit Stats behavior.
-
-v8.6.148 — Fix Edit Stats Runtime Crash
-- Restored the missing declaration for summary shots so Edit Stats can open correctly.
-- Preserved the Stats Overview repair.
-
-v8.6.144 — Stats Overview Repair
-- Fixed historical High-Danger Saves recursion that could break the Stats Overview.
+v8.6.156 — Add Past Game
+- Added a safe Add Past Game workflow for restoring completed historical games from known stats.
+- Historical entries never become live/resumable sessions and cannot overwrite an existing saved game.
+- Supports date, opponent, arena, game type, score, period-by-period shots/saves/GA, breakaways, high-danger saves, optional goal details, Money Mode, Protected Game, Player of the Game, and notes.
+- Validates score/GA, breakaway, high-danger, and Money Mode totals before saving.
+- Preserves v8.6.155 live-session identity safety and scoring behavior unchanged.
 
