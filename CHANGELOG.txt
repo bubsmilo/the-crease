@@ -1,3 +1,9 @@
+v8.6.154 — Historical Recovery Date Safety
+- Recovered unfinished summaries now preserve their original Firestore game date when saved instead of being re-dated to today.
+- Recovery card now clearly says Recover & save this game.
+- This allows an older real game that was incorrectly left marked as a live-session summary to be restored safely without deleting it.
+- Preserves v8.6.153 discard protection, v8.6.152 summary recovery, and v8.6.150 confirmed-good scoring behavior.
+
 v8.6.153 — Discard Unsaved Game
 - Added a safe Discard Unsaved Game action to unfinished/recovered game summaries.
 - Discard requires confirmation and deletes only the current unfinished live-session document.
@@ -19,3 +25,4 @@ v8.6.148 — Fix Edit Stats Runtime Crash
 
 v8.6.144 — Stats Overview Repair
 - Fixed historical High-Danger Saves recursion that could break the Stats Overview.
+
