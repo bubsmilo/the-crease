@@ -1,3 +1,11 @@
+v8.6.158 — Past Game Entry Improvements
+- Add Past Game now uses the team's existing saved Opponent and Arena choices instead of free-text fields.
+- Goal Against details now use the same selectable tags as live Goal Against entry; no manual typing required.
+- Added Our Goals by period and an automatically calculated Opponent Goalie summary (shots, saves, GA, save percentage).
+- Historical period data now preserves our goals alongside our shots for more faithful reconstruction.
+- Fixed Manage Opponents from New Game so its modal appears immediately instead of being hidden behind Game Setup.
+- Preserves v8.6.157 opponent management, v8.6.156 historical entry safety, and v8.6.155 live-session identity safety.
+
 v8.6.157 — Manage Opponents
 - Added Manage Opponents directly to New Game setup.
 - Opponents can be removed from future New Game choices even when historical games used that opponent.
