@@ -1,7 +1,13 @@
+v8.6.157 — Manage Opponents
+- Added Manage Opponents directly to New Game setup.
+- Opponents can be removed from future New Game choices even when historical games used that opponent.
+- Removing an opponent choice does not delete, rename, or modify any saved game history or statistics.
+- Removed opponent names stay hidden even when they exist in past games; explicitly using the name again restores it to future choices.
+- Preserves v8.6.156 Add Past Game and v8.6.155 live-session identity safety unchanged.
+
 v8.6.156 — Add Past Game
 - Added a safe Add Past Game workflow for restoring completed historical games from known stats.
 - Historical entries never become live/resumable sessions and cannot overwrite an existing saved game.
 - Supports date, opponent, arena, game type, score, period-by-period shots/saves/GA, breakaways, high-danger saves, optional goal details, Money Mode, Protected Game, Player of the Game, and notes.
 - Validates score/GA, breakaway, high-danger, and Money Mode totals before saving.
 - Preserves v8.6.155 live-session identity safety and scoring behavior unchanged.
-
