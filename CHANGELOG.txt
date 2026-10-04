@@ -1,3 +1,10 @@
+v8.6.152 — Summary Recovery Safety Fix
+- Built directly from confirmed-good v8.6.150; Guest Games are NOT included.
+- Finished-but-unsaved games (liveSession=true, status=summary) now appear in Continue Game after reopening the app.
+- Continue Game restores the recap so Save Game can finalize the existing Firebase document.
+- Starting a new game is blocked while an unfinished summary is waiting to be saved, preventing that record from being stranded or overwritten.
+- Preserves the v8.6.150 arena recap artwork, scoring, stats, Edit Stats fix, and Goal Against hold behavior.
+
 THE CREASE — CHANGELOG
 Running release history
 Last updated: October 3, 2026
