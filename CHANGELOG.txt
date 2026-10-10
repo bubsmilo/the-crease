@@ -1,3 +1,10 @@
+v8.6.170 — Shared opponent rename cleanup
+- Retire old opponent names in every owned team, including teams with no matching saved game.
+- Suppress retired names from shared suggestions, locally remembered choices, and historical-game-derived suggestions.
+- Preserve existing saved games unless the historical-games option is selected.
+- Keep v8.6.169 quick team switcher.
+- Test with Loki account before Katie real data.
+
 v8.6.168 — Cross-team opponent/arena rename consistency
 - Owner-controlled rename checks matching entries and saved games across owned team workspaces.
 - Explicit confirmation displays team count and number of matching saved games.
@@ -91,3 +98,8 @@ v8.6.162 — Multi-team first test build
 - Goalie linking is saved in the user's profile; combined results are read-only.
 - Combined stats are currently available in Team & Sharing, not integrated into the main Stats dashboard.
 - Requires live Firebase/device testing before production use.
+
+Version 8.6.169 — Quick team switching
+- Added compact team selector at top of app when multiple teams are available.
+- Uses existing protected team switching, including blocking switching during LIVE games.
+- No changes to opponent renaming or saved game statistics.
