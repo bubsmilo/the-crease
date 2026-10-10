@@ -1,3 +1,11 @@
+v8.6.168 — Cross-team opponent/arena rename consistency
+- Owner-controlled rename checks matching entries and saved games across owned team workspaces.
+- Explicit confirmation displays team count and number of matching saved games.
+- Existing game stats are unchanged; only opponent/arena name fields are updated.
+- Preserve shared details and emoji mappings when renaming.
+- Refresh cross-team suggestions after changes.
+- Requires real Firebase testing; no automated live database test performed.
+
 v8.6.167 — Details form usability fix
 - Replaced sequential browser prompts with a single mobile-friendly form for opponent and arena details.
 - Save Details synchronizes exact-name profiles across owned teams, without editing saved games.
