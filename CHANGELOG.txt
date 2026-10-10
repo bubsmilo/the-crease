@@ -1,3 +1,10 @@
+v8.6.163 — Add Existing Player from another team
+- Explicitly select a player already on another team in your account and add a linked roster entry to the active team.
+- Shared playerKey connects the roster entries without copying, moving, or editing saved games.
+- Combined goalie picker can automatically recognize linked roster entries when the goalie is selected.
+- Blocks roster linking during a LIVE game; prevents duplicate linking on the destination team.
+- Existing team records and games are retained.
+
 v8.6.161 — Retroactive Opponent Rename Default
 - Opponent rename now defaults to updating matching previously saved games as well as future choices.
 - Confirmation displays the number of currently loaded matching games before retroactive rename.
