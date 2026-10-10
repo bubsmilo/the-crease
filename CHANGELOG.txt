@@ -1,3 +1,8 @@
+v8.6.174 — Goal Notes
+- Optional notes on any goal type, editable on saved goals.
+- Notes appear under goals in game recap, without changing stats.
+- Based on v8.6.173.
+
 v8.6.173 — Empty-net correction, based on known-good v8.6.171
 - Empty Net Goal classification in goal details and edit-saved-goal flow.
 - Legacy game.goals remains the team score; goalie GA excludes only explicitly tagged empty-net goal events.
