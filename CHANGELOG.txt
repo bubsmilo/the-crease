@@ -1,3 +1,12 @@
+v8.6.166 — Shared opponent and arena detail synchronization
+- Opponent and arena Details now load existing information from other teams in the same account.
+- Confirmed edits synchronize to other teams owned by the same login where the exact entry exists.
+- Only exact normalized names match. U11 Lakeshore Blue and U13 Lakeshore Blue remain distinct.
+- No saved game, goal, live session, goalie record, or statistics are modified.
+- Settings version now correctly shows 8.6.166.
+- Note: separate aliases are not merged; shared identity IDs and cross-team opponent analytics are not yet implemented.
+- Test on Loki/Essex Orange/Wildcats before using for Katie.
+
 v8.6.165 — Shared team suggestions and optional details
 - New Game and Add Past Game can suggest opponents and arenas saved on other teams in the same login.
 - Shared choices are read-only; selecting an opponent or arena does not edit the other team's history.
