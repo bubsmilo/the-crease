@@ -1,3 +1,12 @@
+v8.6.173 — Empty-net correction, based on known-good v8.6.171
+- Empty Net Goal classification in goal details and edit-saved-goal flow.
+- Legacy game.goals remains the team score; goalie GA excludes only explicitly tagged empty-net goal events.
+- Preserves legacy untagged goals and existing saved games.
+- Updates saved recap, live personal totals, period totals, aggregate goalie stats, and saved derived totals.
+- Retains breakaway fix and quick team switcher.
+- Corrects browser title and Settings version.
+- Syntax and local arithmetic tests completed; Firebase end-to-end testing required.
+
 v8.6.171 — Breakaway goal-tag counting test
 - Count a regular goal tagged Breakaway Goal as a breakaway attempt without adding another goal.
 - Include the tagged goal in saved recap and game-card breakaway counts.
