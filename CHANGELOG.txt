@@ -1,3 +1,11 @@
+v8.6.165 — Shared team suggestions and optional details
+- New Game and Add Past Game can suggest opponents and arenas saved on other teams in the same login.
+- Shared choices are read-only; selecting an opponent or arena does not edit the other team's history.
+- Manage opponents and locations: Details lets you optionally add organization, division, jersey colour, season, city, rink/pad, and notes later.
+- Details stay in the current team; cross-team opponent identity merging and combined opponent analytics are NOT implemented in this build.
+- No changes to live game scoring, save/recovery code, or existing game records.
+- Requires live Firebase testing with the test account before game-day deployment.
+
 v8.6.164 — Existing-player linking fix
 - Import the Firebase Firestore updateDoc function required when linking a goalie from another team.
 - No changes to game scoring, saving, recovery, or stored game records.
