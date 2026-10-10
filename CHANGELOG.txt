@@ -1,10 +1,3 @@
-v8.6.172 — Empty Net Goal test build
-- Adds Empty Net Goal classification to goal detail modal.
-- Excludes classified empty-net goals from goalie GA, shots faced and save percentage in live/summary/goalie appearance calculations.
-- Preserves opponent score as team score and stores derived empty-net and goalie-GA totals.
-- Allows reclassifying saved goal from Edit Stats.
-- Firebase and multi-device tests NOT completed.
-
 v8.6.171 — Breakaway goal-tag counting test
 - Count a regular goal tagged Breakaway Goal as a breakaway attempt without adding another goal.
 - Include the tagged goal in saved recap and game-card breakaway counts.
