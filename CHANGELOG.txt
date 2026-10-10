@@ -1,3 +1,16 @@
+v8.6.161 — Retroactive Opponent Rename Default
+- Opponent rename now defaults to updating matching previously saved games as well as future choices.
+- Confirmation displays the number of currently loaded matching games before retroactive rename.
+- Exact opponent-name matching protects other jersey-colour teams; game scores and events are not changed.
+- Can uncheck the option to rename future choices only.
+- Preserves v8.6.160 and earlier scoring, saving, and goal-time editing.
+
+v8.6.160 — Opponent Jersey Colour Later
+- New Game → Manage Opponents now allows adding team names without a jersey colour and editing them later.
+- Opponent rename defaults to future games only; old saved games and their stats remain unchanged.
+- Fixed the existing rename flow so disabling historical updates also leaves in-memory game history unchanged.
+- Preserves live scoring, game saving, and v8.6.159 goal-time editing.
+
 v8.6.159 — Editable Goal Against Game Clock
 - Add Past Game now accepts a game-clock time for each known Goal Against instead of inventing a displayed clock time from the entry timestamp.
 - Edit Stats → Goal Against now lets you correct the goal period, game-clock time, and existing goal-detail tags on an already-saved game.
