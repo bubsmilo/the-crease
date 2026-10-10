@@ -38,3 +38,12 @@ v8.6.156 — Add Past Game
 - Supports date, opponent, arena, game type, score, period-by-period shots/saves/GA, breakaways, high-danger saves, optional goal details, Money Mode, Protected Game, Player of the Game, and notes.
 - Validates score/GA, breakaway, high-danger, and Money Mode totals before saving.
 - Preserves v8.6.155 live-session identity safety and scoring behavior unchanged.
+
+v8.6.162 — Multi-team first test build
+- Added My Teams to Team & Sharing. Create and switch teams under the same account.
+- Existing team game and goalie documents remain in their original Firestore locations.
+- Block team switching and creating a team when a live session is active.
+- Select corresponding goalie records across team rosters and calculate combined GP, saves, GA, and weighted SV%.
+- Goalie linking is saved in the user's profile; combined results are read-only.
+- Combined stats are currently available in Team & Sharing, not integrated into the main Stats dashboard.
+- Requires live Firebase/device testing before production use.
