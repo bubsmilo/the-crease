@@ -1,3 +1,8 @@
+v8.6.164 — Existing-player linking fix
+- Import the Firebase Firestore updateDoc function required when linking a goalie from another team.
+- No changes to game scoring, saving, recovery, or stored game records.
+- Test with Loki on Wildcats and Essex Orange before using on real account.
+
 v8.6.163 — Add Existing Player from another team
 - Explicitly select a player already on another team in your account and add a linked roster entry to the active team.
 - Shared playerKey connects the roster entries without copying, moving, or editing saved games.
