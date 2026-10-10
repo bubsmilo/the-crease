@@ -1,3 +1,8 @@
+v8.6.171 — Breakaway goal-tag counting test
+- Count a regular goal tagged Breakaway Goal as a breakaway attempt without adding another goal.
+- Include the tagged goal in saved recap and game-card breakaway counts.
+- Does NOT yet correct empty-net team score accounting.
+
 v8.6.170 — Shared opponent rename cleanup
 - Retire old opponent names in every owned team, including teams with no matching saved game.
 - Suppress retired names from shared suggestions, locally remembered choices, and historical-game-derived suggestions.
