@@ -1,3 +1,7 @@
+v8.6.179 — Toggle combined goalie stats
+- Tap All Teams Combined to show linked-team totals; tap Show Current Team to hide them and return to the normal team-specific Stats display.
+- No changes to saved games, Firestore records or calculation logic.
+
 v8.6.178 — Combined goalie stats on Stats screen
 - Adds an All Teams Combined button for linked goalies with per-team and overall games, saves, GA, SV%, shots and breakaways.
 - Existing Overview, Trends and Splits remain current-team views. No stored games are modified.
