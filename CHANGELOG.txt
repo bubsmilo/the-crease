@@ -1,1 +1,1 @@
-v8.6.182 — Show current team on New Game setup and Live scoring screens. Informational only; no team selection or game-saving logic changes.
+v8.6.183 — Fix New Game setup sheet on small screens: height constrained to viewport, scrollable to reach top and bottom. Team labels preserved. No game data logic changed.
