@@ -1,5 +1,1 @@
-v8.6.181 — Emergency blank-screen fix
-- Removed invalid JavaScript escape sequence introduced in v8.6.180.
-- Keeps combined stats view and team/goalie labels.
-- No database writes or game data changes.
-
+v8.6.182 — Show current team on New Game setup and Live scoring screens. Informational only; no team selection or game-saving logic changes.
