@@ -1,3 +1,8 @@
+v8.6.178 — Combined goalie stats on Stats screen
+- Adds an All Teams Combined button for linked goalies with per-team and overall games, saves, GA, SV%, shots and breakaways.
+- Existing Overview, Trends and Splits remain current-team views. No stored games are modified.
+- Based on v8.6.177.
+
 v8.6.177 — Show/Hide Password
 - Added a Show/Hide toggle to the password field on Sign In and Create Account.
 - Password remains masked by default. No authentication or game-data logic changed.
