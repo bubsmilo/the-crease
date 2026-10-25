@@ -1,1 +1,8 @@
-v8.6.183 — Fix New Game setup sheet on small screens: height constrained to viewport, scrollable to reach top and bottom. Team labels preserved. No game data logic changed.
+v8.6.184 — Money Mode Bank redemption
+- Redeem a chosen amount (or all), record purchase and date.
+- See available balance, lifetime earnings, redemption history, and undo incorrect redemptions.
+- Ledger saved on signed-in user's Firestore profile per team and goalie.
+- Game earnings and saved games are never modified.
+- No Firestore rules changes required (existing /users/{uid} write access).
+- NOTE: This bank is scoped to the current team/goalie; linked players' other-team earnings are not included.
+- Derived from v8.6.183.
