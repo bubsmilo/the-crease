@@ -1,12 +1,93 @@
-v8.6.185 — Redemption readability
-- Made Money Mode redemption dialog opaque with stronger input and text contrast.
-- No changes to calculations, Firebase storage, game data, or existing functionality.
+v8.6.168 — Cross-team opponent/arena rename consistency
+- Owner-controlled rename checks matching entries and saved games across owned team workspaces.
+- Explicit confirmation displays team count and number of matching saved games.
+- Existing game stats are unchanged; only opponent/arena name fields are updated.
+- Preserve shared details and emoji mappings when renaming.
+- Refresh cross-team suggestions after changes.
+- Requires real Firebase testing; no automated live database test performed.
 
-v8.6.184 — Money Mode Bank redemption
-- Redeem a chosen amount (or all), record purchase and date.
-- See available balance, lifetime earnings, redemption history, and undo incorrect redemptions.
-- Ledger saved on signed-in user's Firestore profile per team and goalie.
-- Game earnings and saved games are never modified.
-- No Firestore rules changes required (existing /users/{uid} write access).
-- NOTE: This bank is scoped to the current team/goalie; linked players' other-team earnings are not included.
-- Derived from v8.6.183.
+v8.6.167 — Details form usability fix
+- Replaced sequential browser prompts with a single mobile-friendly form for opponent and arena details.
+- Save Details synchronizes exact-name profiles across owned teams, without editing saved games.
+- Corrected title and Settings version.
+- Live game and save logic unchanged.
+- Firebase synchronization requires on-device verification.
+
+v8.6.166 — Shared opponent and arena detail synchronization
+- Opponent and arena Details now load existing information from other teams in the same account.
+- Confirmed edits synchronize to other teams owned by the same login where the exact entry exists.
+- Only exact normalized names match. U11 Lakeshore Blue and U13 Lakeshore Blue remain distinct.
+- No saved game, goal, live session, goalie record, or statistics are modified.
+- Settings version now correctly shows 8.6.166.
+- Note: separate aliases are not merged; shared identity IDs and cross-team opponent analytics are not yet implemented.
+- Test on Loki/Essex Orange/Wildcats before using for Katie.
+
+v8.6.165 — Shared team suggestions and optional details
+- New Game and Add Past Game can suggest opponents and arenas saved on other teams in the same login.
+- Shared choices are read-only; selecting an opponent or arena does not edit the other team's history.
+- Manage opponents and locations: Details lets you optionally add organization, division, jersey colour, season, city, rink/pad, and notes later.
+- Details stay in the current team; cross-team opponent identity merging and combined opponent analytics are NOT implemented in this build.
+- No changes to live game scoring, save/recovery code, or existing game records.
+- Requires live Firebase testing with the test account before game-day deployment.
+
+v8.6.164 — Existing-player linking fix
+- Import the Firebase Firestore updateDoc function required when linking a goalie from another team.
+- No changes to game scoring, saving, recovery, or stored game records.
+- Test with Loki on Wildcats and Essex Orange before using on real account.
+
+v8.6.163 — Add Existing Player from another team
+- Explicitly select a player already on another team in your account and add a linked roster entry to the active team.
+- Shared playerKey connects the roster entries without copying, moving, or editing saved games.
+- Combined goalie picker can automatically recognize linked roster entries when the goalie is selected.
+- Blocks roster linking during a LIVE game; prevents duplicate linking on the destination team.
+- Existing team records and games are retained.
+
+v8.6.161 — Retroactive Opponent Rename Default
+- Opponent rename now defaults to updating matching previously saved games as well as future choices.
+- Confirmation displays the number of currently loaded matching games before retroactive rename.
+- Exact opponent-name matching protects other jersey-colour teams; game scores and events are not changed.
+- Can uncheck the option to rename future choices only.
+- Preserves v8.6.160 and earlier scoring, saving, and goal-time editing.
+
+v8.6.160 — Opponent Jersey Colour Later
+- New Game → Manage Opponents now allows adding team names without a jersey colour and editing them later.
+- Opponent rename defaults to future games only; old saved games and their stats remain unchanged.
+- Fixed the existing rename flow so disabling historical updates also leaves in-memory game history unchanged.
+- Preserves live scoring, game saving, and v8.6.159 goal-time editing.
+
+v8.6.159 — Editable Goal Against Game Clock
+- Add Past Game now accepts a game-clock time for each known Goal Against instead of inventing a displayed clock time from the entry timestamp.
+- Edit Stats → Goal Against now lets you correct the goal period, game-clock time, and existing goal-detail tags on an already-saved game.
+- Historical Goal Against summaries display the saved game-clock value; if none is known, they no longer show the historical-entry timestamp as if it were a game clock.
+- Preserves v8.6.158 historical entry improvements and v8.6.155 live-session identity safety unchanged.
+
+v8.6.158 — Past Game Entry Improvements
+- Add Past Game now uses the team's existing saved Opponent and Arena choices instead of free-text fields.
+- Goal Against details now use the same selectable tags as live Goal Against entry; no manual typing required.
+- Added Our Goals by period and an automatically calculated Opponent Goalie summary (shots, saves, GA, save percentage).
+- Historical period data now preserves our goals alongside our shots for more faithful reconstruction.
+- Fixed Manage Opponents from New Game so its modal appears immediately instead of being hidden behind Game Setup.
+- Preserves v8.6.157 opponent management, v8.6.156 historical entry safety, and v8.6.155 live-session identity safety.
+
+v8.6.157 — Manage Opponents
+- Added Manage Opponents directly to New Game setup.
+- Opponents can be removed from future New Game choices even when historical games used that opponent.
+- Removing an opponent choice does not delete, rename, or modify any saved game history or statistics.
+- Removed opponent names stay hidden even when they exist in past games; explicitly using the name again restores it to future choices.
+- Preserves v8.6.156 Add Past Game and v8.6.155 live-session identity safety unchanged.
+
+v8.6.156 — Add Past Game
+- Added a safe Add Past Game workflow for restoring completed historical games from known stats.
+- Historical entries never become live/resumable sessions and cannot overwrite an existing saved game.
+- Supports date, opponent, arena, game type, score, period-by-period shots/saves/GA, breakaways, high-danger saves, optional goal details, Money Mode, Protected Game, Player of the Game, and notes.
+- Validates score/GA, breakaway, high-danger, and Money Mode totals before saving.
+- Preserves v8.6.155 live-session identity safety and scoring behavior unchanged.
+
+v8.6.162 — Multi-team first test build
+- Added My Teams to Team & Sharing. Create and switch teams under the same account.
+- Existing team game and goalie documents remain in their original Firestore locations.
+- Block team switching and creating a team when a live session is active.
+- Select corresponding goalie records across team rosters and calculate combined GP, saves, GA, and weighted SV%.
+- Goalie linking is saved in the user's profile; combined results are read-only.
+- Combined stats are currently available in Team & Sharing, not integrated into the main Stats dashboard.
+- Requires live Firebase/device testing before production use.
