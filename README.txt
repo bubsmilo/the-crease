@@ -1,26 +1,12 @@
-THE CREASE 6.0 — SHARED ACCOUNTS TEST BUILD
+The Crease v8.6.189 — League Tracker preview
 
-Upload every file in this folder to the root of the existing GitHub repository.
-Your Firebase configuration is already included.
+Open More > League Tracker after signing in.
 
-IMPORTANT AFTER UPLOAD:
-1. In Firebase, open Firestore Database > Rules.
-2. Replace the existing rules with the contents of firestore.rules.
-3. Click Publish.
-4. Wait for Vercel to redeploy, then hard-refresh the app.
+Includes OWHA-style standings, performance rankings, league schedule and locally editable scores.
+Source: 84 consolidated matchups from the collected OWHA screenshots.
+Scores edited in League Tracker are stored in this browser/device only and are NOT synced to Firestore.
+Katie’s existing games, teams, Money Mode Bank, and Firestore records are unchanged by this update.
+Goalie comparison is a placeholder pending individual goalie/shot data. Existing goalie Stats screen remains available.
+Points rules and tie-breakers are provisional. Conflicting schedule records still require review.
 
-FIRST ACCOUNT:
-- Sign in.
-- Enter the name to show in the greeting.
-- Create the shared family workspace.
-- Add a TEST goalie.
-- Open Team Sharing and make an Editor invitation for the second account.
-
-SECOND ACCOUNT:
-- Create a separate account using the exact invited email.
-- Enter that person's name.
-- Choose Join Workspace and enter the invitation code.
-- Confirm the TEST goalie appears.
-- Add another test goalie and confirm it appears on the first account.
-
-Do not enter real game information until both directions of syncing have been tested.
+IMPORTANT: This ZIP follows the uploaded 8.6.188 packaging, which contains only index.html and recap-arena.png. It relies on other existing deployment files (e.g. firebase-config.js and graphics). Deploy over the existing project, not as a replacement for the entire repository.

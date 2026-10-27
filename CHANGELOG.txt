@@ -1,1 +1,6 @@
-The Crease v8.6.188 — Game Type now clearly appears immediately above Edit Stats in the saved-game recap and remains visible when Edit Stats is opened. Regular Season / Exhibition choice saves directly to the user classification ledger; no game documents modified. Home Games Tracked and Stats Regular Season exclude exhibition. Money Mode earnings unaffected. Test first with test account.
+v8.6.189
+- Added More > League Tracker
+- Added calculated standings and points-percentage power rankings
+- Added 84-game consolidated schedule and local-only score editing
+- Added goalie comparison placeholder with shortcut to existing Stats
+- No changes to Firestore data structures or existing game and Money Mode flows
