@@ -1,5 +1,2 @@
-The Crease v8.6.190
-
-Adds Matchup Insights comparing any two teams using common opponents, league scoring averages and head-to-head results. Schedule & Scores now has Needs Scores, Completed, Upcoming, and month groups.
-
-Local league score edits remain on this device only, separate from Firebase and Katie's saved games. Exhibition games excluded from league standings. Predictions are qualitative and low confidence with small samples.
+The Crease v8.6.193 — Linked Goalie Insights
+Deploy the included index.html and recap-arena.png with existing project files. League data, prediction saves and opponent links remain local to this browser. Firebase data is read only. Select your existing opponent name from the dropdown in Matchup Insights or Goalies.

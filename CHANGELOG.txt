@@ -1,6 +1,7 @@
-v8.6.190
-- Matchup Insights: select any two teams, compare common opponents and team rates.
-- Schedule: Needs Scores / Completed / Upcoming.
-- Monthly expandable groups, newest first.
-- Scores automatically move to Completed on save.
-- Reject incomplete one-sided scores.
+v8.6.193
+- Read-only access to selected goalie game data from the existing app.
+- Editable local mapping of league team names to saved opponent names.
+- Show recorded goalie save percentage and observed opposing goalie save percentage by opponent.
+- Show these observations in Matchup Insights for Lakeshore White.
+- Existing score prediction model unchanged pending calibration.
+- No Firebase writes or modifications to Money Mode.
