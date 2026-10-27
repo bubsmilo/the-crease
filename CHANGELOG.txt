@@ -1,6 +1,6 @@
-v8.6.189
-- Added More > League Tracker
-- Added calculated standings and points-percentage power rankings
-- Added 84-game consolidated schedule and local-only score editing
-- Added goalie comparison placeholder with shortcut to existing Stats
-- No changes to Firestore data structures or existing game and Money Mode flows
+v8.6.190
+- Matchup Insights: select any two teams, compare common opponents and team rates.
+- Schedule: Needs Scores / Completed / Upcoming.
+- Monthly expandable groups, newest first.
+- Scores automatically move to Completed on save.
+- Reject incomplete one-sided scores.
