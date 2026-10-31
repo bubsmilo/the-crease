@@ -5,3 +5,10 @@ v8.6.193
 - Show these observations in Matchup Insights for Lakeshore White.
 - Existing score prediction model unchanged pending calibration.
 - No Firebase writes or modifications to Money Mode.
+
+v8.6.194 — Shared League Tracker
+- Added team-scoped Firebase realtime syncing for league score overrides, opponent name links, and saved matchup predictions.
+- Added connection status and loading guard; local-only preview edits no longer silently masquerade as shared data.
+- Added manual import of older device-local league data, skipping existing cloud IDs and retaining local backup.
+- Added FIRESTORE_RULES_ADD.txt with scoped access controls and deployment checklist.
+- Existing games, goalie stats, and Money Mode storage remain untouched by new league writes.

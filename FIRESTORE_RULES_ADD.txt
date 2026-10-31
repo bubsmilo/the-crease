@@ -1,0 +1,53 @@
+The Crease v8.6.194 — FIRESTORE RULES ADDITION
+
+IMPORTANT: Do NOT replace your existing Firestore rules. In Firebase Console > Firestore Database > Rules, locate the existing block:
+
+    match /teams/{teamId} {
+
+Inside that block, immediately after the existing match /games/{docId} or match /goalies/{docId} block, add the three blocks below. Keep them nested inside /teams/{teamId}. They use your EXISTING isMember(teamId) and canEdit(teamId) helper functions.
+
+    match /leagueScores/{docId} {
+      allow read: if isMember(teamId);
+      allow create, update: if canEdit(teamId)
+        && request.resource.data.keys().hasAll(['hs', 'as', 'home', 'away', 'date', 'owha'])
+        && ( (request.resource.data.hs == null && request.resource.data.as == null)
+          || (request.resource.data.hs is int && request.resource.data.as is int
+              && request.resource.data.hs >= 0 && request.resource.data.as >= 0) );
+      allow delete: if false;
+    }
+
+    match /leagueLinks/{docId} {
+      allow read: if isMember(teamId);
+      allow create, update: if canEdit(teamId)
+        && request.resource.data.opponent is string
+        && request.resource.data.teamName is string;
+      allow delete: if false;
+    }
+
+    match /leaguePredictions/{docId} {
+      allow read: if isMember(teamId);
+      allow create: if canEdit(teamId)
+        && request.resource.data.gameId is int
+        && request.resource.data.predA is int
+        && request.resource.data.predB is int
+        && request.resource.data.savedAt is string;
+      allow update: if false; // freeze forecasts once saved
+      allow delete: if canEdit(teamId);
+    }
+
+Click Publish only after saving a backup of your existing rules. These rules do not modify existing /games, /goalies or other collections.
+
+TEST:
+1. Confirm both users are members of the same team and have owner/editor/statistician role.
+2. Publish these rules, then deploy v8.6.194 to Vercel.
+3. Sign in on the phone with existing league edits. Open League Tracker and wait for 'Shared league data connected'.
+4. Choose 'Import this device’s older league edits'. The importer skips existing cloud document IDs and retains the local originals.
+5. Enter a NEW league score or correction on one phone, then verify the other phone sees it.
+6. Save a new matchup prediction, verify it appears on the other phone, and confirm the score result comparison.
+7. Check Katie's existing games and Money Mode Bank remain intact.
+
+NOTES:
+- No changes to Firebase are made by merely uploading the ZIP. Publishing rules and deploying are separate actions.
+- These rules allow all editors/statisticians of Katie's team to edit league data, not just two specific users. If the team has other editors, they will also have access.
+- Do not import the same older local data from multiple devices without reviewing the shared data first.
+- Local data is intentionally retained after importing; do not clear site data until you verify synchronization.
